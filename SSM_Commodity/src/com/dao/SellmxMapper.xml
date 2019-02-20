@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.SellmxMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Sellmx" >
+    <id column="sellmxNo" property="sellmxno" jdbcType="INTEGER" />
+    <result column="goodsNo" property="goodsno" jdbcType="INTEGER" />
+    <result column="workerNo" property="workerno" jdbcType="INTEGER" />
+    <result column="sellNo" property="sellno" jdbcType="INTEGER" />
+    <result column="sellmxCount" property="sellmxcount" jdbcType="INTEGER" />
+    <result column="sellmxZprise" property="sellmxzprise" jdbcType="INTEGER" />
+    <result column="sellmxDate" property="sellmxdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sellmxNo, goodsNo, workerNo, sellNo, sellmxCount, sellmxZprise, sellmxDate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.SellmxExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sellmx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sellmx
+    where sellmxNo = #{sellmxno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sellmx
+    where sellmxNo = #{sellmxno,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pojo.SellmxExample" >
+    delete from sellmx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Sellmx" >
+    insert into sellmx (sellmxNo, goodsNo, workerNo, 
+      sellNo, sellmxCount, sellmxZprise, 
+      sellmxDate)
+    values (#{sellmxno,jdbcType=INTEGER}, #{goodsno,jdbcType=INTEGER}, #{workerno,jdbcType=INTEGER}, 
+      #{sellno,jdbcType=INTEGER}, #{sellmxcount,jdbcType=INTEGER}, #{sellmxzprise,jdbcType=INTEGER}, 
+      #{sellmxdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Sellmx" >
+    insert into sellmx
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sellmxno != null" >
+        sellmxNo,
+      </if>
+      <if test="goodsno != null" >
+        goodsNo,
+      </if>
+      <if test="workerno != null" >
+        workerNo,
+      </if>
+      <if test="sellno != null" >
+        sellNo,
+      </if>
+      <if test="sellmxcount != null" >
+        sellmxCount,
+      </if>
+      <if test="sellmxzprise != null" >
+        sellmxZprise,
+      </if>
+      <if test="sellmxdate != null" >
+        sellmxDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sellmxno != null" >
+        #{sellmxno,jdbcType=INTEGER},
+      </if>
+      <if test="goodsno != null" >
+        #{goodsno,jdbcType=INTEGER},
+      </if>
+      <if test="workerno != null" >
+        #{workerno,jdbcType=INTEGER},
+      </if>
+      <if test="sellno != null" >
+        #{sellno,jdbcType=INTEGER},
+      </if>
+      <if test="sellmxcount != null" >
+        #{sellmxcount,jdbcType=INTEGER},
+      </if>
+      <if test="sellmxzprise != null" >
+        #{sellmxzprise,jdbcType=INTEGER},
+      </if>
+      <if test="sellmxdate != null" >
+        #{sellmxdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pojo.SellmxExample" resultType="java.lang.Integer" >
+    select count(*) from sellmx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sellmx
+    <set >
+      <if test="record.sellmxno != null" >
+        sellmxNo = #{record.sellmxno,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsno != null" >
+        goodsNo = #{record.goodsno,jdbcType=INTEGER},
+      </if>
+      <if test="record.workerno != null" >
+        workerNo = #{record.workerno,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellno != null" >
+        sellNo = #{record.sellno,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellmxcount != null" >
+        sellmxCount = #{record.sellmxcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellmxzprise != null" >
+        sellmxZprise = #{record.sellmxzprise,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellmxdate != null" >
+        sellmxDate = #{record.sellmxdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sellmx
+    set sellmxNo = #{record.sellmxno,jdbcType=INTEGER},
+      goodsNo = #{record.goodsno,jdbcType=INTEGER},
+      workerNo = #{record.workerno,jdbcType=INTEGER},
+      sellNo = #{record.sellno,jdbcType=INTEGER},
+      sellmxCount = #{record.sellmxcount,jdbcType=INTEGER},
+      sellmxZprise = #{record.sellmxzprise,jdbcType=INTEGER},
+      sellmxDate = #{record.sellmxdate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Sellmx" >
+    update sellmx
+    <set >
+      <if test="goodsno != null" >
+        goodsNo = #{goodsno,jdbcType=INTEGER},
+      </if>
+      <if test="workerno != null" >
+        workerNo = #{workerno,jdbcType=INTEGER},
+      </if>
+      <if test="sellno != null" >
+        sellNo = #{sellno,jdbcType=INTEGER},
+      </if>
+      <if test="sellmxcount != null" >
+        sellmxCount = #{sellmxcount,jdbcType=INTEGER},
+      </if>
+      <if test="sellmxzprise != null" >
+        sellmxZprise = #{sellmxzprise,jdbcType=INTEGER},
+      </if>
+      <if test="sellmxdate != null" >
+        sellmxDate = #{sellmxdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sellmxNo = #{sellmxno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Sellmx" >
+    update sellmx
+    set goodsNo = #{goodsno,jdbcType=INTEGER},
+      workerNo = #{workerno,jdbcType=INTEGER},
+      sellNo = #{sellno,jdbcType=INTEGER},
+      sellmxCount = #{sellmxcount,jdbcType=INTEGER},
+      sellmxZprise = #{sellmxzprise,jdbcType=INTEGER},
+      sellmxDate = #{sellmxdate,jdbcType=TIMESTAMP}
+    where sellmxNo = #{sellmxno,jdbcType=INTEGER}
+  </update>
+</mapper>
