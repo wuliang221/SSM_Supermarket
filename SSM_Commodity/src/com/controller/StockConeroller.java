@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.pojo.Stock;
 import com.service.StockService;
 import com.util.PageSupport;
@@ -65,6 +66,9 @@ public class StockConeroller {
 		System.out.println(stock);
 		model.addAttribute("stock", stock);
 		model.addAttribute("ps", ps);
+		model.addAttribute("workername", workername);
+		model.addAttribute("suppliername", suppliername);
+		model.addAttribute("stockdate", stockdate);
 		return "stock/stocks6";
 
 	}
@@ -72,7 +76,7 @@ public class StockConeroller {
 	/**
 	 * 添加进货信息
 	 */
-	@RequestMapping("addstock.html")
+	@RequestMapping("/addstock.html")
 	public String addstock(@RequestParam("stockno") Integer stockno,
 			@RequestParam("goodsno") Integer goodsno,
 			@RequestParam("supplierno") Integer supplierno,
@@ -86,7 +90,7 @@ public class StockConeroller {
 		if (result > 0) {
 			return json = "1";
 		}
-		return json;
+		return JSON.toJSONString(json);
 	}
 
 	/**
@@ -108,7 +112,7 @@ public class StockConeroller {
 			return json = "1";
 
 		}
-		return json;
+		return JSON.toJSONString(json);
 
 	}
 
@@ -146,13 +150,13 @@ public class StockConeroller {
 	/**
 	 * 根据进货单号删除进货信息
 	 */
-	@RequestMapping("delstock.html")
+	@RequestMapping("/delstock.html")
 	public String delstock(@RequestParam("stockno") Integer stockno) {
 		String json = "";
 		int result = stockService.delStock(stockno);
 		if (result > 0) {
 			json = "1";
 		}
-		return json;
+		return JSON.toJSONString(json);
 	}
 }

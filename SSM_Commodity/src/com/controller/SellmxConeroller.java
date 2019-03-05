@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.pojo.Sellmx;
 import com.service.SellmxService;
 import com.util.PageSupport;
@@ -66,6 +67,10 @@ public class SellmxConeroller {
 		System.out.println(sellmx);
 		model.addAttribute("sellmx", sellmx);
 		model.addAttribute("ps", ps);
+		model.addAttribute("goodsno", goodsno);
+		model.addAttribute("workerno", workerno);
+		model.addAttribute("sellno", sellno);
+		model.addAttribute("sellmxdate", sellmxdate);
 		return "stock/stocks6";
 
 	}
@@ -74,20 +79,20 @@ public class SellmxConeroller {
 	 * 添加销售信息
 	 */
 	@RequestMapping("addsellmx.html")
-	public String addsellmx(@Param("sellmxno") Integer sellmxno,
-			@Param("goodsno") Integer goodsno,
-			@Param("workerno") Integer workerno,
-			@Param("sellno") Integer sellno,
-			@Param("sellmxcount") Integer sellmxcount,
-			@Param("sellmxzprise") Double sellmxzprise,
-			@Param("sellmxdate") Date sellmxdate) {
+	public String addsellmx(@RequestParam("sellmxno") Integer sellmxno,
+			@RequestParam("goodsno") Integer goodsno,
+			@RequestParam("workerno") Integer workerno,
+			@RequestParam("sellno") Integer sellno,
+			@RequestParam("sellmxcount") Integer sellmxcount,
+			@RequestParam("sellmxzprise") Double sellmxzprise,
+			@RequestParam("sellmxdate") Date sellmxdate) {
 		String json = null;
 		int result = sellmxService.addSellmx(sellmxno, goodsno, workerno,
 				sellno, sellmxcount, sellmxzprise, sellmxdate);
 		if (result > 0) {
 			return json = "1";
 		}
-		return json;
+		return JSON.toJSONString(json);
 	}
 	
 	/**
@@ -95,20 +100,20 @@ public class SellmxConeroller {
 	 */
 	@RequestMapping("/updatesellmx.html")
 	@ResponseBody
-	public Object updatesellmx(@Param("sellmxno") Integer sellmxno,
-			@Param("goodsno") Integer goodsno,
-			@Param("workerno") Integer workerno,
-			@Param("sellno") Integer sellno,
-			@Param("sellmxcount") Integer sellmxcount,
-			@Param("sellmxzprise") Double sellmxzprise,
-			@Param("sellmxdate") Date sellmxdate){
+	public Object updatesellmx(@RequestParam("sellmxno") Integer sellmxno,
+			@RequestParam("goodsno") Integer goodsno,
+			@RequestParam("workerno") Integer workerno,
+			@RequestParam("sellno") Integer sellno,
+			@RequestParam("sellmxcount") Integer sellmxcount,
+			@RequestParam("sellmxzprise") Double sellmxzprise,
+			@RequestParam("sellmxdate") Date sellmxdate){
 		String json=null;
 		Integer result=sellmxService.addSellmx(sellmxno, goodsno, workerno, sellno, sellmxcount, sellmxzprise, sellmxdate);
 		if(result>0){
 			return json="1";
 				
 		}
-		return json;
+		return JSON.toJSONString(json);
 			
 	}
 	
@@ -126,13 +131,13 @@ public class SellmxConeroller {
 	 * 根据销售单号删除销售信息
 	 */
 	@RequestMapping("delsellmx.html")
-	public String delsellmx(@Param("sellmxno") Integer sellmxno) {
+	public String delsellmx(@RequestParam("sellmxno") Integer sellmxno) {
 		String json = null;
 		int result = sellmxService.delSellmx(sellmxno);
 		if (result > 0) {
 			json = "1";
 		}
-		return json;
+		return JSON.toJSONString(json);
 	}
 
 }
