@@ -1,18 +1,23 @@
 package com.pojo;
-
+/**
+ * 员工信息表
+ * @author lu
+ *
+ */
 public class Worker {
+	//员工编号
     private Integer workerno;
-
+    //职位编号
     private Integer adminno;
-
+    //姓名
     private String workername;
-
+    //性别
     private String workersex;
-
+    //联系电话
     private String workerphone;
-
+    //工资
     private Integer workersalary;
-
+    //密码
     private String workerpwd;
 
     public Integer getWorkerno() {

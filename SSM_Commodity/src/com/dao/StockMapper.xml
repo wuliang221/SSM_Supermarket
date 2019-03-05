@@ -9,235 +9,139 @@
     <result column="stockCount" property="stockcount" jdbcType="INTEGER" />
     <result column="stockLastinprise" property="stocklastinprise" jdbcType="INTEGER" />
     <result column="stockDate" property="stockdate" jdbcType="DATE" />
+       <result column="goodsName" property="goodsname" jdbcType="VARCHAR" />
+    <result column="goodsNorm" property="goodsnorm" jdbcType="VARCHAR" />
+    <result column="goodsUnit" property="goodsunit" jdbcType="VARCHAR" />
+    <result column="goodsCount" property="goodscount" jdbcType="INTEGER" />
+    <result column="goodsOutprise" property="goodsoutprise" jdbcType="DOUBLE" />
+    <result column="goodsInprise" property="goodsinprise" jdbcType="DOUBLE" />
+    <result column="typeName" property="typeName" jdbcType="VARCHAR"/>
+    <result column="supplierName" property="supplierName" jdbcType="VARCHAR"/>
+    <result column="adminNo" property="adminno" jdbcType="INTEGER" />
+    <result column="workerName" property="workername" jdbcType="VARCHAR" />
+     <result column="workerPhone" property="workerphone" jdbcType="VARCHAR" />
+       <result column="adminName" property="adminname" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
-    stockNo, goodsNo, supplierNo, workerNo, stockCount, stockLastinprise, stockDate
-  </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.StockExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from stock
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
+  <select id="countStock" resultType="int">
+  	SELECT 	COUNT(*)
+	FROM 
+	commodity_database.stock 
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from stock
-    where stockNo = #{stockno,jdbcType=INTEGER}
+  
+  <!-- 查询所有的进货信息 -->
+  <select id="getAllStock" resultType="Stock">
+  
+  SELECT 	
+  	s.stockNo, 
+	s.goodsNo, 
+	s.supplierNo, 
+	s.workerNo, 
+	s.stockCount, 
+	s.stockLastinprise, 
+	s.stockDate, 
+	t.typeName, 
+	g.goodsName, 
+	g.goodsNorm, 
+	g.goodsUnit, 
+	g.goodsCount, 
+	g.goodsOutprise, 
+	g.goodsInprise,
+	su.supplierName,  
+	w.adminNo, 
+	w.workerName, 
+	w.workerPhone, 
+	a.adminName
+	 
+	FROM 
+	commodity_database.stock AS s
+		INNER JOIN commodity_database.goods AS g ON s.goodsNo=g.goodsNo
+			INNER JOIN commodity_database.supplier AS su ON s.supplierNo=su.supplierNo
+				INNER JOIN commodity_database.worker  AS w ON s.workerNo=w.workerNo
+					INNER JOIN commodity_database.type AS t ON t.typeNo=g.typeNo
+						INNER JOIN commodity_database.admin AS a ON w.adminNo=a.adminNo
+						WHERE 1=1 
+						<if test="workerName !='' and workerName !=null">
+						 AND workerName like CONCAT('%',#{workername},'%')
+						</if>
+						<if test="supplierName !='' and supplierName !=null">
+						 AND supplierName like CONCAT('%',#{suppliername},'%')
+						</if>
+						<if test="stockDate !='' and stockDate != null">
+						AND stockDate=#{stockdate}
+						</if>
+						LIMIT #{pageNo}, #{pageSize};
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from stock
-    where stockNo = #{stockno,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.pojo.StockExample" >
-    delete from stock
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.pojo.Stock" >
-    insert into stock (stockNo, goodsNo, supplierNo, 
-      workerNo, stockCount, stockLastinprise, 
-      stockDate)
-    values (#{stockno,jdbcType=INTEGER}, #{goodsno,jdbcType=INTEGER}, #{supplierno,jdbcType=INTEGER}, 
-      #{workerno,jdbcType=INTEGER}, #{stockcount,jdbcType=INTEGER}, #{stocklastinprise,jdbcType=INTEGER}, 
-      #{stockdate,jdbcType=DATE})
+ 
+  <!-- 添加进货信息 -->
+  <insert id="addStock">
+  INSERT INTO commodity_database.stock
+	(
+	stockNo,
+    goodsNo,
+	supplierNo,
+    workerNo,
+    stockCount,
+    stockLastinprise,
+    stockDate
+	)
+	VALUES
+	(
+	#{stockno}, 
+	#{goodsno}, 
+	#{supplierno},
+	#{workerno},
+	#{stockcount},
+	#{stocklastinprise},
+	#{stockdate},
+	);
   </insert>
-  <insert id="insertSelective" parameterType="com.pojo.Stock" >
-    insert into stock
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="stockno != null" >
-        stockNo,
-      </if>
-      <if test="goodsno != null" >
-        goodsNo,
-      </if>
-      <if test="supplierno != null" >
-        supplierNo,
-      </if>
-      <if test="workerno != null" >
-        workerNo,
-      </if>
-      <if test="stockcount != null" >
-        stockCount,
-      </if>
-      <if test="stocklastinprise != null" >
-        stockLastinprise,
-      </if>
-      <if test="stockdate != null" >
-        stockDate,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="stockno != null" >
-        #{stockno,jdbcType=INTEGER},
-      </if>
-      <if test="goodsno != null" >
-        #{goodsno,jdbcType=INTEGER},
-      </if>
-      <if test="supplierno != null" >
-        #{supplierno,jdbcType=INTEGER},
-      </if>
-      <if test="workerno != null" >
-        #{workerno,jdbcType=INTEGER},
-      </if>
-      <if test="stockcount != null" >
-        #{stockcount,jdbcType=INTEGER},
-      </if>
-      <if test="stocklastinprise != null" >
-        #{stocklastinprise,jdbcType=INTEGER},
-      </if>
-      <if test="stockdate != null" >
-        #{stockdate,jdbcType=DATE},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.pojo.StockExample" resultType="java.lang.Integer" >
-    select count(*) from stock
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
+ 
+  <!-- 根据进货单号查询进货信息 -->
+  <select id="Stock" resultType="Stock">
+  SELECT 	*
+	FROM 
+	commodity_database.stock 
+	WHERE stockNo=#{stockno}
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update stock
-    <set >
-      <if test="record.stockno != null" >
-        stockNo = #{record.stockno,jdbcType=INTEGER},
-      </if>
-      <if test="record.goodsno != null" >
-        goodsNo = #{record.goodsno,jdbcType=INTEGER},
-      </if>
-      <if test="record.supplierno != null" >
-        supplierNo = #{record.supplierno,jdbcType=INTEGER},
-      </if>
-      <if test="record.workerno != null" >
-        workerNo = #{record.workerno,jdbcType=INTEGER},
-      </if>
-      <if test="record.stockcount != null" >
-        stockCount = #{record.stockcount,jdbcType=INTEGER},
-      </if>
-      <if test="record.stocklastinprise != null" >
-        stockLastinprise = #{record.stocklastinprise,jdbcType=INTEGER},
-      </if>
-      <if test="record.stockdate != null" >
-        stockDate = #{record.stockdate,jdbcType=DATE},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    update stock
-    set stockNo = #{record.stockno,jdbcType=INTEGER},
-      goodsNo = #{record.goodsno,jdbcType=INTEGER},
-      supplierNo = #{record.supplierno,jdbcType=INTEGER},
-      workerNo = #{record.workerno,jdbcType=INTEGER},
-      stockCount = #{record.stockcount,jdbcType=INTEGER},
-      stockLastinprise = #{record.stocklastinprise,jdbcType=INTEGER},
-      stockDate = #{record.stockdate,jdbcType=DATE}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Stock" >
-    update stock
-    <set >
-      <if test="goodsno != null" >
-        goodsNo = #{goodsno,jdbcType=INTEGER},
-      </if>
-      <if test="supplierno != null" >
-        supplierNo = #{supplierno,jdbcType=INTEGER},
-      </if>
-      <if test="workerno != null" >
-        workerNo = #{workerno,jdbcType=INTEGER},
-      </if>
-      <if test="stockcount != null" >
-        stockCount = #{stockcount,jdbcType=INTEGER},
-      </if>
-      <if test="stocklastinprise != null" >
-        stockLastinprise = #{stocklastinprise,jdbcType=INTEGER},
-      </if>
-      <if test="stockdate != null" >
-        stockDate = #{stockdate,jdbcType=DATE},
-      </if>
-    </set>
-    where stockNo = #{stockno,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.pojo.Stock" >
-    update stock
-    set goodsNo = #{goodsno,jdbcType=INTEGER},
-      supplierNo = #{supplierno,jdbcType=INTEGER},
-      workerNo = #{workerno,jdbcType=INTEGER},
-      stockCount = #{stockcount,jdbcType=INTEGER},
-      stockLastinprise = #{stocklastinprise,jdbcType=INTEGER},
-      stockDate = #{stockdate,jdbcType=DATE}
-    where stockNo = #{stockno,jdbcType=INTEGER}
-  </update>
+ 
+  <!-- 根据员工名查询进货信息 -->
+  <select id="workerStock" resultType="Stock">
+  SELECT 	*
+	FROM 
+	commodity_database.stock 
+	WHERE workerNo=#{workerno}
+  </select>
+  
+  <!-- 根据进货日期查询进货信息 -->
+  <select id="dateStock" resultType="Stock">
+  SELECT 	*
+	FROM 
+	commodity_database.stock 
+	WHERE stockDate=#{stockdate}
+  </select>
+  
+  <!-- 根据进货单号删除进货信息 -->
+  <delete id="delStock">
+  DELETE FROM commodity_database.stock 
+	WHERE
+	stockNo = #{stockno} ;
+  </delete>
+  
+  <!-- 根据进货单号修改进货信息 -->
+  <update id="updateStockformation">
+ 
+UPDATE commodity_database.stock 
+	SET
+	goodsNo = #{goodsno} , 
+	supplierNo = #{supplierno} , 
+	workerNo = #{workerno} , 
+	stockCount = #{stockcount} , 
+	stockLastinprise = #{stocklastinprise} , 
+	stockDate = #{stockdate}
+	
+	WHERE
+	stockNo = #{stockno} ;
+ 
+ </update>
+  
 </mapper>

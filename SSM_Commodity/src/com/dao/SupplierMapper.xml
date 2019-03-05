@@ -8,204 +8,76 @@
     <result column="supplierPeopleName" property="supplierpeoplename" jdbcType="VARCHAR" />
     <result column="supplierPhone" property="supplierphone" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
-    supplierNo, supplierName, supplierAdress, supplierPeopleName, supplierPhone
-  </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.SupplierExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from supplier
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from supplier
-    where supplierNo = #{supplierno,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from supplier
-    where supplierNo = #{supplierno,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.pojo.SupplierExample" >
-    delete from supplier
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.pojo.Supplier" >
-    insert into supplier (supplierNo, supplierName, supplierAdress, 
-      supplierPeopleName, supplierPhone)
-    values (#{supplierno,jdbcType=INTEGER}, #{suppliername,jdbcType=VARCHAR}, #{supplieradress,jdbcType=VARCHAR}, 
-      #{supplierpeoplename,jdbcType=VARCHAR}, #{supplierphone,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.pojo.Supplier" >
-    insert into supplier
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="supplierno != null" >
-        supplierNo,
-      </if>
-      <if test="suppliername != null" >
-        supplierName,
-      </if>
-      <if test="supplieradress != null" >
-        supplierAdress,
-      </if>
-      <if test="supplierpeoplename != null" >
-        supplierPeopleName,
-      </if>
-      <if test="supplierphone != null" >
-        supplierPhone,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="supplierno != null" >
-        #{supplierno,jdbcType=INTEGER},
-      </if>
-      <if test="suppliername != null" >
-        #{suppliername,jdbcType=VARCHAR},
-      </if>
-      <if test="supplieradress != null" >
-        #{supplieradress,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierpeoplename != null" >
-        #{supplierpeoplename,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierphone != null" >
-        #{supplierphone,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.pojo.SupplierExample" resultType="java.lang.Integer" >
-    select count(*) from supplier
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update supplier
-    <set >
-      <if test="record.supplierno != null" >
-        supplierNo = #{record.supplierno,jdbcType=INTEGER},
-      </if>
-      <if test="record.suppliername != null" >
-        supplierName = #{record.suppliername,jdbcType=VARCHAR},
-      </if>
-      <if test="record.supplieradress != null" >
-        supplierAdress = #{record.supplieradress,jdbcType=VARCHAR},
-      </if>
-      <if test="record.supplierpeoplename != null" >
-        supplierPeopleName = #{record.supplierpeoplename,jdbcType=VARCHAR},
-      </if>
-      <if test="record.supplierphone != null" >
-        supplierPhone = #{record.supplierphone,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    update supplier
-    set supplierNo = #{record.supplierno,jdbcType=INTEGER},
-      supplierName = #{record.suppliername,jdbcType=VARCHAR},
-      supplierAdress = #{record.supplieradress,jdbcType=VARCHAR},
-      supplierPeopleName = #{record.supplierpeoplename,jdbcType=VARCHAR},
-      supplierPhone = #{record.supplierphone,jdbcType=VARCHAR}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Supplier" >
-    update supplier
-    <set >
-      <if test="suppliername != null" >
-        supplierName = #{suppliername,jdbcType=VARCHAR},
-      </if>
-      <if test="supplieradress != null" >
-        supplierAdress = #{supplieradress,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierpeoplename != null" >
-        supplierPeopleName = #{supplierpeoplename,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierphone != null" >
-        supplierPhone = #{supplierphone,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where supplierNo = #{supplierno,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.pojo.Supplier" >
-    update supplier
-    set supplierName = #{suppliername,jdbcType=VARCHAR},
-      supplierAdress = #{supplieradress,jdbcType=VARCHAR},
-      supplierPeopleName = #{supplierpeoplename,jdbcType=VARCHAR},
-      supplierPhone = #{supplierphone,jdbcType=VARCHAR}
-    where supplierNo = #{supplierno,jdbcType=INTEGER}
-  </update>
+
+ <select id="countSupplier" resultType="int">
+ 	SELECT COUNT(*) FROM supplier
+ </select>
+ 
+ <select id="getAllSupplier" resultType="Supplier">
+ 
+ SELECT 	
+ 	supplierNo, 
+	supplierName, 
+	supplierAdress, 
+	supplierPeopleName, 
+	supplierPhone
+	 
+	FROM 
+	commodity_database.supplier
+	WHERE 1=1
+	<if test="suppliername != '' and suppliername !=null">
+		AND supplierName=#{suppliername}
+	</if> 
+	LIMIT #{pageNo},#{pageSize};
+ </select>
+ 
+ <insert id="addSupplier">
+ 
+INSERT INTO commodity_database.supplier 
+	(
+	supplierName, 
+	supplierAdress, 
+	supplierPeopleName, 
+	supplierPhone
+	)
+	VALUES
+	(
+	#{suppliername}, 
+	#{supplieradress}, 
+	#{supplierpeoplename}, 
+	#{supplierphone}
+	);
+ 
+ </insert>
+ 
+ <delete id="delSupplier">
+ 
+DELETE FROM commodity_database.supplier 
+	WHERE
+	supplierNo = #{supplierno} ;
+ </delete>
+ 
+ <update id="updateSupplier">
+ 
+UPDATE commodity_database.supplier 
+	SET
+	supplierName = #{suppliername} , 
+	supplierAdress = #{supplieradress} , 
+	supplierPeopleName = #{supplierpeoplename} , 
+	supplierPhone = #{supplierphone}
+	
+	WHERE
+	supplierNo = #{supplierno} ;
+ </update>
+ 
+ <select id="allSupplier" resultType="Supplier">
+ 
+SELECT 	supplierNo, 
+	supplierName
+	
+	FROM 
+	commodity_database.supplier 
+	
+ 
+ </select>
 </mapper>

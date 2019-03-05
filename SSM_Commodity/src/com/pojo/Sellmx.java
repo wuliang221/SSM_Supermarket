@@ -1,20 +1,25 @@
 package com.pojo;
 
 import java.util.Date;
-
+/**
+ * 销售明细表
+ * @author lu
+ *
+ */
 public class Sellmx {
+	//销售明细单号
     private Integer sellmxno;
-
+    //商品编号
     private Integer goodsno;
-
+    //员工编号
     private Integer workerno;
-
+    //销售单号
     private Integer sellno;
-
+    //销售个数
     private Integer sellmxcount;
-
-    private Integer sellmxzprise;
-
+    //总金额
+    private Double sellmxzprise;
+    //交易日期
     private Date sellmxdate;
 
     public Integer getSellmxno() {
@@ -57,11 +62,11 @@ public class Sellmx {
         this.sellmxcount = sellmxcount;
     }
 
-    public Integer getSellmxzprise() {
+    public Double getSellmxzprise() {
         return sellmxzprise;
     }
 
-    public void setSellmxzprise(Integer sellmxzprise) {
+    public void setSellmxzprise(Double sellmxzprise) {
         this.sellmxzprise = sellmxzprise;
     }
 

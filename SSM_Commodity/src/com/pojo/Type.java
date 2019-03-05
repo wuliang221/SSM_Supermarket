@@ -1,8 +1,13 @@
 package com.pojo;
-
+/**
+ * 商品类别
+ * @author DELL
+ *
+ */
 public class Type {
+	//商品类别编号
     private Integer typeno;
-
+    //商品类别名称
     private String typename;
 
     public Integer getTypeno() {

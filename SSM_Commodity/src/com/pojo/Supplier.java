@@ -1,14 +1,20 @@
 package com.pojo;
-
+/**
+ * 供应商信息表
+ * @author lu
+ * 
+ *
+ */
 public class Supplier {
+	//供应商编号
     private Integer supplierno;
-
+    //供应商名称
     private String suppliername;
-
+    //供应商地址
     private String supplieradress;
-
+    //联系人姓名
     private String supplierpeoplename;
-
+    //联系人电话
     private String supplierphone;
 
     public Integer getSupplierno() {
