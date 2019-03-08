@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.MerchinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Merchinfo" >
+    <id column="MerchID" property="merchID" jdbcType="INTEGER" />
+    <result column="MerchName" property="merchName" jdbcType="VARCHAR" />
+    <result column="MerchPrice" property="merchPrice" jdbcType="DOUBLE" />
+    <result column="MerchNum" property="merchNum" jdbcType="INTEGER" />
+    <result column="CautionNum" property="cautionNum" jdbcType="INTEGER" />
+    <result column="PlanNum" property="planNum" jdbcType="INTEGER" />
+    <result column="BarCode" property="barCode" jdbcType="VARCHAR" />
+    <result column="SalesProPrice" property="salesProPrice" jdbcType="DOUBLE" />
+    <result column="SalesProDateS" property="salesProDateS" jdbcType="TIMESTAMP" />
+    <result column="SalesProDateE" property="salesProDateE" jdbcType="TIMESTAMP" />
+    <result column="AllowAbate" property="allowAbate" jdbcType="INTEGER" />
+    <result column="AllowSale" property="allowSale" jdbcType="INTEGER" />
+    <result column="FactoryID" property="factoryID" jdbcType="INTEGER" />
+    <result column="ProvideID" property="provideID" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    MerchID, MerchName, MerchPrice, MerchNum, CautionNum, PlanNum, BarCode, SalesProPrice, 
+    SalesProDateS, SalesProDateE, AllowAbate, AllowSale, FactoryID, ProvideID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.MerchinfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from merchinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from merchinfo
+    where MerchID = #{merchID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from merchinfo
+    where MerchID = #{merchID,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pojo.MerchinfoExample" >
+    delete from merchinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Merchinfo" >
+    insert into merchinfo (MerchID, MerchName, MerchPrice, 
+      MerchNum, CautionNum, PlanNum, 
+      BarCode, SalesProPrice, SalesProDateS, 
+      SalesProDateE, AllowAbate, AllowSale, 
+      FactoryID, ProvideID)
+    values (#{merchID,jdbcType=INTEGER}, #{merchName,jdbcType=VARCHAR}, #{merchPrice,jdbcType=DOUBLE}, 
+      #{merchNum,jdbcType=INTEGER}, #{cautionNum,jdbcType=INTEGER}, #{planNum,jdbcType=INTEGER}, 
+      #{barCode,jdbcType=VARCHAR}, #{salesProPrice,jdbcType=DOUBLE}, #{salesProDateS,jdbcType=TIMESTAMP}, 
+      #{salesProDateE,jdbcType=TIMESTAMP}, #{allowAbate,jdbcType=INTEGER}, #{allowSale,jdbcType=INTEGER}, 
+      #{factoryID,jdbcType=INTEGER}, #{provideID,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Merchinfo" >
+    insert into merchinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="merchID != null" >
+        MerchID,
+      </if>
+      <if test="merchName != null" >
+        MerchName,
+      </if>
+      <if test="merchPrice != null" >
+        MerchPrice,
+      </if>
+      <if test="merchNum != null" >
+        MerchNum,
+      </if>
+      <if test="cautionNum != null" >
+        CautionNum,
+      </if>
+      <if test="planNum != null" >
+        PlanNum,
+      </if>
+      <if test="barCode != null" >
+        BarCode,
+      </if>
+      <if test="salesProPrice != null" >
+        SalesProPrice,
+      </if>
+      <if test="salesProDateS != null" >
+        SalesProDateS,
+      </if>
+      <if test="salesProDateE != null" >
+        SalesProDateE,
+      </if>
+      <if test="allowAbate != null" >
+        AllowAbate,
+      </if>
+      <if test="allowSale != null" >
+        AllowSale,
+      </if>
+      <if test="factoryID != null" >
+        FactoryID,
+      </if>
+      <if test="provideID != null" >
+        ProvideID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="merchID != null" >
+        #{merchID,jdbcType=INTEGER},
+      </if>
+      <if test="merchName != null" >
+        #{merchName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchPrice != null" >
+        #{merchPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="merchNum != null" >
+        #{merchNum,jdbcType=INTEGER},
+      </if>
+      <if test="cautionNum != null" >
+        #{cautionNum,jdbcType=INTEGER},
+      </if>
+      <if test="planNum != null" >
+        #{planNum,jdbcType=INTEGER},
+      </if>
+      <if test="barCode != null" >
+        #{barCode,jdbcType=VARCHAR},
+      </if>
+      <if test="salesProPrice != null" >
+        #{salesProPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="salesProDateS != null" >
+        #{salesProDateS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesProDateE != null" >
+        #{salesProDateE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="allowAbate != null" >
+        #{allowAbate,jdbcType=INTEGER},
+      </if>
+      <if test="allowSale != null" >
+        #{allowSale,jdbcType=INTEGER},
+      </if>
+      <if test="factoryID != null" >
+        #{factoryID,jdbcType=INTEGER},
+      </if>
+      <if test="provideID != null" >
+        #{provideID,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pojo.MerchinfoExample" resultType="java.lang.Integer" >
+    select count(*) from merchinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update merchinfo
+    <set >
+      <if test="record.merchID != null" >
+        MerchID = #{record.merchID,jdbcType=INTEGER},
+      </if>
+      <if test="record.merchName != null" >
+        MerchName = #{record.merchName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchPrice != null" >
+        MerchPrice = #{record.merchPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.merchNum != null" >
+        MerchNum = #{record.merchNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.cautionNum != null" >
+        CautionNum = #{record.cautionNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.planNum != null" >
+        PlanNum = #{record.planNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.barCode != null" >
+        BarCode = #{record.barCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesProPrice != null" >
+        SalesProPrice = #{record.salesProPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.salesProDateS != null" >
+        SalesProDateS = #{record.salesProDateS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.salesProDateE != null" >
+        SalesProDateE = #{record.salesProDateE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.allowAbate != null" >
+        AllowAbate = #{record.allowAbate,jdbcType=INTEGER},
+      </if>
+      <if test="record.allowSale != null" >
+        AllowSale = #{record.allowSale,jdbcType=INTEGER},
+      </if>
+      <if test="record.factoryID != null" >
+        FactoryID = #{record.factoryID,jdbcType=INTEGER},
+      </if>
+      <if test="record.provideID != null" >
+        ProvideID = #{record.provideID,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update merchinfo
+    set MerchID = #{record.merchID,jdbcType=INTEGER},
+      MerchName = #{record.merchName,jdbcType=VARCHAR},
+      MerchPrice = #{record.merchPrice,jdbcType=DOUBLE},
+      MerchNum = #{record.merchNum,jdbcType=INTEGER},
+      CautionNum = #{record.cautionNum,jdbcType=INTEGER},
+      PlanNum = #{record.planNum,jdbcType=INTEGER},
+      BarCode = #{record.barCode,jdbcType=VARCHAR},
+      SalesProPrice = #{record.salesProPrice,jdbcType=DOUBLE},
+      SalesProDateS = #{record.salesProDateS,jdbcType=TIMESTAMP},
+      SalesProDateE = #{record.salesProDateE,jdbcType=TIMESTAMP},
+      AllowAbate = #{record.allowAbate,jdbcType=INTEGER},
+      AllowSale = #{record.allowSale,jdbcType=INTEGER},
+      FactoryID = #{record.factoryID,jdbcType=INTEGER},
+      ProvideID = #{record.provideID,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Merchinfo" >
+    update merchinfo
+    <set >
+      <if test="merchName != null" >
+        MerchName = #{merchName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchPrice != null" >
+        MerchPrice = #{merchPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="merchNum != null" >
+        MerchNum = #{merchNum,jdbcType=INTEGER},
+      </if>
+      <if test="cautionNum != null" >
+        CautionNum = #{cautionNum,jdbcType=INTEGER},
+      </if>
+      <if test="planNum != null" >
+        PlanNum = #{planNum,jdbcType=INTEGER},
+      </if>
+      <if test="barCode != null" >
+        BarCode = #{barCode,jdbcType=VARCHAR},
+      </if>
+      <if test="salesProPrice != null" >
+        SalesProPrice = #{salesProPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="salesProDateS != null" >
+        SalesProDateS = #{salesProDateS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesProDateE != null" >
+        SalesProDateE = #{salesProDateE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="allowAbate != null" >
+        AllowAbate = #{allowAbate,jdbcType=INTEGER},
+      </if>
+      <if test="allowSale != null" >
+        AllowSale = #{allowSale,jdbcType=INTEGER},
+      </if>
+      <if test="factoryID != null" >
+        FactoryID = #{factoryID,jdbcType=INTEGER},
+      </if>
+      <if test="provideID != null" >
+        ProvideID = #{provideID,jdbcType=INTEGER},
+      </if>
+    </set>
+    where MerchID = #{merchID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Merchinfo" >
+    update merchinfo
+    set MerchName = #{merchName,jdbcType=VARCHAR},
+      MerchPrice = #{merchPrice,jdbcType=DOUBLE},
+      MerchNum = #{merchNum,jdbcType=INTEGER},
+      CautionNum = #{cautionNum,jdbcType=INTEGER},
+      PlanNum = #{planNum,jdbcType=INTEGER},
+      BarCode = #{barCode,jdbcType=VARCHAR},
+      SalesProPrice = #{salesProPrice,jdbcType=DOUBLE},
+      SalesProDateS = #{salesProDateS,jdbcType=TIMESTAMP},
+      SalesProDateE = #{salesProDateE,jdbcType=TIMESTAMP},
+      AllowAbate = #{allowAbate,jdbcType=INTEGER},
+      AllowSale = #{allowSale,jdbcType=INTEGER},
+      FactoryID = #{factoryID,jdbcType=INTEGER},
+      ProvideID = #{provideID,jdbcType=INTEGER}
+    where MerchID = #{merchID,jdbcType=INTEGER}
+  </update>
+</mapper>

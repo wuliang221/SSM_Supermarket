@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.DealingMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Dealing" >
+    <id column="DealingID" property="dealingID" jdbcType="INTEGER" />
+    <result column="DealingDate" property="dealingDate" jdbcType="DOUBLE" />
+    <result column="DealingPrice" property="dealingPrice" jdbcType="TIMESTAMP" />
+    <result column="UserName" property="userName" jdbcType="VARCHAR" />
+    <result column="MemberCard" property="memberCard" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    DealingID, DealingDate, DealingPrice, UserName, MemberCard
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.DealingExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dealing
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from dealing
+    where DealingID = #{dealingID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dealing
+    where DealingID = #{dealingID,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pojo.DealingExample" >
+    delete from dealing
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Dealing" >
+    insert into dealing (DealingID, DealingDate, DealingPrice, 
+      UserName, MemberCard)
+    values (#{dealingID,jdbcType=INTEGER}, #{dealingDate,jdbcType=DOUBLE}, #{dealingPrice,jdbcType=TIMESTAMP}, 
+      #{userName,jdbcType=VARCHAR}, #{memberCard,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Dealing" >
+    insert into dealing
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dealingID != null" >
+        DealingID,
+      </if>
+      <if test="dealingDate != null" >
+        DealingDate,
+      </if>
+      <if test="dealingPrice != null" >
+        DealingPrice,
+      </if>
+      <if test="userName != null" >
+        UserName,
+      </if>
+      <if test="memberCard != null" >
+        MemberCard,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dealingID != null" >
+        #{dealingID,jdbcType=INTEGER},
+      </if>
+      <if test="dealingDate != null" >
+        #{dealingDate,jdbcType=DOUBLE},
+      </if>
+      <if test="dealingPrice != null" >
+        #{dealingPrice,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberCard != null" >
+        #{memberCard,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pojo.DealingExample" resultType="java.lang.Integer" >
+    select count(*) from dealing
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update dealing
+    <set >
+      <if test="record.dealingID != null" >
+        DealingID = #{record.dealingID,jdbcType=INTEGER},
+      </if>
+      <if test="record.dealingDate != null" >
+        DealingDate = #{record.dealingDate,jdbcType=DOUBLE},
+      </if>
+      <if test="record.dealingPrice != null" >
+        DealingPrice = #{record.dealingPrice,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userName != null" >
+        UserName = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberCard != null" >
+        MemberCard = #{record.memberCard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update dealing
+    set DealingID = #{record.dealingID,jdbcType=INTEGER},
+      DealingDate = #{record.dealingDate,jdbcType=DOUBLE},
+      DealingPrice = #{record.dealingPrice,jdbcType=TIMESTAMP},
+      UserName = #{record.userName,jdbcType=VARCHAR},
+      MemberCard = #{record.memberCard,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Dealing" >
+    update dealing
+    <set >
+      <if test="dealingDate != null" >
+        DealingDate = #{dealingDate,jdbcType=DOUBLE},
+      </if>
+      <if test="dealingPrice != null" >
+        DealingPrice = #{dealingPrice,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        UserName = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberCard != null" >
+        MemberCard = #{memberCard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DealingID = #{dealingID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Dealing" >
+    update dealing
+    set DealingDate = #{dealingDate,jdbcType=DOUBLE},
+      DealingPrice = #{dealingPrice,jdbcType=TIMESTAMP},
+      UserName = #{userName,jdbcType=VARCHAR},
+      MemberCard = #{memberCard,jdbcType=VARCHAR}
+    where DealingID = #{dealingID,jdbcType=INTEGER}
+  </update>
+</mapper>
