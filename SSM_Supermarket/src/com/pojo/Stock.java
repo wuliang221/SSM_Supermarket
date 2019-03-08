@@ -1,22 +1,27 @@
 package com.pojo;
 
 import java.util.Date;
-
+/**
+ * 进货入库表
+ * @author DELL
+ *
+ */
 public class Stock {
+	//入库编号
     private Integer stockID;
-
+    //入库商品编号
     private Integer merchID;
-
+    //入库数量
     private Integer merchNum;
-
+    //单额
     private Double merchPrice;
-
+    //总额
     private Double totalPrice;
-
+    //入库日期
     private Date planDate;
-
+    //计划进货日期
     private Date stockDate;
-
+    //入库状态
     private Integer stockState;
 
     public Integer getStockID() {

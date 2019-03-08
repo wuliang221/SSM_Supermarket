@@ -1,16 +1,21 @@
 package com.pojo;
 
 import java.util.Date;
-
+/**
+ * 交易表
+ * @author DELL
+ *
+ */
 public class Dealing {
+	//交易编号
     private Integer dealingID;
-
+    //交易金额
     private Double dealingDate;
-
+    //交易日期
     private Date dealingPrice;
-
+    //用户名称
     private String userName;
-
+    //会员卡号
     private String memberCard;
 
     public Integer getDealingID() {

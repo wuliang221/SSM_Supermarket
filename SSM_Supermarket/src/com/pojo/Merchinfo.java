@@ -1,34 +1,39 @@
 package com.pojo;
 
 import java.util.Date;
-
+/**
+ * 商品信息表
+ * @author DELL
+ *
+ */
 public class Merchinfo {
+	//商品编号
     private Integer merchID;
-
+    //商品名称
     private String merchName;
-
+    //价格
     private Double merchPrice;
-
+    //库存数量
     private Integer merchNum;
-
+    //库存报警数量
     private Integer cautionNum;
-
+    //计划进货数
     private Integer planNum;
-
+    //条形码
     private String barCode;
-
+    //促销价格
     private Double salesProPrice;
-
+    //促销起日期
     private Date salesProDateS;
-
+    //促销止日期
     private Date salesProDateE;
-
+    //允许打折
     private Integer allowAbate;
-
+    //允许销售
     private Integer allowSale;
-
+    //厂商编号
     private Integer factoryID;
-
+    //供货商编号
     private Integer provideID;
 
     public Integer getMerchID() {

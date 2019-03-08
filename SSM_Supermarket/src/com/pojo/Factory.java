@@ -1,12 +1,17 @@
 package com.pojo;
-
+/**
+ * 厂商表
+ * @author DELL
+ *
+ */
 public class Factory {
+	//厂商编号
     private Integer factoryID;
-
+    //厂商名称
     private String factoryName;
-
+    //厂商地址
     private String factoryAddress;
-
+    //厂商电话
     private String factoryPhone;
 
     public Integer getFactoryID() {

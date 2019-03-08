@@ -1,12 +1,17 @@
 package com.pojo;
-
+/**
+ * 供货商
+ * @author DELL
+ *
+ */
 public class Provide {
+	//供货商编号
     private Integer provideID;
-
+    //供货商名称
     private String provideName;
-
+    //供货商地址
     private String provideAddress;
-
+    //供货商电话
     private String providePhone;
 
     public Integer getProvideID() {

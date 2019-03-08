@@ -1,12 +1,17 @@
 package com.pojo;
-
+/**
+ * 用户表
+ * @author DELL
+ *
+ */
 public class User {
+	//用户编号
     private Integer userID;
-
+    //用户名
     private String userName;
-
+    //用户密码
     private String userPW;
-
+    //用户权限
     private Integer userStyle;
 
     public Integer getUserID() {

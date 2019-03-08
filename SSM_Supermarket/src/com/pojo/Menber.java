@@ -1,14 +1,19 @@
 package com.pojo;
 
 import java.util.Date;
-
+/**
+ * 会员表
+ * @author DELL
+ *
+ */
 public class Menber {
+	//会员编号
     private Integer memberID;
-
+    //会员卡号
     private String memberCard;
-
+    //累积消费金额
     private Double totalCost;
-
+    //注册日期
     private Date regDate;
 
     public Integer getMemberID() {

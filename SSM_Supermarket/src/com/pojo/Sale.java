@@ -1,16 +1,21 @@
 package com.pojo;
 
 import java.util.Date;
-
+/**
+ * 销售表
+ * @author DELL
+ *
+ */
 public class Sale {
+	//销售编号
     private Integer saleID;
-
+    //商品编号
     private Integer merChID;
-
+    //销售日期
     private Date saleDate;
-
+    //销售数量
     private Integer saleNum;
-
+    //销售单额
     private Double salePrice;
 
     public Integer getSaleID() {
