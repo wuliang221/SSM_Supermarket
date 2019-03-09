@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				dataType:"json",	
 				success : function(data) {
 				if(data == "session1"){
-						$("#maindiv").load(url+"/fin/z.html")
+						window.location.href=url+"/fin/z.html";
 						return true;
 					}
 					
