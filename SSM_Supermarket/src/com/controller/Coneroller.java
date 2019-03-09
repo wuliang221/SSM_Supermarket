@@ -49,15 +49,16 @@ public class Coneroller {
 		User user=userService.user(UserPhone);
 		String json="";
 		if(result==true){
-			if(user.getUserStyle()==0){
+			/*if(user.getUserStyle()==0){
 				session.setAttribute("userStyle", "总经理");
-				json="session0";
-			}else if(user.getUserStyle()==1){
+				json="success0";
+			}else */
+			if(user.getUserStyle()==1){
 				session.setAttribute("userStyle", "经理");
-				json="session1";
+				json="success1";
 			}else if(user.getUserStyle()==2){
 				session.setAttribute("userStyle", "员工");
-				json="session2";
+				json="success2";
 			}
 			session.setAttribute("userName", user.getUserName());
 		}

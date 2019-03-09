@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div id="logo-login">
-                        <h1>商品进销存系统
+                        <h1>超市进销存系统
                             <span>v1.0</span>
                         </h1>
                     </div>
@@ -93,10 +93,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	$.ajax({
 				type :"post",
 				url:url+"/fin/dl.json",
-				data:{UserName:id,UserPW:pass},
+				data:{UserPhone:id,UserPW:pass},
 				dataType:"json",	
 				success : function(data) {
-				if(data == "session1"){
+				if(data == "success1"){
+						window.location.href=url+"/fin/jingli.html";
+						return true;
+					}
+				if(data == "success2"){
 						window.location.href=url+"/fin/z.html";
 						return true;
 					}
@@ -104,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 				},
 				error : function() {
-					alert("未知原因导致失败！");
+					alert("账号密码有误，请重新登陆！");
 					return false;
 				}
 			});
