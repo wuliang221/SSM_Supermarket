@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
  <div id="skin-select">
         <div id="logo">
-         <h1>商品进销存<span>v1.0</span></h1>
+         <h1>超市员工端<span>v1.0</span></h1>
         </div>
 
         <a id="toggle">

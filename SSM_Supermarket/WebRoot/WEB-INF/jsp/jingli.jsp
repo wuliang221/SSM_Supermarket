@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
   <meta charset="utf-8">
-    <title>员工端v1.0</title>
+    <title>经理端v1.0</title>
     <script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/jquery.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/statics/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/statics/assets/css/loader-style.css">
@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<!-- 引入网页头部 -->
 		<jsp:includepage="module/head.jsp"/>
 		<!-- 引入左侧选择框 -->
-		<jsp:includepage="module/left.jsp"/>
+		<jsp:includepage="module/JLleft.jsp"/>
     <div class="wrap-fluid">
         <div class="container-fluid paper-wrap bevel tlbr">
             <div class="row">

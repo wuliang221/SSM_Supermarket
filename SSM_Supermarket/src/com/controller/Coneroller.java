@@ -25,20 +25,19 @@ public class Coneroller {
 	//登录页面
 	@RequestMapping("/f.html")
 	public String DL(){
-		return "login";
+		return "denglu";
 	}
 	
-	//主页
+	//员工端主页
 	@RequestMapping("/z.html")
 	public String ZY(Model model){
-
 		return "MyJsp";
 	}
 	
-	//主页
-	@RequestMapping("/z2.html")
+	//经理端主页
+	@RequestMapping("/jingli.html")
 	public String ZY2(){
-		return "MyJsp";
+		return "jingli";
 	}
 	
 	//登陆判断
