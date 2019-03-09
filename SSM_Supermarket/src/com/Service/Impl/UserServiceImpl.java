@@ -14,11 +14,13 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	private UserMapper userMapper;
 	
+	//查询用户名放入session
 	@Override
 	public User user(String UserName) {
 		return userMapper.user(UserName);
 	}
 
+	//匹配账号密码
 	@Override
 	public boolean findUser(String UserName, String UserPW) {
 		boolean rs=false;

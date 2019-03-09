@@ -5,7 +5,7 @@ import com.pojo.User;
 public interface UserService {
 
 
-			//查询账号密码是否匹配
+			//查询用户名放入session
 			public User user(String UserName);
 			
 			//匹配账号密码
