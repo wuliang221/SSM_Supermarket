@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.Service.UserService;
 import com.alibaba.fastjson.JSON;
+import com.pojo.User;
 
 @Controller
 @RequestMapping("/fin")
 public class Coneroller {
+	
+	@Resource
+	private UserService userService;
 
 	//登录页面
 	@RequestMapping("/f.html")
@@ -39,20 +44,17 @@ public class Coneroller {
 	//登陆判断
 	@RequestMapping(value="/dl.json",method=RequestMethod.POST)
 	@ResponseBody
-	public Object login(@RequestParam("userNo")Integer userNo,@RequestParam("password")String password,
-						@RequestParam("chooseDl")Integer chooseDl,HttpSession session,HttpServletRequest request){
-		/*boolean result=workerService.findworker(userNo, password, chooseDl);
-		Worker worker=workerService.getWorkerName(userNo);
-		Admin admin=adminService.findAdm(chooseDl);
+	public Object login(@RequestParam("UserName")String UserName,@RequestParam("UserPW")String UserPW,
+						HttpSession session,HttpServletRequest request){
+		boolean result=userService.findUser(UserName, UserPW);
+		User user=userService.user(UserName);
 		String json="";
 		if(result==true){
-			session.setAttribute("chooseDl", chooseDl);
-			session.setAttribute("admin", admin.getAdminname());
-			session.setAttribute("userName", worker.getWorkername());
+			session.setAttribute("userStyle", user.getUserStyle());
+			session.setAttribute("userName", user.getUserName());
 			json="session1";
 		}
-		System.out.println(json);*/
-		return "JSON.toJSONString(json)";
+		return JSON.toJSONString(json);
 		
 	}
 

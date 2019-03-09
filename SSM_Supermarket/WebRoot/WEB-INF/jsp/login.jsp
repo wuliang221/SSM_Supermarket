@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="account-box"> 
-                        <form id="from" action="${pageContext.request.contextPath }/fin/z.html" method="post">
+                        <%-- <form id="from" action="${pageContext.request.contextPath }/fin/z.html" method="post"> --%>
                             <div class="form-group">
                                 <input type="text"  id="inputUsernameEmail" class="form-control" placeholder="请输入用户名">
                             </div>
@@ -53,18 +53,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <input type="password"  id="inputPassword" class="form-control" placeholder="请输入密码">
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="signin-status" >
-                                    <option value="0">请选择登录身份</option>
-                                    <option value="3">员工</option>
-                                    <option value="2">管理员</option>
-                                    <option value="1">超级管理员</option>
-                                </select>
                             </div>
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit" id="form">
                                 	登 录
                             </button>
                             
-                        </form>
+                      <!--   </form> -->
                        
                         <div class="row-block">
 	                        <div class="row">
@@ -86,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script>
 	
 		//表单非空验证
-        $("form").submit(function(e){
+        $("#form").click(function(e){
         	var pd=false;
         	//获取账号
         	var id=$("#inputUsernameEmail").val();
@@ -99,11 +93,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	$.ajax({
 				type :"post",
 				url:url+"/fin/dl.json",
-				data:{userNo:id,password:pass,chooseDl:status},
+				data:{UserName:id,UserPW:pass},
 				dataType:"json",	
 				success : function(data) {
 				if(data == "session1"){
-						/* window.location.href=url+"/fin/z.html"; */
+						$("#maindiv").load(url+"/fin/z.html")
 						return true;
 					}
 					
