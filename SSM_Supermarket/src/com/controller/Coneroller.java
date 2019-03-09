@@ -43,15 +43,23 @@ public class Coneroller {
 	//登陆判断
 	@RequestMapping(value="/dl.json",method=RequestMethod.POST)
 	@ResponseBody
-	public Object login(@RequestParam("UserName")String UserName,@RequestParam("UserPW")String UserPW,
+	public Object login(@RequestParam("UserPhone")String UserPhone,@RequestParam("UserPW")String UserPW,
 						HttpSession session,HttpServletRequest request){
-		boolean result=userService.findUser(UserName, UserPW);
-		User user=userService.user(UserName);
+		boolean result=userService.findUser(UserPhone, UserPW);
+		User user=userService.user(UserPhone);
 		String json="";
 		if(result==true){
-			session.setAttribute("userStyle", user.getUserStyle());
+			if(user.getUserStyle()==0){
+				session.setAttribute("userStyle", "总经理");
+				json="session0";
+			}else if(user.getUserStyle()==1){
+				session.setAttribute("userStyle", "经理");
+				json="session1";
+			}else if(user.getUserStyle()==2){
+				session.setAttribute("userStyle", "员工");
+				json="session2";
+			}
 			session.setAttribute("userName", user.getUserName());
-			json="session1";
 		}
 		return JSON.toJSONString(json);
 		

@@ -31,23 +31,12 @@ public class Merchinfo {
     private Integer allowAbate;
     //允许销售
     private Integer allowSale;
-    //厂商编号
-    private Integer factoryID;
-    //厂商名称
-    private String factoryName;
     //供货商编号
     private Integer provideID;
     //供货商名称
     private String provideName;
 
     
-    public String getFactoryName() {
-		return factoryName;
-	}
-
-	public void setFactoryName(String factoryName) {
-		this.factoryName = factoryName;
-	}
 
 	public String getProvideName() {
 		return provideName;
@@ -151,14 +140,6 @@ public class Merchinfo {
 
     public void setAllowSale(Integer allowSale) {
         this.allowSale = allowSale;
-    }
-
-    public Integer getFactoryID() {
-        return factoryID;
-    }
-
-    public void setFactoryID(Integer factoryID) {
-        this.factoryID = factoryID;
     }
 
     public Integer getProvideID() {

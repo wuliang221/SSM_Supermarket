@@ -1,4 +1,7 @@
 package com.pojo;
+
+import java.util.Date;
+
 /**
  * 用户表
  * @author DELL
@@ -13,8 +16,38 @@ public class User {
     private String userPW;
     //用户权限
     private Integer userStyle;
+    //用户手机
+    private String UserPhone;
+    //用户住址
+    private String UserAddress;
+    //用户入职时间
+    private Date Useraddtime;
 
-    public Integer getUserID() {
+    public String getUserPhone() {
+		return UserPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		UserPhone = userPhone;
+	}
+
+	public String getUserAddress() {
+		return UserAddress;
+	}
+
+	public void setUserAddress(String userAddress) {
+		UserAddress = userAddress;
+	}
+
+	public Date getUseraddtime() {
+		return Useraddtime;
+	}
+
+	public void setUseraddtime(Date useraddtime) {
+		Useraddtime = useraddtime;
+	}
+
+	public Integer getUserID() {
         return userID;
     }
 
