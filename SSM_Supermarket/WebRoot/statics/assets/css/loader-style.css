@@ -1,7 +1,7 @@
 
 
 
-@import "/SSM_Commodity/statics/assets/js/skin-select/skin-select.css";
+@import "/SSM_Supermarket/statics/assets/js/skin-select/skin-select.css";
 
 @import "font-awesome.css";
 @import "entypo-icon.css";
@@ -15,13 +15,13 @@
 
 
 
-@import "/SSM_Commodity/statics/assets/js/pnotify/jquery.pnotify.default.css";
-@import "/SSM_Commodity/statics/assets/js/tip/tooltipster.css";
+@import "/SSM_Supermarket/statics/assets/js/pnotify/jquery.pnotify.default.css";
+@import "/SSM_Supermarket/statics/assets/js/tip/tooltipster.css";
 
  
 
 
 
-@import "/SSM_Commodity/statics/assets/js/pace/themes/pace-theme-center-simple.css";
-@import "/SSM_Commodity/statics/assets/js/slidebars/slidebars.css";
-@import "/SSM_Commodity/statics/assets/js/gage/jquery.easy-pie-chart.css";
+@import "/SSM_Supermarket/statics/assets/js/pace/themes/pace-theme-center-simple.css";
+@import "/SSM_Supermarket/statics/assets/js/slidebars/slidebars.css";
+@import "/SSM_Supermarket/statics/assets/js/gage/jquery.easy-pie-chart.css";

@@ -1,15 +1,15 @@
 //Sliding Effect Control
-head.js("/SSM_Commodity/statics/assets/js/skin-select/jquery.cookie.js");
-head.js("/SSM_Commodity/statics/assets/js/skin-select/skin-select.js");
+head.js("/SSM_Supermarket/statics/assets/js/skin-select/jquery.cookie.js");
+head.js("/SSM_Supermarket/statics/assets/js/skin-select/skin-select.js");
 
 //Showing Date
-head.js("/SSM_Commodity/statics/assets/js/clock/date.js");
+head.js("/SSM_Supermarket/statics/assets/js/clock/date.js");
 
 //Bootstrap
 //head.js("assets/js/bootstrap.js");
 
 //NEWS STICKER
-head.js("/SSM_Commodity/statics/assets/js/newsticker/jquery.newsTicker.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/newsticker/jquery.newsTicker.js", function() {
 
     var nt_title = $('#nt-title').newsTicker({
         row_height: 18,
@@ -26,20 +26,20 @@ head.js("/SSM_Commodity/statics/assets/js/newsticker/jquery.newsTicker.js", func
 
 ////Acordion and Sliding menu
 
-head.js("/SSM_Commodity/statics/assets/js/custom/scriptbreaker-multiple-accordion-1.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/custom/scriptbreaker-multiple-accordion-1.js", function() {
 
     $(".topnav").accordionze({
         accordionze: true,
         speed: 500,
-        closedSign: '<img src="/SSM_Commodity/statics/assets/img/plus.png">',
-        openedSign: '<img src="/SSM_Commodity/statics/assets/img/minus.png">'
+        closedSign: '<img src="/SSM_Supermarket/statics/assets/img/plus.png">',
+        openedSign: '<img src="/SSM_Supermarket/statics/assets/img/minus.png">'
     });
 
 });
 
 ////Right Sliding menu
 
-head.js("/SSM_Commodity/statics/assets/js/slidebars/slidebars.min.js", "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/slidebars/slidebars.min.js", "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js", function() {
 
     $(document).ready(function() {
         var mySlidebars = new $.slidebars();
@@ -53,7 +53,7 @@ head.js("/SSM_Commodity/statics/assets/js/slidebars/slidebars.min.js", "http://c
 //-------------------------------------------------------------
 
 //SEARCH MENU
-head.js("/SSM_Commodity/statics/assets/js/search/jquery.quicksearch.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/search/jquery.quicksearch.js", function() {
 
     $('input.id_search').quicksearch('#menu-showhide li, .menu-left-nest li');
    
@@ -65,7 +65,7 @@ head.js("/SSM_Commodity/statics/assets/js/search/jquery.quicksearch.js", functio
 
 
 //EASY PIE CHART
-head.js("/SSM_Commodity/statics/assets/js/gage/jquery.easypiechart.min.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/gage/jquery.easypiechart.min.js", function() {
 
     $(function() {
 
@@ -117,7 +117,7 @@ head.js("/SSM_Commodity/statics/assets/js/gage/jquery.easypiechart.min.js", func
 
 //TOOL TIP
 
-head.js("/SSM_Commodity/statics/assets/js/tip/jquery.tooltipster.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/tip/jquery.tooltipster.js", function() {
 
     $('.tooltip-tip-x').tooltipster({
         position: 'right'
@@ -172,7 +172,7 @@ head.js("/SSM_Commodity/statics/assets/js/tip/jquery.tooltipster.js", function()
 
 //NICE SCROLL
 
-head.js("/SSM_Commodity/statics/assets/js/nano/jquery.nanoscroller.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/nano/jquery.nanoscroller.js", function() {
 
     $(".nano").nanoScroller({
         //stop: true 
@@ -194,7 +194,7 @@ head.js("/SSM_Commodity/statics/assets/js/nano/jquery.nanoscroller.js", function
 
 //------------------------------------------------------------- 
 //PAGE LOADER
-head.js("/SSM_Commodity/statics/assets/js/pace/pace.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/pace/pace.js", function() {
 
     paceOptions = {
         ajax: false, // disabled
@@ -210,7 +210,7 @@ head.js("/SSM_Commodity/statics/assets/js/pace/pace.js", function() {
 //------------------------------------------------------------- 
 
 //SPARKLINE CHART
-head.js("/SSM_Commodity/statics/assets/js/chart/jquery.sparkline.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/chart/jquery.sparkline.js", function() {
 
     $(function() {
         $('.inlinebar').sparkline('html', {
@@ -275,7 +275,7 @@ head.js("/SSM_Commodity/statics/assets/js/chart/jquery.sparkline.js", function()
 //------------------------------------------------------------- 
 
 //DIGITAL CLOCK
-head.js("/SSM_Commodity/statics/assets/js/clock/jquery.clock.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/clock/jquery.clock.js", function() {
 
     //clock
     $('#digital-clock').clock({
@@ -289,7 +289,7 @@ head.js("/SSM_Commodity/statics/assets/js/clock/jquery.clock.js", function() {
 
 //------------------------------------------------------------- 
 
-head.js("/SSM_Commodity/statics/assets/js/gage/raphael.2.1.0.min.js", "/SSM_Commodity/statics/assets/js/gage/justgage.js", function() {
+head.js("/SSM_Supermarket/statics/assets/js/gage/raphael.2.1.0.min.js", "/SSM_Supermarket/statics/assets/js/gage/justgage.js", function() {
 
 
 
