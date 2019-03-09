@@ -33,10 +33,31 @@ public class Merchinfo {
     private Integer allowSale;
     //厂商编号
     private Integer factoryID;
+    //厂商名称
+    private String factoryName;
     //供货商编号
     private Integer provideID;
+    //供货商名称
+    private String provideName;
 
-    public Integer getMerchID() {
+    
+    public String getFactoryName() {
+		return factoryName;
+	}
+
+	public void setFactoryName(String factoryName) {
+		this.factoryName = factoryName;
+	}
+
+	public String getProvideName() {
+		return provideName;
+	}
+
+	public void setProvideName(String provideName) {
+		this.provideName = provideName;
+	}
+
+	public Integer getMerchID() {
         return merchID;
     }
 

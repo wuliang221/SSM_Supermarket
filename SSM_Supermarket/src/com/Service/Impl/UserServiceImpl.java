@@ -21,7 +21,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean findUser(String UserName, String UserPW) {
-		return userMapper.getUser(UserName, UserPW);
+		boolean rs=false;
+		int result = userMapper.getUser(UserName, UserPW);
+		if(result>0){
+			rs=true;
+		}
+		return rs;
 	}
 
 }
