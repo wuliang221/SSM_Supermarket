@@ -23,21 +23,21 @@ public class Coneroller {
 	private UserService userService;
 
 	//登录页面
-	@RequestMapping("/f.html")
+	@RequestMapping("/DL.html")
 	public String DL(){
-		return "denglu";
+		return "DL";
 	}
 	
 	//员工端主页
-	@RequestMapping("/z.html")
-	public String ZY(Model model){
-		return "MyJsp";
+	@RequestMapping("/YG.html")
+	public String YG(Model model){
+		return "YG";
 	}
 	
 	//经理端主页
-	@RequestMapping("/jingli.html")
-	public String ZY2(){
-		return "jingli";
+	@RequestMapping("/JL.html")
+	public String JL(){
+		return "JL";
 	}
 	
 	//登陆判断

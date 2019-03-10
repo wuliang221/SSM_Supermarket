@@ -3,7 +3,7 @@
   <display-name>springMVC</display-name>
   
   <welcome-file-list>
-    <welcome-file>/WEB-INF/jsp/MyJsp.jsp</welcome-file>
+    <welcome-file>/WEB-INF/jsp/DL.jsp</welcome-file>
   </welcome-file-list>
   
   <context-param>

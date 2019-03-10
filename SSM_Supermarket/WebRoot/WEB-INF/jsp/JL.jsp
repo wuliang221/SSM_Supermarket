@@ -20,11 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   		<!-- 引入模态框 -->
-		<jsp:includepage="module/modal_box.jsp"/>
+		<jsp:includepage="JL/module/modal_box.jsp"/>
   		<!-- 引入网页头部 -->
-		<jsp:includepage="module/head.jsp"/>
+		<jsp:includepage="JL/module/head.jsp"/>
 		<!-- 引入左侧选择框 -->
-		<jsp:includepage="module/JLleft.jsp"/>
+		<jsp:includepage="JL/module/JLleft.jsp"/>
     <div class="wrap-fluid">
         <div class="container-fluid paper-wrap bevel tlbr">
             <div class="row">
@@ -58,9 +58,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!-- 引入表单 -->
 		<div class="content-wrap" id="maindiv"></div>
         </div>
-        
-        
-
         </div>
     </div>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/bootstrap.js"></script>
@@ -69,11 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/skin-select/jquery.cookie.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/main.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/MyJsp.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/JL/JL.js"></script>
 	
 	<input type="hidden" id="url" value="${pageContext.request.contextPath }">
-  	<script src="${pageContext.request.contextPath }/statics/js/Table_js/goods.js"></script>
-  	<script src="${pageContext.request.contextPath }/statics/js/Table_js/supplier.js"></script>
-  	 <script src="${pageContext.request.contextPath }/statics/js/Table_js/worker.js"></script>
+  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/goods.js"></script>
+  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/supplier.js"></script>
+  	 <script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/worker.js"></script>
   </body>
 </html>
