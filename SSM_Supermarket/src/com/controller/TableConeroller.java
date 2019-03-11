@@ -20,20 +20,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TableConeroller {
 
 
-	//商品库存表
-	@RequestMapping(value="/bg11")
+	//员工信息表
+	@RequestMapping(value="/User")
 	@ResponseBody
 	public void BG11(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("======================================================================");
-		request.getRequestDispatcher("/WEB-INF/jsp/Table/TableSP1.jsp").forward(request, response);
+		System.out.println("================================================================员工数据表");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableYG_User.jsp").forward(request, response);
 	}
 	
-	//商品价格表
-	@RequestMapping(value="/bg12")
+	//会员信息表
+	@RequestMapping(value="/Menber")
 	@ResponseBody
-	public void BG12(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("======================================================================");
-		request.getRequestDispatcher("/WEB-INF/jsp/Table/TableSP2.jsp").forward(request, response);
+	public void Menber(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		System.out.println("================================================================会员数据表");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableYG_Menber.jsp").forward(request, response);
 	}
 	
 	//供应商信息表

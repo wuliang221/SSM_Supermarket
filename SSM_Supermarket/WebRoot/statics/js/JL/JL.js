@@ -291,30 +291,33 @@ function js_table(date) {
 	var lianjie=$("#url").val();
 	var com="";
 	if(date==11){
-		$("#biaodanname").text("商品信息表");
+		$("#biaodanname").text("");
 		com="/goods/findgoods.html";
 	}else if(date==12){
-		$("#biaodanname").text("商品库存表");
+		$("#biaodanname").text("");
 		com="/goods/findgoodscount.html";
 	}else if(date==21){
-		$("#biaodanname").text("供应商信息表");
+		$("#biaodanname").text("");
 		com="/supplier/suppslelct.html";
 	}else if(date==31){
-		$("#biaodanname").text("个人销售信息表");
+		$("#biaodanname").text("");
 		com="";
 	}else if(date==32){
-		$("#biaodanname").text("销售信息表");
+		$("#biaodanname").text("");
 		com="";
-	}else if(date==41){
+	}else if(date=="User"){
 		$("#biaodanname").text("员工信息表");
-		com="/worker/worker.html";
+		com="";
+	}else if(date=="Menber"){
+		$("#biaodanname").text("会员信息表");
+		com="";
 	}
 	$.ajax({
 		type :"get",
-		url:$("#url").val()+"/table/bg"+date,
+		url:$("#url").val()+"/table/"+date,
 		dataType:"html",
 		success : function(data) {
-			$("#maindiv").load(lianjie+com);
+			/*$("#maindiv").load(lianjie+com);*/
 			$("#maindiv").html(data);
 		},
 		error : function() {

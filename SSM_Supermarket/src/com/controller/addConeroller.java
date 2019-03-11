@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/add")
 public class addConeroller {
 	
-	//商品添加add页面
-	@RequestMapping(value="/addSP.html")
+	//员工添加add页面
+	@RequestMapping(value="/addYG.html")
 	@ResponseBody
 	public void addSP(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("======================================================================商品添加add页面");
-		request.getRequestDispatcher("/WEB-INF/jsp/add/addSP.jsp").forward(request, response);
+		System.out.println("===========================================员工添加add页面加载");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/add/addYG.jsp").forward(request, response);
 	}
 	
 	//供应商添加add页面
@@ -47,7 +47,7 @@ public class addConeroller {
 		}
 	
 	//员工添加add页面
-		@RequestMapping(value="/addYG.html")
+		@RequestMapping(value="/addY.html")
 		@ResponseBody
 		public void add4(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 			System.out.println("======================================================================员工添加add页面");

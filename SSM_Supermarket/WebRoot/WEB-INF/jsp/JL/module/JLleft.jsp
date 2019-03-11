@@ -125,8 +125,8 @@
                             </a>
                             <ul>
                                  <li>
-                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="" title="员工信息"><i class="entypo-archive"></i><span>员工信息</span></a>
-                                	<a class="tooltip-tip" href="javascript:void(0);" onclick="js_add('addGYS')" title="员工添加"><i class="icon icon-plus"></i><span>员工添加</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('User')" title="员工信息"><i class="entypo-archive"></i><span>员工信息</span></a>
+                                	<a class="tooltip-tip" href="javascript:void(0);" onclick="js_add('addYG')" title="员工添加"><i class="icon icon-plus"></i><span>员工添加</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -137,7 +137,7 @@
                             </a>
                             <ul>
                                  <li>
-                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="" title="会员信息"><i class="entypo-archive"></i><span>会员信息</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('Menber')" title="会员信息"><i class="entypo-archive"></i><span>会员信息</span></a>
                                 </li>
                             </ul>
                         </li>

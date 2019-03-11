@@ -12,10 +12,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <meta charset="utf-8">
     <title>经理端v1.0</title>
+
     <script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/jquery.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/statics/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/statics/assets/css/loader-style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/statics/assets/css/bootstrap.css">
+    
   </head>
   
   <body>
@@ -56,7 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <!-- 引入表单 -->
-		<div class="content-wrap" id="maindiv"></div>
+			<div class="content-wrap" id="maindiv">
+			
+			<input type='text' class="form-control" id='YG4' placeholder="请选择日期" />
+			</div>
         </div>
         </div>
     </div>
@@ -71,6 +76,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<input type="hidden" id="url" value="${pageContext.request.contextPath }">
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/goods.js"></script>
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/supplier.js"></script>
-  	 <script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/worker.js"></script>
+  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/worker.js"></script>
+  	<!-- 时间控件 -->
+	<script src="${pageContext.request.contextPath }/statics/layDate-v5.0.9/laydate/laydate.js"></script>
+	<script type="text/javascript">
+	$(document).on('click', "#YG2", function(){
+		laydate.render({
+	    elem: '#YG2'
+	    ,show: true //直接显示
+	    ,closeStop: '#YG2' //这里代表的意思是：点击 test1 所在元素阻止关闭事件冒泡。如果不设定，则无法弹出控件
+	  });
+	});
+	</script>
   </body>
 </html>

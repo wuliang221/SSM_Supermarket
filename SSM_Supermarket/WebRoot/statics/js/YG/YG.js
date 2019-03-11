@@ -354,3 +354,4 @@ function shu() {
     }
 }
 var myTime=window.setInterval("shu()",100);
+
