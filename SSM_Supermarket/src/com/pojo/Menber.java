@@ -15,7 +15,7 @@ public class Menber {
     private Double totalCost;
     //注册日期
     private Date regDate;
-    
+    //会员地址
     private String membersite;
     //会员电话号
     private String memberPhone;

@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -25,13 +26,15 @@ public interface UserMapper {
 
 	//修改用户信息
 	public int updateUser(@Param("UserName")String UserName,@Param("UserPhone")String UserPhone,
-								@Param("UserStyle")Integer UserStyle,@Param("userPW")String userPW,
+								@Param("UserStyle")Integer UserStyle,@Param("UserPW")String UserPW,
 								@Param("UserAddress")String UserAddress);
 
 	//新增用户信息
-	public int addUser(@Param("UserName")String UserName,@Param("UserPhone")String UserPhone,
-						@Param("UserStyle")Integer UserStyle,@Param("userPW")String userPW,
-						@Param("UserAddress")String UserAddress);
+	public int addUser(@Param("UserName")String UserName,@Param("UserSex")String UserSex,
+						@Param("UserAge")Integer UserAge,@Param("UserPhone")String UserPhone,
+						@Param("UserStyle")Integer UserStyle,@Param("UserDate")Date UserDate
+						);
+	
 	
 	//根据ID删除用户
 	public int delectUser(@Param("userID")Integer userID);

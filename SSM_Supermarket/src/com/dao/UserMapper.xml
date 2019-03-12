@@ -7,21 +7,15 @@
     <result column="UserPW" property="userPW" jdbcType="VARCHAR" />
     <result column="UserStyle" property="userStyle" jdbcType="INTEGER" />
      <result column="UserSex" property="userSex" jdbcType="VARCHAR" />
-    <result column="userAge" property="userAge" jdbcType="INTEGER" />
+    <result column="UserAge" property="userAge" jdbcType="INTEGER" />
      <result column="UserSex" property="userSex" jdbcType="VARCHAR" />
     <result column="UserAddress" property="userAddress" jdbcType="VARCHAR" />
-     <result column="Useraddtime" property="useraddtime" jdbcType="TIMESTAMP" />
+     <result column="userDate" property="userDate" jdbcType="TIMESTAMP" />
   </resultMap>
  <!-- 查询账号放入session -->
  <select id="user" resultType="User">
 SELECT 	
-	UserID, 
-	UserName, 
-	UserPW, 
-	UserPhone, 
-	UserAddress, 
-	Useraddtime, 
-	UserStyle
+	*
 	FROM 
 	supermarket_mysql.user 
 		WHERE UserPhone=#{UserPhone} 
@@ -57,13 +51,7 @@ SELECT
  <!--分页查询所有的用户  -->
  <select id="userAll" resultType="User"> 
  
-SELECT 	UserID, 
-	UserName, 
-	UserPW, 
-	UserPhone, 
-	UserAddress, 
-	Useraddtime, 
-	UserStyle
+SELECT 	*
 	 
 	FROM 
 	supermarket_mysql.user 
@@ -89,7 +77,9 @@ UPDATE supermarket_mysql.user
 	UserPW = #{UserPW} , 
 	UserPhone = #{UserPhone} , 
 	UserAddress = #{UserAddress} , 
-	UserStyle = #{UserStyle}
+	UserStyle = #{UserStyle},
+	UserSex = #{UserSex} , 
+	UserAge = #{UserAge}
 	WHERE
 	UserID = #{UserID} ;
  </update>
@@ -99,22 +89,20 @@ UPDATE supermarket_mysql.user
  INSERT INTO supermarket_mysql.user 
 	(
 	UserName, 
-	UserPW, 
-	UserPhone, 
-	UserAddress, 
-	UserStyle,
 	UserSex, 
-	userAge
+	UserAge, 
+	UserPhone, 
+	UserStyle, 
+	UserDate
 	)
 	VALUES
-	(
+	( 
 	#{UserName}, 
-	#{UserPW}, 
+	#{UserSex}, 
+	#{UserAge}, 
 	#{UserPhone}, 
-	#{UserAddress}, 
-	#{UserStyle},
-	#{userSex},
-	#{userAge}
+	#{UserStyle}, 
+	#{UserDate}
 	);
  
  </insert>

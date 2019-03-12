@@ -1,5 +1,6 @@
 package com.Service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.pojo.User;
@@ -23,7 +24,7 @@ public interface UserService {
 			public boolean updateUser(String UserName,String UserPhone,Integer UserStyle,String userPW,String UserAddress);
 		
 			//判断新增用户信息是否成功
-			public boolean addUser(String UserName,	String UserPhone,Integer UserStyle,String userPW,String UserAddress);
+			public boolean addUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate);
 		
 			//判断根据ID删除用户是否成功
 			public boolean delectUser(Integer userID);

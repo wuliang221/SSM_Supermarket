@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -58,7 +60,7 @@ public class WorkerController {
 		model.addAttribute("UserStyle", UserStyle);
 		model.addAttribute("userAllFind", userAllFind);
 		model.addAttribute("ps", ps);
-		return "Table/TableYG1";
+		return "JL/Table/TableYG_User";
 		
 	}
 	
@@ -76,14 +78,15 @@ public class WorkerController {
 				return JSON.toJSONString(json);
 		
 	}
-	@RequestMapping("/add.json")
+	@RequestMapping(value="/add.json",method=RequestMethod.POST)
 	@ResponseBody
-	public Object addUser(@RequestParam("UserName")String UserName,@RequestParam("UserPhone")String UserPhone,
-			@RequestParam("UserStyle")Integer UserStyle,@RequestParam("userPW")String userPW,
-			@RequestParam("UserAddress")String UserAddress){
+	public Object addUser(@RequestParam("UserName")String UserName,@RequestParam("UserSex")String UserSex,
+			@RequestParam("UserAge")Integer UserAge,@RequestParam("UserPhone")String UserPhone,
+			@RequestParam("UserStyle")Integer UserStyle,@RequestParam("UserDate")Date UserDate){
 		boolean result=false;
 		String json=null;
-		result=userService.addUser(UserName, UserPhone, UserStyle, userPW, UserAddress);
+		System.out.println(UserName+UserSex+UserAge+UserPhone+UserStyle+UserDate);
+		result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, UserDate);
 		if(result==true){
 			json="success";
 		}

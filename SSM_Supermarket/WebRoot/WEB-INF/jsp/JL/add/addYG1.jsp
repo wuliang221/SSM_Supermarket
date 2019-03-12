@@ -69,7 +69,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-actions" style="margin:20px 0 0 0;">
-                                                <button onclick="js_tianjia('1')" class="btn btn-primary">保存</button>
+                                                <button onclick="js_tianjia('111')" class="btn btn-primary">保存</button>
                                                 <button type="reset" class="btn">清空</button>
                                             </div>
                                         </fieldset>

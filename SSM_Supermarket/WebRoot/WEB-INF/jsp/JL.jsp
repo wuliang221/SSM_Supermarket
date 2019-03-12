@@ -74,6 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/JL/JL.js"></script>
 	
 	<input type="hidden" id="url" value="${pageContext.request.contextPath }">
+	
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/goods.js"></script>
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/supplier.js"></script>
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/worker.js"></script>

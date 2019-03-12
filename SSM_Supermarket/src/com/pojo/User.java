@@ -2,6 +2,8 @@ package com.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 用户表
  * @author DELL
@@ -17,17 +19,27 @@ public class User {
     //用户权限
     private Integer userStyle;
     //用户手机
-    private String UserPhone;
+    private String userPhone;
     //用户住址
-    private String UserAddress;
+    private String userAddress;
     //用户入职时间
-    private Date Useraddtime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date userDate;
     //性别
     private String userSex;
     //年龄
     private Integer userAge;
     
-    public String getUserSex() {
+    
+    public Date getUserDate() {
+		return userDate;
+	}
+
+	public void setUserDate(Date userDate) {
+		this.userDate = userDate;
+	}
+
+	public String getUserSex() {
 		return userSex;
 	}
 
@@ -45,28 +57,23 @@ public class User {
 
 	
 
-    public String getUserPhone() {
-		return UserPhone;
+   
+	
+
+	public String getUserPhone() {
+		return userPhone;
 	}
 
 	public void setUserPhone(String userPhone) {
-		UserPhone = userPhone;
+		this.userPhone = userPhone;
 	}
 
 	public String getUserAddress() {
-		return UserAddress;
+		return userAddress;
 	}
 
 	public void setUserAddress(String userAddress) {
-		UserAddress = userAddress;
-	}
-
-	public Date getUseraddtime() {
-		return Useraddtime;
-	}
-
-	public void setUseraddtime(Date useraddtime) {
-		Useraddtime = useraddtime;
+		this.userAddress = userAddress;
 	}
 
 	public Integer getUserID() {

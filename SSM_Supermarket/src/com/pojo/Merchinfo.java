@@ -17,6 +17,8 @@ public class Merchinfo {
     private Integer merchNum;
     //库存报警数量
     private Integer cautionNum;
+    //进货价
+    private Double merchCost;
     //计划进货数
     private Integer planNum;
     //条形码
@@ -37,6 +39,14 @@ public class Merchinfo {
     private String provideName;
 
     
+
+	public Double getMerchCost() {
+		return merchCost;
+	}
+
+	public void setMerchCost(Double merchCost) {
+		this.merchCost = merchCost;
+	}
 
 	public String getProvideName() {
 		return provideName;

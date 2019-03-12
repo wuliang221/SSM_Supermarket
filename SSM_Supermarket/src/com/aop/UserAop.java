@@ -25,22 +25,22 @@ public class UserAop {
 	 * public void main(var)
 	 *  * com.dao..*.* (..)
 	 */
-	@Before("execution(* com.service.impl.*.*(..))")
+	@Before("execution(* com.Service.Impl.*.*(..))")
 	public void before(JoinPoint jp){
 		log.info("===================================================================================================================");
 		log.info("|调用："+jp.getTarget()+"的"+jp.getSignature().getName()+"方法。" );
-		log.info("|=================================前置增强方法===========================");
+		log.info("|                            前置增强方法                                            ");
 		log.info("|方法入参："+Arrays.toString(jp.getArgs()));
 		log.info("===================================================================================================================");
 	}
 	 
 	//后置增强方法
-	@AfterReturning(pointcut="execution(* com.service.impl.*.*(..))",returning="result")
+	@AfterReturning(pointcut="execution(* com.Service.Impl.*.*(..))",returning="result")
 	public void after(JoinPoint jp,Object result){
 		log.info("===================================================================================================================");
 		log.info("|调用："+jp.getTarget()+"的"+jp.getSignature().getName()+"方法。");
-		log.info("|================================后置增强方法============================");
-		log.info("|=============返回值："+result+"=========================================");
+		log.info("|                            后置增强方法                                            ");
+		log.info("|返回值："+result+"                  ");
 		log.info("==================================================================================================================");
 	}
 	

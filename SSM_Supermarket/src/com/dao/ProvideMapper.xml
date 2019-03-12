@@ -6,6 +6,7 @@
     <result column="ProvideName" property="provideName" jdbcType="VARCHAR" />
     <result column="ProvideAddress" property="provideAddress" jdbcType="VARCHAR" />
     <result column="ProvidePhone" property="providePhone" jdbcType="VARCHAR" />
+    <result column="ProvideContact" property="provideContact" jdbcType="VARCHAR" />
   </resultMap>
   
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="FilteringClose"> 
@@ -29,17 +30,17 @@
                                     <tbody>
                                     <c:forEach items="${userAllFind }" var="u">
                                     <tr>
-                                        <td>${u.UserName }</td>
-                                        <td>${u.UserSex }</td>
-                                        <td>${u.UserAge }</td>
-                                        <td>${u.UserPhone }</td>
-                                        <td>${u.UserStyle}</td>
-                                        <td>${u.UserDate}</td>
+                                        <td>${u.userName }</td>
+                                        <td>${u.userSex }</td>
+                                        <td>${u.userAge }</td>
+                                        <td>${u.userPhone }</td>
+                                        <td>${u.userStyle}</td>
+                                        <td> <fmt:formatDate type="date" value="${u.userDate}"  pattern="yyyy-MM-dd"/></td>
                                         <td>
-                                            <button type="button" onclick="js_x_user('${u.UserID }','${u.UserName }',
-                                            '${u.UserSex }','${u.UserAge }','${u.UserPhone }',
-                                            '${u.UserStyle }','${u.UserDate }')" class="btn btn-primary btn-xs">修改</button>
-                                            <button type="button" onclick="js_s('${u.UserID }','User')" class="btn btn-danger btn-xs">删除</button>
+                                            <button type="button" onclick="js_x_user('${u.userID }','${u.userName }',
+                                            '${u.userSex }','${u.userAge }','${u.userPhone }',
+                                            '${u.userStyle }','${u.userDate }')" class="btn btn-primary btn-xs">修改</button>
+                                            <button type="button" onclick="js_s('${u.userID }','User')" class="btn btn-danger btn-xs">删除</button>
                                         </td>
                                     </tr>
                                     </c:forEach>

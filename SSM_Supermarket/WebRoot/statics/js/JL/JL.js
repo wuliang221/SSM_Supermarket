@@ -181,7 +181,16 @@ function js_tianjia(date) {
 		var z2=$("#inputEmail72").val();
 		var z3=$("#inputEmail73").val();
 		
-	}else if(date == "8"){
+	}else if(date == "YG"){
+		data3="addYG";
+		url+="/worker/add.json";
+		var yg1=$("#YG1").val();
+		var yg2=$("#YG2").val();
+		var yg3=$("#YG3").val();
+		var yg4=$("#YG4").val();
+		var yg5=$("#YG5").val();
+		var yg6=$("#YG6").val();
+		data2={UserName:yg1, UserDate:yg2, UserStyle:yg3,UserSex:yg4, UserAge:yg5, UserPhone:yg6};
 		
 	}else if(date == "9"){
 		
@@ -195,7 +204,7 @@ function js_tianjia(date) {
 		data:data2,
 		dataType:"json",	
 		success : function(data) {
-			if(data=="session"){
+			if(data=="success"){
 			alert("添加成功！");
 			js_add(data3);
 			}
@@ -317,7 +326,7 @@ function js_table(date) {
 		url:$("#url").val()+"/table/"+date,
 		dataType:"html",
 		success : function(data) {
-			/*$("#maindiv").load(lianjie+com);*/
+			$("#maindiv").load(lianjie+com);
 			$("#maindiv").html(data);
 		},
 		error : function() {

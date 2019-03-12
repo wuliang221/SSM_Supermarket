@@ -11,10 +11,21 @@ public class Provide {
     private String provideName;
     //供货商地址
     private String provideAddress;
+    //联系人
+    private String provideContact;
     //供货商电话
     private String providePhone;
 
-    public Integer getProvideID() {
+    
+    public String getProvideContact() {
+		return provideContact;
+	}
+
+	public void setProvideContact(String provideContact) {
+		this.provideContact = provideContact;
+	}
+
+	public Integer getProvideID() {
         return provideID;
     }
 

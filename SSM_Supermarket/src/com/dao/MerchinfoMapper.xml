@@ -5,6 +5,7 @@
     <id column="MerchID" property="merchID" jdbcType="INTEGER" />
     <result column="MerchName" property="merchName" jdbcType="VARCHAR" />
     <result column="MerchPrice" property="merchPrice" jdbcType="DOUBLE" />
+    <result column="MerchCost" property="merchCost" jdbcType="DOUBLE" />
     <result column="MerchNum" property="merchNum" jdbcType="INTEGER" />
     <result column="CautionNum" property="cautionNum" jdbcType="INTEGER" />
     <result column="PlanNum" property="planNum" jdbcType="INTEGER" />

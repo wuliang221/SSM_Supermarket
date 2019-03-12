@@ -1,5 +1,6 @@
 package com.Service.Impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -58,10 +59,9 @@ public class UserServiceImpl implements UserService {
 	}
 	//判断是否添加成功
 	@Override
-	public boolean addUser(String UserName, String UserPhone,
-			Integer UserStyle, String userPW, String UserAddress) {
+	public boolean addUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate) {
 		boolean rs=false;
-		int result = userMapper.addUser(UserName, UserPhone, UserStyle, userPW, UserAddress);
+		int result = userMapper.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, UserDate);
 		if(result>0){
 			rs=true;
 		}
