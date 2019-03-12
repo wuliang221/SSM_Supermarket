@@ -58,10 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <!-- 引入表单 -->
-			<div class="content-wrap" id="maindiv">
-			
-			<input type='text' class="form-control" id='YG4' placeholder="请选择日期" />
-			</div>
+			<div class="content-wrap" id="maindiv"></div>
         </div>
         </div>
     </div>

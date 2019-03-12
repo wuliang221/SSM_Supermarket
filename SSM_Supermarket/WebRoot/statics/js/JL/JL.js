@@ -299,11 +299,11 @@ function js_table(date) {
 	}else if(date==21){
 		$("#biaodanname").text("");
 		com="/supplier/suppslelct.html";
-	}else if(date==31){
-		$("#biaodanname").text("");
+	}else if(date=="Merchinfo"){
+		$("#biaodanname").text("商品信息表");
 		com="";
-	}else if(date==32){
-		$("#biaodanname").text("");
+	}else if(date=="Provide"){
+		$("#biaodanname").text("供应商信息表");
 		com="";
 	}else if(date=="User"){
 		$("#biaodanname").text("员工信息表");

@@ -24,7 +24,7 @@ public class TableConeroller {
 	@RequestMapping(value="/User")
 	@ResponseBody
 	public void BG11(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("================================================================员工数据表");
+		System.out.println("================================================================加载员工数据表");
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableYG_User.jsp").forward(request, response);
 	}
 	
@@ -32,32 +32,25 @@ public class TableConeroller {
 	@RequestMapping(value="/Menber")
 	@ResponseBody
 	public void Menber(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("================================================================会员数据表");
+		System.out.println("================================================================加载会员数据表");
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableYG_Menber.jsp").forward(request, response);
 	}
 	
 	//供应商信息表
-	@RequestMapping(value="/bg21")
+	@RequestMapping(value="/Provide")
 	@ResponseBody
 	public void BG21(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("======================================================================");
-		request.getRequestDispatcher("/WEB-INF/jsp/Table/TableGYS1.jsp").forward(request, response);
+		System.out.println("================================================================加载供应商信息表");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableGYS_Provide.jsp").forward(request, response);
 	}
 	
-	//供应商信息表
-	@RequestMapping(value="/bg31")
+	//商品信息表
+	@RequestMapping(value="/Merchinfo")
 	@ResponseBody
-	public void BG31(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("======================================================================");
-		request.getRequestDispatcher("/WEB-INF/jsp/Table/TableGYS1.jsp").forward(request, response);
+	public void Merchinfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		System.out.println("================================================================加载商品信息表");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableSP_Merchinfo.jsp").forward(request, response);
 	}
 	
-	//供应商信息表
-	@RequestMapping(value="/bg41")
-	@ResponseBody
-	public void BG41(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("======================================================================");
-		request.getRequestDispatcher("/WEB-INF/jsp/Table/TableYG1.jsp").forward(request, response);
-	}
 
 }

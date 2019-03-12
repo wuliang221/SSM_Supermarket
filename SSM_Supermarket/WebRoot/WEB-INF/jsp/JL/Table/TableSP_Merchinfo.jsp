@@ -8,48 +8,39 @@
                                     <div class="col-sm-4">
                                         <input class="form-control" id="filter" placeholder="商品名称..." type="text" value="${goodsName }">
                                     </div>
-                                    <div class="col-sm-2">
-                                        <select class="filter-status form-control" id="typeno">
-                                            <option value="">商品分类...
-                                            <c:forEach items="${type }" var="t">
-                                            	<option 
-                                            		<c:if test="${t.typeno==typeNo }" >selected = "selected"</c:if>
-                                            	value="${t.typeno }">${t.typename }</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>	
                                     <div class="col-sm-6">
-                                        <a href="#clear" style="margin-left:10px;" class="pull-right btn btn-info clear-filter" title="clear filter">待定</a>
                                         <a href="#api" class="pull-right btn btn-info filter-api" href="javascript:void(0);" onclick="chazhao()">查找</a>
                                     </div>
                                 </div>
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th>商品名</th>
-                                        <th>商品类别</th>
+                                    	<th>条形码</th>
+                                        <th>商品名称</th>
+                                        <th>商品价格</th>
+                                        <th>库存</th>
                                         <th>供应商</th>
-                                        <th>单位</th>
-                                        <th>进货价</th>
-                                        <th>销售价</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${goods }" var="g">
-                                     <input type="hidden" id="goodsno" value="${g.goodsno }"/>
-                                    <tr id="SP${g.goodsno }">
-                                        <td>${g.goodsname }</td>
-                                        <td>${g.typeName }</td>
-                                        <td>${g.supplierName }</td>
-                                        <td>${g.goodsunit }</td>
-                                        <td>${g.goodsinprise}</td>
-                                        <td>${g.goodsoutprise }</td>
+                                    <c:forEach items="${merchinfo }" var="m">
+                                    <tr id="${m.m }">
+                                        <td>${m.m }</td>
+                                        <td>${m.m }</td>
+                                        <td>${m.m }</td>
+                                        <td>${m.m }</td>
+                                        <td>${m.m}</td>
+                                        <td>${m.m }</td>
                                         <td>
-                                        	<button type="button" onclick="js_xiu1('${g.goodsno }','${g.goodsname }',
-                                        	'${g.typeno }','${g.supplierno }','${g.goodsunit}','${g.goodsinprise }'
-                                        	,'${g.goodsoutprise }')" class="btn btn-primary btn-xs">修改</button>
-                                            <button type="button" onclick="js_shanchu('${g.goodsno }','SP1','${g.typeName }')" class="btn btn-danger btn-xs">删除</button>
+                                        	<button type="button" onclick="js_xiu1('${m.m }','${m.m }',
+                                        	'${m.m }','${m.m }','${m.m}','${m.m }'
+                                        	,'${m.m }')" class="btn btn-primary btn-xs">详情</button>
+                                        	
+                                        	<button type="button" onclick="js_xiu1('${m.m }','${m.m }',
+                                        	'${m.m }','${m.m }','${m.m}','${m.m }'
+                                        	,'${m.m }')" class="btn btn-primary btn-xs">修改</button>
+                                            <button type="button" onclick="js_shanchu('${m.m }','SP1','${m.m }')" class="btn btn-danger btn-xs">删除</button>
                                         </td>
                                     </tr>
                                     </c:forEach>

@@ -16,21 +16,21 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th>供应商编号</th>
                                         <th>供应商名称</th>
-                                        <th>供应商地址</th>
                                         <th>联系人姓名</th>
                                         <th>联系人电话</th>
+                                        <th>供应商地址</th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${supplier}" var="s">
+                                    <c:forEach items="${provide}" var="p">
                                     <tr>
-                                        <td>${s.supplierno }</td>
-                                        <td>${s.suppliername }</td>
-                                        <td>${s.supplieradress }</td>
-                                        <td>${s.supplierpeoplename }</td>
-                                        <td>${s.supplierphone}</td>
+                                        <td>${p.p }</td>
+                                        <td>${p.p }</td>
+                                        <td>${p.p }</td>
+                                        <td>${p.p }</td>
+                                        <td>${p.p}</td>
                                         <td>
                                             <button type="button" onclick="js_xiu2('${s.supplierno }','${s.suppliername }','${s.supplieradress }','${s.supplierpeoplename }','${s.supplierphone }')" class="btn btn-primary btn-xs">修改</button>
                                             <button type="button" onclick="js_shanchu('${s.supplierno }','GYS','${s.suppliername }')" class="btn btn-danger btn-xs">删除</button>
