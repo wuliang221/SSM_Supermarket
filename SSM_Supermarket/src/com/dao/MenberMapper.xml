@@ -4,8 +4,10 @@
   <resultMap id="BaseResultMap" type="com.pojo.Menber" >
     <id column="MemberID" property="memberID" jdbcType="INTEGER" />
     <result column="MemberCard" property="memberCard" jdbcType="VARCHAR" />
+    <result column="Membersite" property="membersite" jdbcType="VARCHAR" />
+    <result column="MemberPhone" property="memberPhone" jdbcType="VARCHAR" />
     <result column="TotalCost" property="totalCost" jdbcType="DOUBLE" />
     <result column="RegDate" property="regDate" jdbcType="TIMESTAMP" />
+    
   </resultMap>
-  
 </mapper>
