@@ -7,7 +7,7 @@
     <result column="UserPW" property="userPW" jdbcType="VARCHAR" />
     <result column="UserStyle" property="userStyle" jdbcType="INTEGER" />
      <result column="UserSex" property="userSex" jdbcType="VARCHAR" />
-    <result column="UserAge" property="userAge" jdbcType="INTEGER" />
+    <result column="userAge" property="userAge" jdbcType="INTEGER" />
      <result column="UserSex" property="userSex" jdbcType="VARCHAR" />
     <result column="UserAddress" property="userAddress" jdbcType="VARCHAR" />
      <result column="Useraddtime" property="useraddtime" jdbcType="TIMESTAMP" />
@@ -102,7 +102,9 @@ UPDATE supermarket_mysql.user
 	UserPW, 
 	UserPhone, 
 	UserAddress, 
-	UserStyle
+	UserStyle,
+	UserSex, 
+	userAge
 	)
 	VALUES
 	(
@@ -110,7 +112,9 @@ UPDATE supermarket_mysql.user
 	#{UserPW}, 
 	#{UserPhone}, 
 	#{UserAddress}, 
-	#{UserStyle}
+	#{UserStyle},
+	#{userSex},
+	#{userAge}
 	);
  
  </insert>
