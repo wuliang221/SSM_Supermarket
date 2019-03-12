@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +22,13 @@ public class WorkerController {
 	private UserService userService;
 	@RequestMapping(value="/worker.html")
 	public String workerAll(@RequestParam(value="pageNo",required = false)String pageNo,
-							@RequestParam(value="UserName",required=false)String UserName,
+							@RequestParam(value="YGUserName",required=false)String YGUserName,
 							@RequestParam(value="UserPhone",required=false)String UserPhone,
 							@RequestParam(value="UserStyle",required=false)Integer UserStyle,Model model){
 		
 		
 
-		int result = userService.userCount(UserName, UserStyle, UserPhone);
+		int result = userService.userCount(YGUserName, UserStyle, UserPhone);
 		if (pageNo == null || pageNo == "") {
 			pageNo = "1";
 		}
@@ -52,9 +51,9 @@ public class WorkerController {
 		System.out.println("==========================" + (ps.getCurrPageNo() - 1)
 				* ps.getPageSize());
 
-		List<User> userAllFind = userService.userAll(UserName, UserStyle, UserPhone, index, ps.getPageSize());
+		List<User> userAllFind = userService.userAll(YGUserName, UserStyle, UserPhone, index, ps.getPageSize());
 		System.out.println(userAllFind);
-		model.addAttribute("UserName", UserName);
+		model.addAttribute("YGUserName", YGUserName);
 		model.addAttribute("UserPhone", UserPhone);
 		model.addAttribute("UserStyle", UserStyle);
 		model.addAttribute("userAllFind", userAllFind);

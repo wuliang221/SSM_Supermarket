@@ -97,11 +97,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				dataType:"json",	
 				success : function(data) {
 				if(data == "success1"){
-						window.location.href=url+"/fin/jingli.html";
+						window.location.href=url+"/fin/JL.html";
 						return true;
 					}
 				if(data == "success2"){
-						window.location.href=url+"/fin/z.html";
+						window.location.href=url+"/fin/YG.html";
 						return true;
 					}
 					

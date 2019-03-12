@@ -307,7 +307,7 @@ function js_table(date) {
 		com="";
 	}else if(date=="User"){
 		$("#biaodanname").text("员工信息表");
-		com="";
+		com="/worker/worker.html";
 	}else if(date=="Menber"){
 		$("#biaodanname").text("会员信息表");
 		com="";

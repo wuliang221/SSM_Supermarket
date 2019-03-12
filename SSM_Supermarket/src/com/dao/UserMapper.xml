@@ -6,6 +6,11 @@
     <result column="UserName" property="userName" jdbcType="VARCHAR" />
     <result column="UserPW" property="userPW" jdbcType="VARCHAR" />
     <result column="UserStyle" property="userStyle" jdbcType="INTEGER" />
+     <result column="UserSex" property="userSex" jdbcType="VARCHAR" />
+    <result column="UserAge" property="userAge" jdbcType="INTEGER" />
+     <result column="UserSex" property="userSex" jdbcType="VARCHAR" />
+    <result column="UserAddress" property="userAddress" jdbcType="VARCHAR" />
+     <result column="Useraddtime" property="useraddtime" jdbcType="TIMESTAMP" />
   </resultMap>
  <!-- 查询账号放入session -->
  <select id="user" resultType="User">

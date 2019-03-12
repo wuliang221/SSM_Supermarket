@@ -7,7 +7,7 @@
                             <div class="body-nest" id="Filtering">
                                 <div class="row" style="margin-bottom:10px;">
                                     <div class="col-sm-4">
-                                        <input class="form-control" id="YGfilter" placeholder="员工名称..." type="text" value="${ygworkername}">
+                                        <input class="form-control" id="YGfilter"  placeholder="员工名称..." type="text" value="${YGUserName}">
                                     </div>
                                     <div class="col-sm-6">
                                         <a href="#clear" style="margin-left:10px;" class="pull-right btn btn-info clear-filter" title="clear filter">待定</a>
@@ -27,7 +27,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${User }" var="u">
+                                    <c:forEach items="${userAllFind }" var="u">
                                     <tr>
                                         <td>${u.UserName }</td>
                                         <td>${u.UserSex }</td>

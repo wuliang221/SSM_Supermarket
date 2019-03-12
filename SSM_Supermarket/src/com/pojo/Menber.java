@@ -15,8 +15,28 @@ public class Menber {
     private Double totalCost;
     //注册日期
     private Date regDate;
+    
+    private String membersite;
+    //会员电话号
+    private String memberPhone;
 
-    public Integer getMemberID() {
+    public String getMembersite() {
+		return membersite;
+	}
+
+	public void setMembersite(String membersite) {
+		this.membersite = membersite;
+	}
+
+	public String getMemberPhone() {
+		return memberPhone;
+	}
+
+	public void setMemberPhone(String memberPhone) {
+		this.memberPhone = memberPhone;
+	}
+
+	public Integer getMemberID() {
         return memberID;
     }
 

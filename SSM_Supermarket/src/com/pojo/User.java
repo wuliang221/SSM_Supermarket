@@ -22,6 +22,28 @@ public class User {
     private String UserAddress;
     //用户入职时间
     private Date Useraddtime;
+    //性别
+    private String userSex;
+    //年龄
+    private Integer userAge;
+    
+    public String getUserSex() {
+		return userSex;
+	}
+
+	public void setUserSex(String userSex) {
+		this.userSex = userSex;
+	}
+
+	public Integer getUserAge() {
+		return userAge;
+	}
+
+	public void setUserAge(Integer userAge) {
+		this.userAge = userAge;
+	}
+
+	
 
     public String getUserPhone() {
 		return UserPhone;
