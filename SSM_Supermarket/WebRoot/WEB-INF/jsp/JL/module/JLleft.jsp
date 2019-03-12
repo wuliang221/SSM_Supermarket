@@ -86,7 +86,7 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('11')" title="商品信息"><i class="entypo-doc-text"></i><span>商品信息</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('Merchinfo')" title="商品信息"><i class="entypo-doc-text"></i><span>商品信息</span></a>
                                 </li>
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('12')" title="库存记录"><i class="entypo-newspaper"></i><span>库存记录</span></a>
@@ -103,7 +103,7 @@
                             </a>
                             <ul>
                                  <li>
-                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('21')" title="供应商信息"><i class="entypo-archive"></i><span>供应商信息</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('Provide')" title="供应商信息"><i class="entypo-archive"></i><span>供应商信息</span></a>
                                 	<li><a class="tooltip-tip" href="javascript:void(0);" onclick="js_add('addGYS')" title="供应商添加"><i class="icon icon-plus"></i><span>供应商添加</span></a></li>
                                 </li>
                             </ul>

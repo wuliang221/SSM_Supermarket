@@ -12,25 +12,25 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="subject">供应商名称</label>
                                                 <div class="controls">
-                                                    <input type="text" class="form-control" name="supplierName" id="shuju21" placeholder="请输入供应商名称">
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label" for="subject">供应商名称</label>
-                                                <div class="controls">
-                                                    <input type="text" class="form-control" name="supplierAdress" id="shuju22" placeholder="请输入供应商名称">
+                                                    <input type="text" class="form-control" name="supplierName" id="GYS1" placeholder="请输入供应商名称">
                                                 </div>
                                             </div>
                                             <div class="control-group">
                                                 <label class="control-label" for="subject">联系人姓名</label>
                                                 <div class="controls">
-                                                    <input type="text" class="form-control" name="supplierPeopleName" id="shuju23" placeholder="请输入联系人姓名">
+                                                    <input type="text" class="form-control" name="supplierPeopleName" id="GYS2" placeholder="请输入联系人姓名">
                                                 </div>
                                             </div>
                                             <div class="control-group">
                                                 <label class="control-label" for="subject">联系人电话</label>
                                                 <div class="controls">
-                                                    <input type="text" class="form-control" name="supplierPhone" id="shuju24" placeholder="请输入电话号码">
+                                                    <input type="text" class="form-control" name="supplierPhone" id="GYS3" placeholder="请输入电话号码">
+                                                </div>
+                                            </div>
+                                             <div class="control-group">
+                                                <label class="control-label" for="subject">供应商地址</label>
+                                                <div class="controls">
+                                                    <input type="text" class="form-control" name="supplierAdress" id="GYS4" placeholder="请输入供应商地址">
                                                 </div>
                                             </div>
                                             <div class="form-actions" style="margin:20px 0 0 0;">
