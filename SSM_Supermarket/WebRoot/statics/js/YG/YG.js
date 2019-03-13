@@ -305,13 +305,13 @@ function js_table(date) {
 	}else if(date==32){
 		$("#biaodanname").text("销售信息表");
 		com="";
-	}else if(date==41){
+	}else if(date=="YGUser"){
 		$("#biaodanname").text("员工信息表");
-		com="/worker/worker.html";
+		com="/yg/worker.html";
 	}
 	$.ajax({
 		type :"get",
-		url:$("#url").val()+"/table/bg"+date,
+		url:$("#url").val()+"/table/"+date,
 		dataType:"html",
 		success : function(data) {
 			$("#maindiv").load(lianjie+com);
