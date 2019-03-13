@@ -26,7 +26,7 @@ public class addConeroller {
 	@ResponseBody
 	public void addSP(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		System.out.println("===========================================员工添加add页面加载");
-		request.getRequestDispatcher("/WEB-INF/jsp/JL/add/addYG.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/add/addYG_User.jsp").forward(request, response);
 	}
 	
 	//供应商添加add页面
@@ -37,27 +37,16 @@ public class addConeroller {
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/add/addGYS_Provide.jsp").forward(request, response);
 	}
 	
-	//销售添加add页面
-		@RequestMapping(value="/addXS.html")
-		@ResponseBody
-		public void add3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-			System.out.println("======================================================================销售添加add页面");
-			request.getRequestDispatcher("/WEB-INF/jsp/add/addXS.jsp").forward(request, response);
-		}
-	
-	//员工添加add页面
-		@RequestMapping(value="/addY.html")
-		@ResponseBody
-		public void add4(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-			System.out.println("======================================================================员工添加add页面");
-			request.getRequestDispatcher("/WEB-INF/jsp/add/addYG.jsp").forward(request, response);
-		}
+//商品添加add页面
+	@RequestMapping(value="/addSP.html")
+	@ResponseBody
+	public void add3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		System.out.println("======================================================================商品添加add页面");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/add/addSP_Merchinfo.jsp").forward(request, response);
+	}
 	
 	
 	
-	
-	
-
 }
 
 
