@@ -38,7 +38,7 @@ function ygchazhao() {
 }
 
 //删除刷新
-function ygshuaxin() {
+function shuaxin(yg) {
 	var lianjie=$("#url").val();
 	var page=$("#pageNothis").val();
 	var workername=$("#YGfilter").val();

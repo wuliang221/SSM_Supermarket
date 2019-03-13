@@ -34,13 +34,18 @@
                                         <td>${u.userSex }</td>
                                         <td>${u.userAge }</td>
                                         <td>${u.userPhone }</td>
-                                        <td>${u.userStyle}</td>
+                                          <c:if test="${u.userStyle==1}" >
+	                                       	 <td>经理</td>
+	                                     </c:if>
+	                                     <c:if test="${u.userStyle==2}" >
+	                                      	  <td>员工</td>
+	                                     </c:if>
                                         <td> <fmt:formatDate type="date" value="${u.userDate}"  pattern="yyyy-MM-dd"/></td>
                                         <td>
                                             <button type="button" onclick="js_x_user('${u.userID }','${u.userName }',
                                             '${u.userSex }','${u.userAge }','${u.userPhone }',
                                             '${u.userStyle }','${u.userDate }')" class="btn btn-primary btn-xs">修改</button>
-                                            <button type="button" onclick="js_s('${u.userID }','User')" class="btn btn-danger btn-xs">删除</button>
+                                            <button type="button" onclick="js_shan('YG','${u.userID }','${u.userName }')" class="btn btn-danger btn-xs">删除</button>
                                         </td>
                                     </tr>
                                     </c:forEach>

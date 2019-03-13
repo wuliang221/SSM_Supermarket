@@ -72,8 +72,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<input type="hidden" id="url" value="${pageContext.request.contextPath }">
 	
-  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/goods.js"></script>
-  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/supplier.js"></script>
+  <%-- 	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/goods.js"></script> --%>
+ <%--  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/supplier.js"></script> --%>
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/worker.js"></script>
   	<!-- 时间控件 -->
 	<script src="${pageContext.request.contextPath }/statics/layDate-v5.0.9/laydate/laydate.js"></script>

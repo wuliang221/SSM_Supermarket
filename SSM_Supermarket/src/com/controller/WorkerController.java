@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -64,14 +66,18 @@ public class WorkerController {
 		
 	}
 	
-	@RequestMapping("/update.json")
+	@RequestMapping(value="/update.json",method=RequestMethod.POST)
 	@ResponseBody
-	public Object updateUser(@RequestParam("UserName")String UserName,@RequestParam("UserPhone")String UserPhone,
-			@RequestParam("UserStyle")Integer UserStyle,@RequestParam("userPW")String userPW,
-			@RequestParam("UserAddress")String UserAddress){
+	public Object updateUser(@RequestParam("UserName")String UserName,@RequestParam("UserSex")String UserSex,
+							@RequestParam("UserAge")Integer UserAge,@RequestParam("UserPhone")String UserPhone,
+							@RequestParam("UserStyle")Integer UserStyle,@RequestParam("UserDate")String UserDate) throws ParseException{
 		boolean result=false;
 		String json=null;
-			result=userService.updateUser(UserName, UserPhone, UserStyle, userPW, UserAddress);
+		//时间转换格式
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				Date date = formatter.parse(UserDate);
+		
+			result=userService.updateUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
 			if(result==true){
 				json="success";
 			}
@@ -82,18 +88,23 @@ public class WorkerController {
 	@ResponseBody
 	public Object addUser(@RequestParam("UserName")String UserName,@RequestParam("UserSex")String UserSex,
 			@RequestParam("UserAge")Integer UserAge,@RequestParam("UserPhone")String UserPhone,
-			@RequestParam("UserStyle")Integer UserStyle,@RequestParam("UserDate")Date UserDate){
+			@RequestParam("UserStyle")Integer UserStyle,@RequestParam("UserDate")String UserDate) throws ParseException{
 		boolean result=false;
 		String json=null;
+		//时间转换格式
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = formatter.parse(UserDate);
+		System.out.println("========================================================");
 		System.out.println(UserName+UserSex+UserAge+UserPhone+UserStyle+UserDate);
-		result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, UserDate);
+		System.out.println("========================================================");
+		result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
 		if(result==true){
 			json="success";
 		}
 		return JSON.toJSONString(json);
 		
 	}
-	@RequestMapping("/del.json")
+	@RequestMapping(value="/del.json",method=RequestMethod.POST)
 	@ResponseBody
 	public Object del(@RequestParam("userID")Integer userID){
 		boolean result=false;

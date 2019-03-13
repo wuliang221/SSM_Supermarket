@@ -20,13 +20,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TableConeroller {
 
 
-	//员工信息表
+	//JL员工信息表
 	@RequestMapping(value="/User")
 	@ResponseBody
 	public void BG11(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		System.out.println("================================================================加载员工数据表");
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableYG_User.jsp").forward(request, response);
 	}
+	//YG员工信息表
+		@RequestMapping(value="/YGUser")
+		@ResponseBody
+		public void BG12(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+			System.out.println("================================================================加载员工数据表");
+			request.getRequestDispatcher("/WEB-INF/jsp/YG/Table/TableYG1.jsp").forward(request, response);
+		}
 	
 	//会员信息表
 	@RequestMapping(value="/Menber")

@@ -110,7 +110,7 @@ UPDATE supermarket_mysql.user
  <delete id="delectUser">
 DELETE FROM supermarket_mysql.user 
 	WHERE
-	UserID = #{UserID} ;
+	UserID = #{userID} ;
  </delete>
  
  

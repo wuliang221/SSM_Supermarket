@@ -117,7 +117,7 @@ function js_xiu3(on,id,id1,id2,id3) {
 }
 
 //员工修改模态框
-function js_xiu4(on,id,id1,id2,id3) {
+function js_x_user(on,id,id1,id2,id3,id4) {
 	$("#inputEmail40").val(on);
 	$("#inputEmail41").val(d1);
 	$("#inputEmail42").val(d2);
@@ -205,7 +205,7 @@ function js_tianjia(date) {
 		dataType:"json",	
 		success : function(data) {
 			if(data=="success"){
-			alert("添加成功！");
+			alert("添加成功！账号为手机，密码默认888888。");
 			js_add(data3);
 			}
 		},
@@ -219,12 +219,12 @@ function js_tianjia(date) {
 
 
 
-
 //删除Ajax
 //id=编号，on=判断条件，name=名字
-function js_shanchu(id,on,name) {
+function js_shan(on,id,name) {
 	var String="";
 	var url=$("#url").val();
+	var i="";
 	
 	if(on=="SP1"){
 		//商品信息表
@@ -238,6 +238,12 @@ function js_shanchu(id,on,name) {
 	}else if(on=="GYS"){
 		String="是否删除供应商:"+name;
 		url="";
+	}else if(on=="YG"){
+		String="是否删除员工:"+name;
+		url+="/worker/del.json";
+		data={userID:id};
+		i="ygflush";
+		
 	}
 	
 	if(confirm(String)){
@@ -247,11 +253,13 @@ function js_shanchu(id,on,name) {
 			data:data,
 			dataType:"json",
 			success : function(data) {
-				if(data=="session"){
+				if(data=="success"){
 					alert("删除成功！");
-					//演讲时用的js刷新临时的（stock   goods  关联goodsNo取消了）
-					//js_table(11);
-					shuaxin();
+					if(i=="ygflush"){
+						//员工删除后刷新方法
+						shuaxin();
+					}
+					
 				}
 				
 			},

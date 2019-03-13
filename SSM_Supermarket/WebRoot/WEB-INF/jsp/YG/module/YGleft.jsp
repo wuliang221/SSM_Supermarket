@@ -121,7 +121,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="tooltip-tip ajax-load" href="javascript:void(0);" onclick="js_table('41')" title="员工信息">
+                            <a class="tooltip-tip ajax-load" href="javascript:void(0);" onclick="js_table('YGUser')" title="员工信息">
                                 <i class="entypo-users"></i>
                                 <span>员工信息</span>
                             </a>

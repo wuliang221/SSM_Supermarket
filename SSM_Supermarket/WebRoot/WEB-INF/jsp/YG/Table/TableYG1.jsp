@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="FilteringClose"> 
@@ -17,26 +18,28 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th>员工编号</th>
-                                        <th>职位</th>
-                                        <th>姓名</th>
+                                        <th>员工名称</th>
                                         <th>性别</th>
                                         <th>联系电话</th>
-                                        <th>工资</th>
+                                        <th>职位</th>
+                                        <th>入职日期</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${worker }" var="w">
+                                    <c:forEach items="${userAllFind }" var="u">
                                     <tr>
-                                        <td>${w.workerno }</td>
-                                        <td>${w.adminname }</td>
-                                        <td>${w.workername }</td>
-                                        <td>${w.workersex }</td>
-                                        <td>${w.workerphone}</td>
-                                        <td>${w.workersalary}</td>
+                                        <td>${u.userName }</td>
+                                        <td>${u.userSex }</td>
+                                        <td>${u.userPhone }</td>
+	                                     <c:if test="${u.userStyle==1}" >
+	                                       	 <td>经理</td>
+	                                     </c:if>
+	                                     <c:if test="${u.userStyle==2}" >
+	                                      	  <td>员工</td>
+	                                     </c:if>
+											
+                                        <td> <fmt:formatDate type="date" value="${u.userDate}"  pattern="yyyy-MM-dd"/></td>
                                         <td>
-                                            <button type="button" onclick="js_xiu4('${s.workerno }','${s.adminno }','${s.workername }','${s.workersex }','${s.workerphone }','${s.workersalary }')" class="btn btn-primary btn-xs">修改</button>
-                                            <button type="button" onclick="js_shanchu('${s.workerno }','YG','${s.workerno }')" class="btn btn-danger btn-xs">删除</button>
                                         </td>
                                     </tr>
                                     </c:forEach>
