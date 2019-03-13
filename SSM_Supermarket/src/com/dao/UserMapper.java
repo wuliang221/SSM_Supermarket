@@ -22,12 +22,12 @@ public interface UserMapper {
 
 	//查询所有的员工信息
 	public List<User> userAll(@Param("UserName")String UserName,@Param("UserStyle")Integer UserStyle,
-			@Param("UserPhone")String UserPhone,@Param("pageNo")Integer pageNo,@Param("pageSize")Integer pageSize);
+				@Param("UserPhone")String UserPhone,@Param("pageNo")Integer pageNo,@Param("pageSize")Integer pageSize);
 
 	//修改用户信息
-	public int updateUser(@Param("UserName")String UserName,@Param("UserPhone")String UserPhone,
-								@Param("UserStyle")Integer UserStyle,@Param("UserPW")String UserPW,
-								@Param("UserAddress")String UserAddress);
+	public int updateUser(@Param("UserName")String UserName,@Param("UserSex")String UserSex,
+							@Param("UserAge")Integer UserAge,@Param("UserPhone")String UserPhone,
+							@Param("UserStyle")Integer UserStyle,@Param("UserDate")Date UserDate);
 
 	//新增用户信息
 	public int addUser(@Param("UserName")String UserName,@Param("UserSex")String UserSex,

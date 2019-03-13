@@ -48,10 +48,9 @@ public class UserServiceImpl implements UserService {
 	}
 	//判断是修改成功
 	@Override
-	public boolean updateUser(String UserName, String UserPhone,
-			Integer UserStyle, String userPW, String UserAddress) {
+	public boolean updateUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate) {
 		boolean rs=false;
-		int result = userMapper.updateUser(UserName, UserPhone, UserStyle, userPW, UserAddress);
+		int result = userMapper.updateUser(UserName, UserSex, UserAge, UserPhone, UserStyle, UserDate);
 		if(result>0){
 			rs=true;
 		}

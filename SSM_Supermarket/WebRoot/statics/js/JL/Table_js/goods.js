@@ -46,7 +46,7 @@ function chazhao() {
 }
 
 //删除刷新
-function shuaxin() {
+function shuaxin('sp') {
 	var lianjie=$("#url").val();
 	var page=$("#pageNothis").val();
 	var type=$("#typeno").val();
