@@ -7,7 +7,7 @@
                             <div class="body-nest" id="Filtering">
                                 <div class="row" style="margin-bottom:10px;">
                                     <div class="col-sm-4">
-                                        <input class="form-control" id="YGfilter" placeholder="会员名称..." type="text" value="${ygworkername}">
+                                        <input class="form-control" id="HYfilter" placeholder="会员手机号..." type="text" value="${ygworkername}">
                                     </div>
                                     <div class="col-sm-6">
                                         <a href="#api" class="pull-right btn btn-info filter-api" title="Filter using the Filter API" onclick="ygchazhao()">查找</a>
