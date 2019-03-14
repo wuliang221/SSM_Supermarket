@@ -84,6 +84,10 @@ public class WorkerController {
 				return JSON.toJSONString(json);
 		
 	}
+	
+	
+	
+	
 	@RequestMapping(value="/add.json",method=RequestMethod.POST)
 	@ResponseBody
 	public Object addUser(@RequestParam("UserName")String UserName,@RequestParam("UserSex")String UserSex,

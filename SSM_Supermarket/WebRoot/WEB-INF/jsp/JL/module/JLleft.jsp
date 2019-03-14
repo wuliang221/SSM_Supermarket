@@ -89,7 +89,7 @@
                                     <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('Merchinfo')" title="商品信息"><i class="entypo-doc-text"></i><span>商品信息</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('12')" title="库存记录"><i class="entypo-newspaper"></i><span>库存记录</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('MerchinfoCX')" title="商品促销"><i class="entypo-newspaper"></i><span>商品促销</span></a>
                                 </li>
                                 <li>
                             	<a class="tooltip-tip ajax-load" href="javascript:void(0);" onclick="js_add('addSP')" title="商品添加"><i class="icon icon-plus"></i><span>商品添加</span></a>
