@@ -1,6 +1,9 @@
 package com.pojo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 /**
  * 交易表
  * @author DELL
@@ -10,10 +13,19 @@ public class Dealing {
 	//交易编号
     private Integer dealingID;
     //交易金额
-    private Double dealingDate;
+    private Double dealingPrice;
     //交易日期
-    private Date dealingPrice;
-    //用户名称
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dealingDate;
+    
+  //交易日期字符串
+    private String dealingStringDate;
+    
+    public String getDealingStringDate() {
+		return dealingStringDate;
+	}
+
+	//用户名称
     private String userName;
     //会员卡号
     private String memberCard;
@@ -26,23 +38,25 @@ public class Dealing {
         this.dealingID = dealingID;
     }
 
-    public Double getDealingDate() {
-        return dealingDate;
-    }
 
-    public void setDealingDate(Double dealingDate) {
-        this.dealingDate = dealingDate;
-    }
+    public Double getDealingPrice() {
+		return dealingPrice;
+	}
 
-    public Date getDealingPrice() {
-        return dealingPrice;
-    }
+	public void setDealingPrice(Double dealingPrice) {
+		this.dealingPrice = dealingPrice;
+	}
 
-    public void setDealingPrice(Date dealingPrice) {
-        this.dealingPrice = dealingPrice;
-    }
+	public Date getDealingDate() {
+		return dealingDate;
+	}
 
-    public String getUserName() {
+	public void setDealingDate(Date dealingDate) {
+		this.dealingDate = dealingDate;
+		this.dealingStringDate = new SimpleDateFormat("yyyy-MM-dd").format(dealingDate);
+	}
+
+	public String getUserName() {
         return userName;
     }
 

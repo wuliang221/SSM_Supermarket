@@ -309,13 +309,13 @@ function js_table(date) {
 	var com="";
 	if(date==11){
 		$("#biaodanname").text("");
-		com="/goods/findgoods.html";
-	}else if(date==12){
-		$("#biaodanname").text("");
-		com="/goods/findgoodscount.html";
+		com="";
+	}else if(date=="Dealing"){
+		$("#biaodanname").text("交易信息表");
+		com="/JL/Dealing.html";
 	}else if(date==21){
 		$("#biaodanname").text("");
-		com="/supplier/suppslelct.html";
+		com="";
 	}else if(date=="Merchinfo"){
 		$("#biaodanname").text("商品信息表");
 		com="";

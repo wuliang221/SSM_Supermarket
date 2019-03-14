@@ -40,7 +40,7 @@ public class TableConeroller {
 	@ResponseBody
 	public void Menber(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		System.out.println("================================================================加载会员数据表");
-		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableYG_Menber.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableHY_Menber.jsp").forward(request, response);
 	}
 	
 	//供应商信息表
@@ -67,7 +67,13 @@ public class TableConeroller {
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableSP_MerchinfoCX.jsp").forward(request, response);
 	}
 	
-	
+	//交易信息表
+	@RequestMapping(value="/Dealing")
+	@ResponseBody
+	public void Dealing(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		System.out.println("================================================================加载交易信息表");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableJY_Dealing.jsp").forward(request, response);
+	}
 	
 
 }
