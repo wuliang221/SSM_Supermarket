@@ -330,7 +330,7 @@ function js_table(date) {
 		com="/worker/worker.html";
 	}else if(date=="Menber"){
 		$("#biaodanname").text("会员信息表");
-		com="";
+		com="/JL/Menber.html";
 	}
 	$.ajax({
 		type :"get",
