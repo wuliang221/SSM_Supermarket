@@ -19,8 +19,18 @@ public class Menber {
     private String membersite;
     //会员电话号
     private String memberPhone;
+    //会员姓名
+    private String memberName;
 
-    public String getMembersite() {
+    public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+
+	public String getMembersite() {
 		return membersite;
 	}
 
