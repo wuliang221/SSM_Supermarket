@@ -319,6 +319,9 @@ function js_table(date) {
 	}else if(date=="Merchinfo"){
 		$("#biaodanname").text("商品信息表");
 		com="";
+	}else if(date=="MerchinfoCX"){
+		$("#biaodanname").text("商品促销信息表");
+		com="";
 	}else if(date=="Provide"){
 		$("#biaodanname").text("供应商信息表");
 		com="";

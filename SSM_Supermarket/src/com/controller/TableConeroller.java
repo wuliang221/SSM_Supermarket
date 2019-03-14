@@ -59,5 +59,15 @@ public class TableConeroller {
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableSP_Merchinfo.jsp").forward(request, response);
 	}
 	
+	//商品促销信息表
+	@RequestMapping(value="/MerchinfoCX")
+	@ResponseBody
+	public void MerchinfoCX(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		System.out.println("================================================================加载商品促销信息表");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableSP_MerchinfoCX.jsp").forward(request, response);
+	}
+	
+	
+	
 
 }

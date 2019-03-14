@@ -97,12 +97,12 @@ UPDATE supermarket_mysql.user
 	)
 	VALUES
 	( 
-	#{userName}, 
-	#{userSex}, 
-	#{userAge}, 
-	#{userPhone}, 
-	#{userStyle}, 
-	#{userDate}
+	#{UserName}, 
+	#{UserSex}, 
+	#{UserAge}, 
+	#{UserPhone}, 
+	#{UserStyle}, 
+	#{UserDate}
 	);
  
  </insert>
