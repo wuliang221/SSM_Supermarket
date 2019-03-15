@@ -328,7 +328,7 @@ function js_table(date) {
 		com="";
 	}else if(date=="Provide"){
 		$("#biaodanname").text("供应商信息表");
-		com="";
+		com="/GYS/GYSselect.html";
 	}else if(date=="User"){
 		$("#biaodanname").text("员工信息表");
 		com="/worker/worker.html";
