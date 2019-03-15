@@ -7,7 +7,6 @@
                             <div class="body-nest" id="validation">
                                 <div class="form_center">
 
-                                    <form action="contact" id="contact-form" class="form-horizontal">
                                         <fieldset>
                                             <div class="control-group">
                                                 <label class="control-label" for="subject">供应商名称</label>
@@ -34,11 +33,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-actions" style="margin:20px 0 0 0;">
-                                                <button type="submit" class="btn btn-primary">保存</button>
+                                                <button type="submit" class="btn btn-primary" onclick="js_tianjia('GYS')">保存</button>
                                                 <button type="reset" class="btn">清空</button>
                                             </div>
                                         </fieldset>
-                                    </form>
 
                                 </div>
                             </div>

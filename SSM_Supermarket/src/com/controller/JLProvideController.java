@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Service.ProvideService;
+import com.alibaba.fastjson.JSON;
 import com.pojo.Provide;
 import com.util.PageSupport;
 @Controller
@@ -17,6 +19,8 @@ import com.util.PageSupport;
 public class JLProvideController {
 	@Resource
 	private ProvideService provideService;
+	
+	//分页查询供应商信息
 	@RequestMapping("/GYSselect.html")
 	public String GYSselect(@RequestParam(value = "GYSprovideName",required = false)String GYSprovideName,
 								@RequestParam(value = "pageNo",required = false)String pageNo,
@@ -55,5 +59,35 @@ public class JLProvideController {
 		
 		
 	}
+	//添加供应商信息
+	@RequestMapping("/del.json")
+	@ResponseBody
+	public Object addProvide(@RequestParam("provideID")Integer provideID){
+		boolean result=false;
+		String json="";
+		if(provideID!=null){
+			result=provideService.del(provideID);
+			if(result){
+				json="success";
+			}
+		}
+		return JSON.toJSONString(json);
+		
+	}
 
+	//删除供应商信息
+	@RequestMapping("/add.json")
+	@ResponseBody
+	public Object delProvide(Provide provide){
+		boolean result=false;
+		String json="";
+		if(provide!=null){
+			result=provideService.add(provide);
+			if(result){
+				json="success";
+			}
+		}
+		return JSON.toJSONString(json);
+		
+	}
 }

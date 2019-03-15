@@ -77,10 +77,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
   <%-- 	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/goods.js"></script> --%>
  <%--  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/supplier.js"></script> --%>
-	 <!-- 员工信息js -->
+	 <!-- 员工信息分页js -->
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/worker.js"></script>
-  	<!--会员信息js  -->
+  	<!--会员信息分页js  -->
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/menber.js"></script>
+  	<!-- 供应商信息分页js -->
+  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/provide.js"></script>
   	<!-- 时间控件 -->
 	<script src="${pageContext.request.contextPath }/statics/layDate-v5.0.9/laydate/laydate.js"></script>
 	<script type="text/javascript">
