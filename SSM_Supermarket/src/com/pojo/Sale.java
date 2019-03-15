@@ -11,6 +11,10 @@ public class Sale {
     private Integer saleID;
     //商品编号
     private Integer merChID;
+    //商品名称
+    private String merchName;
+    //商品单价
+    private double merchPrice;
     //销售日期
     private Date saleDate;
     //销售数量
@@ -57,4 +61,21 @@ public class Sale {
     public void setSalePrice(Double salePrice) {
         this.salePrice = salePrice;
     }
+
+	public String getMerchName() {
+		return merchName;
+	}
+
+	public void setMerchName(String merchName) {
+		this.merchName = merchName;
+	}
+
+	public double getMerchPrice() {
+		return merchPrice;
+	}
+
+	public void setMerchPrice(double merchPrice) {
+		this.merchPrice = merchPrice;
+	}
+    
 }

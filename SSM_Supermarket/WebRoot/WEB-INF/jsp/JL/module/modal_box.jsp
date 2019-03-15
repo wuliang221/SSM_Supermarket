@@ -10,12 +10,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel4"></h4>
       </div>
-      <div class="modal-body">
-      	<p class="text-uppercase"><h4>Right aligned text.</p>
-      	<p class="text-center">Right aligned text.</p>
-      	<p class="text-center">Right aligned text.</p>
-      	<p class="text-center">Right aligned text.</p>
-      	<p class="text-right">Right aligned text.</p>
+      <div id="JYXQmdod" class="modal-body">
+      	
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>

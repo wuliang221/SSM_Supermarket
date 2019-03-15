@@ -8,6 +8,27 @@ public class feye {
 	private int dang;	//当前页码
 	private int xian;   //显示条数
 	
+	public feye(int tiao,String dang,int xian){
+		Integer da=1;
+		if(null != dang && "" !=dang){
+			da=new Integer(dang);
+		}
+		this.tiao=tiao;
+		this.xian = xian;
+		if(this.tiao%this.xian == 0){
+			this.ye=this.tiao/this.xian;
+		}else{
+			this.ye=(this.tiao/this.xian)+1;
+		}
+		if(da > this.ye){
+			this.dang=this.ye;
+		}else {
+			this.dang=da;
+		}
+		this.qi=(this.dang-1)*xian;
+		
+	}
+	
 	public int getTiao() {
 		return tiao;
 	}
@@ -25,21 +46,6 @@ public class feye {
 
 	public int getXian() {
 		return xian;
-	}
-	public void setqidong(int tiao,int dang,int xian) {
-		this.tiao=tiao;
-		this.xian = xian;
-		if(this.tiao%this.xian == 0){
-			this.ye=this.tiao/this.xian;
-		}else{
-			this.ye=(this.tiao/this.xian)+1;
-		}
-		if(dang > this.ye){
-			this.dang=this.ye;
-		}else{
-			this.dang=dang;
-		}
-		this.qi=(this.dang-1)*xian;
 	}
 	
 }
