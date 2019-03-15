@@ -15,16 +15,7 @@ public class Dealing {
     //交易金额
     private Double dealingPrice;
     //交易日期
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dealingDate;
-    
-  //交易日期字符串
-    private String dealingStringDate;
-    
-    public String getDealingStringDate() {
-		return dealingStringDate;
-	}
-
 	//用户名称
     private String userName;
     //会员卡号
@@ -53,7 +44,6 @@ public class Dealing {
 
 	public void setDealingDate(Date dealingDate) {
 		this.dealingDate = dealingDate;
-		this.dealingStringDate = new SimpleDateFormat("yyyy-MM-dd").format(dealingDate);
 	}
 
 	public String getUserName() {

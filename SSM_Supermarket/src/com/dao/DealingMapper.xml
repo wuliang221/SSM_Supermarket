@@ -14,7 +14,7 @@
 	SELECT COUNT(DealingID) FROM dealing 
 	WHERE 1=1
 	<if test="memberID !='' and memberID !=null">
-		AND MemberCard LIKE CONCAT('%','#{memberID}','%')
+		AND MemberCard LIKE CONCAT('%',#{memberID},'%')
 	</if>
  </select>
   

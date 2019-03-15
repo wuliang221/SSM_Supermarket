@@ -72,6 +72,10 @@ function js_js_xiugai(DD){
 	});
 }
 
+
+
+
+
 //修改模态框弹出并赋值
 //商品修改模态框
 function js_xiu1(on,d1,d2,d3,d4,d5,d6) {

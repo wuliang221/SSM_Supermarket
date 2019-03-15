@@ -1,5 +1,33 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<!-- 交易记录详情模态框 -->
+<div class="modal fade" id="JYXQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel4"></h4>
+      </div>
+      <div class="modal-body">
+      	<p class="text-uppercase"><h4>Right aligned text.</p>
+      	<p class="text-center">Right aligned text.</p>
+      	<p class="text-center">Right aligned text.</p>
+      	<p class="text-center">Right aligned text.</p>
+      	<p class="text-right">Right aligned text.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 
 <!-- 商品修改模态框 -->

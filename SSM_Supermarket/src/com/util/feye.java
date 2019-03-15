@@ -29,13 +29,17 @@ public class feye {
 	public void setqidong(int tiao,int dang,int xian) {
 		this.tiao=tiao;
 		this.xian = xian;
-		this.dang=dang;
-		this.qi=(dang-1)*xian;
 		if(this.tiao%this.xian == 0){
 			this.ye=this.tiao/this.xian;
-		}else if(this.tiao%this.xian != 0){
+		}else{
 			this.ye=(this.tiao/this.xian)+1;
 		}
+		if(dang > this.ye){
+			this.dang=this.ye;
+		}else{
+			this.dang=dang;
+		}
+		this.qi=(this.dang-1)*xian;
 	}
 	
 }

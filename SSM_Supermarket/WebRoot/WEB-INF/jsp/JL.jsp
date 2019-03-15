@@ -69,7 +69,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/skin-select/jquery.cookie.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/main.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/JL/JL.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/JL/FY.js"></script>
 	
+	
+	<!-- url地址 -->
 	<input type="hidden" id="url" value="${pageContext.request.contextPath }">
 	
   <%-- 	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/goods.js"></script> --%>

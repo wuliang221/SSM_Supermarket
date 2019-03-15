@@ -1,3 +1,17 @@
+//ye:跳转到的页数
+//cdn:那个页面跳转
+function FY(ye,cdn){
+	var lianjie=$("#url").val();
+	if("Dealing" == cdn){
+		//交易记录分页
+		var ii=$("#DealingJY").val();
+		lianjie+="/JL/Dealing.html?pageNo="+ye+"&memberID="+ii;
+	}
+	$("#maindiv").load(lianjie);
+}
+
+
+
 //首页
 function firstPage() {
 	var lianjie=$("#url").val();
