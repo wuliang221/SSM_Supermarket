@@ -9,30 +9,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.Service.MenberService;
-import com.pojo.Menber;
+import com.Service.ProvideService;
+import com.pojo.Provide;
 import com.util.PageSupport;
 @Controller
-@RequestMapping("/JL")
-public class JLMenberController {
+@RequestMapping("/GYS")
+public class JLProvideController {
 	@Resource
-	private MenberService menberService;
-	
-	/**
-	 * 经理查询会员信息
-	 * @param pageNo
-	 * @param jlMenberPhone
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value="/Menber.html")
-	public String menberSelect(@RequestParam(value="pageNo",required = false)String pageNo,
-							@RequestParam(value="jlMenberPhone",required=false)String jlMenberPhone,
-							Model model){
-		
+	private ProvideService provideService;
+	@RequestMapping("/GYSselect.html")
+	public String GYSselect(@RequestParam(value = "GYSprovideName",required = false)String GYSprovideName,
+								@RequestParam(value = "pageNo",required = false)String pageNo,
+								Model model){
 		
 
-		int result = menberService.count(jlMenberPhone);
+
+		int result = provideService.count(GYSprovideName);
 		if (pageNo == null || pageNo == "") {
 			pageNo = "1";
 		}
@@ -55,13 +47,13 @@ public class JLMenberController {
 		System.out.println("==========================" + (ps.getCurrPageNo() - 1)
 				* ps.getPageSize());
 
-		List<Menber> allMenber = menberService.gerAllMeber(jlMenberPhone, index, ps.getPageSize());
-		model.addAttribute("jlMenberPhone", jlMenberPhone);
-		model.addAttribute("allMenber", allMenber);
+		List<Provide> allProvide = provideService.getAll(GYSprovideName, index, ps.getPageSize());
+		model.addAttribute("GYSprovideName", GYSprovideName);
+		model.addAttribute("allProvide", allProvide);
 		model.addAttribute("ps", ps);
-		return "JL/Table/TableYG_Menber";
+		return "JL/Table/TableGYS_Provide";
+		
 		
 	}
-	
 
 }
