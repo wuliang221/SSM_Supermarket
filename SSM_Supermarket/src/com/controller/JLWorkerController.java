@@ -21,7 +21,7 @@ import com.util.PageSupport;
 
 @Controller
 @RequestMapping("/worker")
-public class WorkerController {
+public class JLWorkerController {
 	@Resource
 	private UserService userService;
 	@RequestMapping(value="/worker.html")
