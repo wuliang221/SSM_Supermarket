@@ -180,11 +180,14 @@ function js_tianjia(date) {
 		var z2=$("#inputEmail62").val();
 		var z3=$("#inputEmail63").val();
 		
-	}else if(date == "7"){
-		var z1=$("#inputEmail71").val();
-		var z2=$("#inputEmail72").val();
-		var z3=$("#inputEmail73").val();
-		
+	}else if(date == "GYS"){
+		url+="/GYS//add.json";
+		data3="addGYS";
+		var gys1=$("#GYS1").val();
+		var gys2=$("#GYS2").val();
+		var gys3=$("#GYS3").val();
+		var gys4=$("#GYS4").val();
+		data2={provideName:gys1,provideContact:gys2,providePhone:gys3,provideAddress:gys4};
 	}else if(date == "YG"){
 		data3="addYG";
 		url+="/worker/add.json";
@@ -209,7 +212,12 @@ function js_tianjia(date) {
 		dataType:"json",	
 		success : function(data) {
 			if(data=="success"){
-			alert("添加成功！账号为手机，密码默认888888。");
+				if(data3=="addYG"){
+					alert("添加成功！账号为手机，密码默认888888 ！！！");
+				}
+				else if(data3=="addGYS"){
+					alert("供应商添加成功！！！");
+				}
 			js_add(data3);
 			}
 		},
@@ -241,7 +249,9 @@ function js_shan(on,id,name) {
 		url="";
 	}else if(on=="GYS"){
 		String="是否删除供应商:"+name;
-		url="";
+		data={provideID:id};
+		url+="/GYS/del.json";
+		i="gysflush";
 	}else if(on=="YG"){
 		String="是否删除员工:"+name;
 		url+="/worker/del.json";
@@ -262,6 +272,8 @@ function js_shan(on,id,name) {
 					if(i=="ygflush"){
 						//员工删除后刷新方法
 						shuaxin();
+					}else if(i=="gysflush"){
+						provideshuaxin();
 					}
 					
 				}
