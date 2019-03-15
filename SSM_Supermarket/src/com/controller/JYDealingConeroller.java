@@ -32,6 +32,7 @@ public class JYDealingConeroller {
 	public String selectDealing(@RequestParam(value="pageNo",required = false)String pageNo,
 								@RequestParam(value="memberID",required = false)String memberID,
 								Model model){
+		System.out.println("============分页查询交易信息");
 		//实例化分页工具
 		feye fy=new feye(dealingService.selectDealingSL(memberID),pageNo,7);
 		//查询交易数据

@@ -39,11 +39,8 @@
                                         </td>
                                     </tr>
                                     </c:forEach>
-                                    
-                                    
                                     </tbody>
                                 </table>
-
                                   <ul>
 				<li>共${fy.tiao }条记录&nbsp;&nbsp; 第${fy.dang }/${fy.ye }页
 				</li>

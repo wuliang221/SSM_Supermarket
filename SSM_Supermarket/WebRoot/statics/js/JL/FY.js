@@ -2,9 +2,9 @@
 //cdn:那个页面跳转
 function FY(ye,cdn){
 	var lianjie=$("#url").val();
-	if("DealingJYB" == cdn){
+	if(cdn == "DealingJYB"){
 		//交易记录分页
-		lianjie+="/JL/Dealing.html?pageNo="+ye+"&memberID="+$("#DealingJY").val();;
+		lianjie+="/JL/Dealing.html?pageNo="+ye+"&memberID="+$("#DealingJY").val();
 	}
 	
 	$("#maindiv").load(lianjie);
