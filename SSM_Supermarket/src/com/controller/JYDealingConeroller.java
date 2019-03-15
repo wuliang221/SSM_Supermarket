@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 
+
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.Service.DealingService;
+import com.Service.SaleService;
+import com.alibaba.fastjson.JSON;
 import com.pojo.Dealing;
 import com.util.feye;
 
@@ -26,26 +31,30 @@ public class JYDealingConeroller {
 	@Resource
 	private DealingService dealingService;
 	
+	@Resource
+	private SaleService saleService;
+	
+	
+	//分页查询交易信息
 	@RequestMapping("/Dealing.html")
 	public String selectDealing(@RequestParam(value="pageNo",required = false)String pageNo,
 								@RequestParam(value="memberID",required = false)String memberID,
 								Model model){
-		//获取总页数
-		int SL=dealingService.selectDealingSL(memberID);
-		if(null == pageNo){
-			pageNo="1";
-		}
-		Integer page=new Integer(pageNo);
 		//实例化分页工具
-		feye fy=new feye();
-		fy.setqidong(SL,page,7);
+		feye fy=new feye(dealingService.selectDealingSL(memberID),pageNo,7);
 		//查询交易数据
 		model.addAttribute("dealing",dealingService.selectDealing(memberID,fy.getQi(),fy.getXian()));
 		model.addAttribute("fy", fy);
-		//判断是否返回查找条件
-		if(memberID !="" && memberID != null){
-			model.addAttribute("goodsName",memberID);
-		}
+		model.addAttribute("goodsName",memberID);
 		return "JL/Table/TableJY_Dealing";
 	}
+	
+	//查询交易详情
+	@RequestMapping("/Sale.html")
+	@ResponseBody
+	public Object Sale(@RequestParam(value="dealingID",required = true)String dealingID){
+		System.out.println("交易详情"+JSON.toJSON(saleService.selectSaledealingID(new Integer(dealingID))));
+		return JSON.toJSONString(JSON.toJSON(saleService.selectSaledealingID(new Integer(dealingID))));
+	}
+	
 }

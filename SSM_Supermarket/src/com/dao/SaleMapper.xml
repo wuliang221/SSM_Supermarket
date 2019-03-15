@@ -6,7 +6,18 @@
     <result column="MerChID" property="merChID" jdbcType="INTEGER" />
     <result column="SaleDate" property="saleDate" jdbcType="TIMESTAMP" />
     <result column="SaleNum" property="saleNum" jdbcType="INTEGER" />
+    <result column="MerchName" property="merchName" jdbcType="VARCHAR" />
     <result column="SalePrice" property="salePrice" jdbcType="DOUBLE" />
+    <result column="MerchPrice" property="merchPrice" jdbcType="DOUBLE" />
+    
   </resultMap>
+  
+  <!-- 根据交易编号查询所有交易记录详情 -->
+ <select id="selectSaledealingID" resultType="Sale" >
+	SELECT DealingID,MerchName,SaleNum,MerchPrice
+	FROM sale
+	INNER JOIN merchinfo AS us  ON us.MerchID=sale.MerchID
+	WHERE DealingID = #{dealingID }
+ </select>
   
 </mapper>

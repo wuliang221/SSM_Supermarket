@@ -35,7 +35,7 @@
                                         <td> <fmt:formatDate type="date" value="${d.dealingDate}"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                         <td>${d.userName}</td>
                                         <td>
-                                        	<button type="button" onclick="js_JYXQ('')" class="btn btn-primary btn-xs">详细信息</button>
+                                        	<button type="button" onclick="js_JYXQ('${d.dealingID }')" class="btn btn-primary btn-xs">详细信息</button>
                                         </td>
                                     </tr>
                                     </c:forEach>
