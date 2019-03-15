@@ -43,8 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <label class="control-label" for="subject">职位</label>
                                                 <div class="controls">
                                                     <select class="form-control" namr="" id="YG3">
-	                                                   		<option value="1">员工</option>
-	                                                   		<option value="2">经理</option>
+	                                                   		<option value="2">员工</option>
+	                                                   		<option value="1">经理</option>
                                                     </select>
                                                 </div>
                                             </div>
