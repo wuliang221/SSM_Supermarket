@@ -321,11 +321,9 @@ function js_add(date) {
 
 //点击显示数据表格
 function js_table(date) {
-	var lianjie=$("#url").val();
 	var com="";
-	if(date==11){
-		$("#biaodanname").text("");
-		com="";
+	if(date=="XSTB"){
+		$("#biaodanname").text("销售图表");
 	}else if(date=="Dealing"){
 		$("#biaodanname").text("交易信息表");
 		com="/JL/Dealing.html";
@@ -353,7 +351,9 @@ function js_table(date) {
 		url:$("#url").val()+"/table/"+date,
 		dataType:"html",
 		success : function(data) {
-			$("#maindiv").load(lianjie+com);
+			if(com != ""){
+				$("#maindiv").load($("#url").val()+com);
+			}
 			$("#maindiv").html(data);
 		},
 		error : function() {
@@ -393,3 +393,30 @@ function shu() {
     }
 }
 var myTime=window.setInterval("shu()",100);
+
+//图标js
+
+
+
+var lineChartData = {
+        labels : ["一月","二月","三月","四月","五月","六月","七月"],
+        datasets : [
+            {
+                fillColor : "rgba(49, 195, 166, 0.2)",
+                strokeColor : "rgba(49, 195, 166, 1)",
+                pointColor : "rgba(49, 195, 166, 1)",
+                pointStrokeColor : "#fff",
+                data : [65,59,90,81,56,55,40]
+            },
+            {
+                fillColor : "rgba(151,187,205,0.5)",
+                strokeColor : "rgba(151,187,205,1)",
+                pointColor : "rgba(151,187,205,1)",
+                pointStrokeColor : "#fff",
+                data : [28,48,40,19,96,27,100]
+            }
+        ]
+
+    }
+
+var myLine = new Chart(document.getElementById("canvas4").getContext("2d")).Line(lineChartData);

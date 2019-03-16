@@ -6,7 +6,6 @@ function FY(ye,cdn){
 		//交易记录分页
 		lianjie+="/JL/Dealing.html?pageNo="+ye+"&memberID="+$("#DealingJY").val();
 	}
-	
 	$("#maindiv").load(lianjie);
 }
 
