@@ -74,5 +74,13 @@ public class TableConeroller {
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TableJY_Dealing.jsp").forward(request, response);
 	}
 	
+	//销售图表
+	@RequestMapping(value="/XSTB")
+	@ResponseBody
+	public void XSTB(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		System.out.println("================================================================加载销售图表");
+		request.getRequestDispatcher("/WEB-INF/jsp/JL/Table/TBTable_XS.jsp").forward(request, response);
+	}
+	
 
 }

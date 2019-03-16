@@ -58,13 +58,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <!-- 引入表单 -->
-			<div class="content-wrap" id="maindiv"></div>
+			<div class="content-wrap" id="maindiv">
+                
+			
+			
+			
+				
+				 <div class="content-wrap">
+                <div class="row">
+
+
+                    <div class="col-sm-12">
+
+                        <div class="nest" id="lineClose">
+                            <div class="title-alt">
+                                <h6>
+                                    Line Chart</h6>
+                                <div class="titleClose">
+                                    <a class="gone" href="#lineClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#line">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="body-nest" id="line">
+
+                                <canvas id="canvas4" class="myChart" height="416" width="900"></canvas>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+			</div>
         </div>
         </div>
     </div>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/bootstrap.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/app.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/load.js"></script>
+	
+	<!-- 图标js -->
+	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/chart/chart.js"></script>
+	
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/skin-select/jquery.cookie.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/statics/assets/js/main.js"></script>

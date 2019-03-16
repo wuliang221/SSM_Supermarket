@@ -1,5 +1,5 @@
    var lineChartData = {
-            labels : ["January","February","March","April","May","June","July"],
+            labels : ["一月","二月","三月","四月","五月","六月","七月"],
             datasets : [
                 {
                     fillColor : "rgba(49, 195, 166, 0.2)",
@@ -16,7 +16,7 @@
                     data : [28,48,40,19,96,27,100]
                 }
             ]
-            
+
         }
 
     var myLine = new Chart(document.getElementById("canvas4").getContext("2d")).Line(lineChartData);
