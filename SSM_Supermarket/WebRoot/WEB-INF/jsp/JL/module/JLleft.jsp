@@ -35,7 +35,7 @@
                             <ul>
                                 <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('XSTB')" title="商品销售排行榜"><i class="icon-attachment"></i><span>销售排行榜</span></a></li>
                                 <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('Dealing')" title="交易记录"><i class="icon-view-list-large"></i><span>交易记录</span></a></li>
-                                <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="" title="资金流动表"><i class="icon-view-list-large"></i><span>资金流动表</span></a></li>
+                                <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('ZJTU')"" title="资金流动表"><i class="icon-view-list-large"></i><span>资金流动表</span></a></li>
                             </ul>
                         </li>
                     </ul>

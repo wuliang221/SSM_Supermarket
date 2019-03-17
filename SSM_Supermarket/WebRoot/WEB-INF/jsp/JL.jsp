@@ -64,39 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 				
-				 <div class="content-wrap">
-                <div class="row">
-
-
-                    <div class="col-sm-12">
-
-                        <div class="nest" id="lineClose">
-                            <div class="title-alt">
-                                <h6>
-                                    Line Chart</h6>
-                                <div class="titleClose">
-                                    <a class="gone" href="#lineClose">
-                                        <span class="entypo-cancel"></span>
-                                    </a>
-                                </div>
-                                <div class="titleToggle">
-                                    <a class="nav-toggle-alt" href="#line">
-                                        <span class="entypo-up-open"></span>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <div class="body-nest" id="line">
-
-                                <canvas id="canvas4" class="myChart" height="416" width="900"></canvas>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+			
 			</div>
         </div>
         </div>
