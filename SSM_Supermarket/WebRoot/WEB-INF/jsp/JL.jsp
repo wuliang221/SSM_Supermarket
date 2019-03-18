@@ -94,6 +94,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/menber.js"></script>
   	<!-- 供应商信息分页js -->
   	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/provide.js"></script>
+  	<!-- 商品信息分页js -->
+  	<script src="${pageContext.request.contextPath }/statics/js/JL/Table_js/merchinfo.js"></script>
   	<!-- 时间控件 -->
 	<script src="${pageContext.request.contextPath }/statics/layDate-v5.0.9/laydate/laydate.js"></script>
 	<script type="text/javascript">

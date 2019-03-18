@@ -336,7 +336,7 @@ function js_table(date) {
 		com+="";
 	}else if(date=="Merchinfo"){
 		$("#biaodanname").text("商品信息表");
-		com+="";
+		com+="/Merchin/MerchinSelect.html";
 	}else if(date=="MerchinfoCX"){
 		$("#biaodanname").text("商品促销信息表");
 		com+="";
