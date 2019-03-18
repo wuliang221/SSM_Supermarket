@@ -24,7 +24,7 @@ function js_JYXQ(data1) {
 				ht+="<dt>"+data[i].merchName+"</dt><dd>&nbsp;&nbsp;&nbsp;"+data[i].merchPrice+"￥*"+data[i].saleNum+"</dd>";
 				 ml+=data[i].saleNum*data[i].merchPrice;
 				}
-			ht+="<p class=''text-right'>总计"+ml+"￥</p>";
+			ht+="<p class=''text-right'>总计</p><span class='label label-danger'>"+ml+"</span>"+"<p class=''text-right'>￥</p>";
 			$("#JYXQmdod").html(ht);
 		}
 	

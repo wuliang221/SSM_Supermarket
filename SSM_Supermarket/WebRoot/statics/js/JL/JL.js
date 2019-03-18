@@ -321,45 +321,36 @@ function js_add(date) {
 
 //点击显示数据表格
 function js_table(date) {
-	var com="";
+	var com=$("#url").val();
 	if(date=="XSTB"){
-		$("#biaodanname").text("销售图表");
+		$("#biaodanname").text("本月商品销售排行图表");
+		com+="/table/XSTB.html";	
+	}else if(date=="ZJTU"){
+		$("#biaodanname").text("资金流动图表");
+		com+="/table/ZJTU.html";	
 	}else if(date=="Dealing"){
 		$("#biaodanname").text("交易信息表");
-		com="/JL/Dealing.html";
+		com+="/JL/Dealing.html";	
 	}else if(date==21){
 		$("#biaodanname").text("");
-		com="";
+		com+="";
 	}else if(date=="Merchinfo"){
 		$("#biaodanname").text("商品信息表");
-		com="";
+		com+="";
 	}else if(date=="MerchinfoCX"){
 		$("#biaodanname").text("商品促销信息表");
-		com="";
+		com+="";
 	}else if(date=="Provide"){
 		$("#biaodanname").text("供应商信息表");
-		com="/GYS/GYSselect.html";
+		com+="/GYS/GYSselect.html";
 	}else if(date=="User"){
 		$("#biaodanname").text("员工信息表");
-		com="/worker/worker.html";
+		com+="/worker/worker.html";
 	}else if(date=="Menber"){
 		$("#biaodanname").text("会员信息表");
-		com="/JL/Menber.html";
+		com+="/JL/Menber.html";
 	}
-	$.ajax({
-		type :"get",
-		url:$("#url").val()+"/table/"+date,
-		dataType:"html",
-		success : function(data) {
-			if(com != ""){
-				$("#maindiv").load($("#url").val()+com);
-			}
-			$("#maindiv").html(data);
-		},
-		error : function() {
-			alert("显示数据表失败");
-		}
-	});
+	$("#maindiv").load(com);
 }	
 
 
@@ -394,29 +385,5 @@ function shu() {
 }
 var myTime=window.setInterval("shu()",100);
 
-//图标js
 
 
-
-var lineChartData = {
-        labels : ["一月","二月","三月","四月","五月","六月","七月"],
-        datasets : [
-            {
-                fillColor : "rgba(49, 195, 166, 0.2)",
-                strokeColor : "rgba(49, 195, 166, 1)",
-                pointColor : "rgba(49, 195, 166, 1)",
-                pointStrokeColor : "#fff",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
-
-    }
-
-var myLine = new Chart(document.getElementById("canvas4").getContext("2d")).Line(lineChartData);
