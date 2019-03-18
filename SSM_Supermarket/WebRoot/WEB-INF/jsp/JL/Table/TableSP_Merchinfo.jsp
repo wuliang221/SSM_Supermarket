@@ -6,7 +6,7 @@
 
                                 <div class="row" style="margin-bottom:10px;">
                                     <div class="col-sm-4">
-                                        <input class="form-control" id="filter" placeholder="商品名称..." type="text" value="${goodsName }">
+                                        <input class="form-control" id="filter" placeholder="商品名称..." type="text" value="${MerchinfoCXName }">
                                     </div>
                                     <div class="col-sm-6">
                                         <a href="#api" class="pull-right btn btn-info filter-api" href="javascript:void(0);" onclick="chazhao()">查找</a>
