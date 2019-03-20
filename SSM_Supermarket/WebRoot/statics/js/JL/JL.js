@@ -70,7 +70,7 @@ function js_js_xiugai(DD){
 			}
 			if(data=="merchinfoSaveSuccess"){
 				alert("修改成功！");
-				close.modal('toggle');
+				$("#myModal1").modal('hide');
 				Merchinfoshuaxin();
 			}
 		},
@@ -346,7 +346,7 @@ function js_table(date) {
 		com+="/Merchin/MerchinSelect.html";
 	}else if(date=="MerchinfoCX"){
 		$("#biaodanname").text("商品促销信息表");
-		com+="";
+		com+="/Merchin/AllowAbateMerchinSelect.html";
 	}else if(date=="Provide"){
 		$("#biaodanname").text("供应商信息表");
 		com+="/GYS/GYSselect.html";

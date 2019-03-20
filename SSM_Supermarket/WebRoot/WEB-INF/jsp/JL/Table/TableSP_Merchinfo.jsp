@@ -20,6 +20,7 @@
                                         <th>商品价格</th>
                                         <th>库存</th>
                                         <th>供应商</th>
+                                        <th>是否允许打折</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -31,6 +32,13 @@
                                         <td>${m.merchPrice }</td>
                                         <td>${m.merchNum }</td>
                                         <td>${m.provideName }</td>
+                                         <td><c:if test="${m.allowAbate==1}">
+                                       		允许
+                                        </c:if>
+                                        <c:if test="${m.allowAbate==0}">
+                                       		 不允许
+                                        </c:if>
+                                        </td>
                                         <td>
                                         	<%-- <button type="button" onclick="js_xiu1('${m.merchID }','',
                                         	'','','',''
