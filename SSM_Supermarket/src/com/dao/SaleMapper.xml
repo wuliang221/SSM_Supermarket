@@ -19,5 +19,15 @@
 	INNER JOIN merchinfo AS us  ON us.MerchID=sale.MerchID
 	WHERE DealingID = #{dealingID }
  </select>
-  
+ 
+ <!-- 查询商品销售图表记录详情 -->
+ <select id="selectSaleTABLE" resultType="Sale" >
+	SELECT MerchName,SUM(SaleNum) AS SaleNum
+		FROM sale AS s
+	INNER JOIN merchinfo AS m ON s.MerChID=m.MerchID
+	GROUP BY MerchName
+	ORDER BY SaleNum desc
+	LIMIT 0,14
+ </select>
+ 
 </mapper>

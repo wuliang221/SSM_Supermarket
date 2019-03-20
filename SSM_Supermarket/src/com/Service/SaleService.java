@@ -10,6 +10,9 @@ import com.pojo.Sale;
 public interface SaleService {
 	
 	//根据交易编号查询所有交易记录详情
-	public List<Sale> selectSaledealingID(@Param("dealingID")int dealingID);
+	public List<Sale> selectSaledealingID(int dealingID);
+	
+	//查询商品销售图表记录详情 
+	public List<Sale> selectSaleTABLE();
 	
 }
