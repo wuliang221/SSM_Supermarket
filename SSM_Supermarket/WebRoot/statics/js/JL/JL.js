@@ -338,9 +338,9 @@ function js_table(date) {
 	}else if(date=="Dealing"){
 		$("#biaodanname").text("交易信息表");
 		com+="/JL/Dealing.html";	
-	}else if(date==21){
-		$("#biaodanname").text("");
-		com+="";
+	}else if(date=="JH1"){
+		$("#biaodanname").text("计划进货表");
+		com+="/stock/stock1.html";
 	}else if(date=="Merchinfo"){
 		$("#biaodanname").text("商品信息表");
 		com+="/Merchin/MerchinSelect.html";

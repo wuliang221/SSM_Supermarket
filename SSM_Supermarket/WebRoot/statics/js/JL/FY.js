@@ -5,6 +5,9 @@ function FY(ye,cdn){
 	if(cdn == "DealingJYB"){
 		//交易记录分页
 		lianjie+="/JL/Dealing.html?pageNo="+ye+"&memberID="+$("#DealingJY").val();
+	}else if(cdn == "stock1"){
+		//计划进货分页
+		lianjie+="/stock/stock1.html?pageNo="+ye;
 	}
 	$("#maindiv").load(lianjie);
 }
