@@ -18,5 +18,52 @@
     <result column="FactoryID" property="factoryID" jdbcType="INTEGER" />
     <result column="ProvideID" property="provideID" jdbcType="INTEGER" />
   </resultMap>
+  <select id="count" resultType="int">
+  
+SELECT 	COUNT(MerchID)
+	 
+	FROM 
+	supermarket_mysql.merchinfo 
+	where 1=1
+	<if test="merchName !='' and merchName != null">
+			AND MerchName=#{merchName}
+	</if>
+  </select>
+  <select id="merchinfo" resultType="Merchinfo">
+  
+  SELECT 	
+  	M.MerchID, 
+	M.MerchName, 
+	M.MerchPrice, 
+	M.MerchCost, 
+	M.MerchNum, 
+	M.CautionNum, 
+	M.PlanNum, 
+	M.BarCode, 
+	M.SalesProPrice, 
+	M.SalesProDateS, 
+	M.SalesProDateE, 
+	M.AllowAbate, 
+	M.AllowSale, 
+	M.ProvideID,
+	P.ProvideName, 
+	P.ProvideContact, 
+	P.ProvideAddress, 
+	P.ProvidePhone
+
+	 
+	FROM 
+	supermarket_mysql.merchinfo AS M
+	INNER JOIN supermarket_mysql.provide AS P
+	ON M.ProvideID=P.ProvideID
+	WHERE 1=1
+	<if test="merchName != ''and merchName != null">
+	AND MerchName LIKE CONCAT('%',#{merchName},'%')
+	</if>
+	LIMIT #{pageNo},#{pageSize}
+	
+	
+  
+  </select>
  
 </mapper>

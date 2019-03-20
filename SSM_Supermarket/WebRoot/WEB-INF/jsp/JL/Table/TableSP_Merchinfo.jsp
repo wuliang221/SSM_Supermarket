@@ -6,10 +6,10 @@
 
                                 <div class="row" style="margin-bottom:10px;">
                                     <div class="col-sm-4">
-                                        <input class="form-control" id="filter" placeholder="商品名称..." type="text" value="${goodsName }">
+                                        <input class="form-control" id="MerchinfoFilter" placeholder="商品名称..." type="text" value="${MerchinName }">
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="#api" class="pull-right btn btn-info filter-api" href="javascript:void(0);" onclick="chazhao()">查找</a>
+                                        <a href="#api" class="pull-right btn btn-info filter-api" href="javascript:void(0);" onclick="JLMenderchazhao()">查找</a>
                                     </div>
                                 </div>
                                 <table class="table table-striped">
@@ -24,23 +24,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${merchinfo }" var="m">
-                                    <tr id="${m.m }">
-                                        <td>${m.m }</td>
-                                        <td>${m.m }</td>
-                                        <td>${m.m }</td>
-                                        <td>${m.m }</td>
-                                        <td>${m.m}</td>
-                                        <td>${m.m }</td>
+                                    <c:forEach items="${Merchinfo }" var="m">
+                                    <tr id="${m.barCode }">
+                                        <td>${m.merchName }</td>
+                                        <td>${m.merchPrice }</td>
+                                        <td>${m.merchNum }</td>
+                                        <td>${m.provideName }</td>
                                         <td>
-                                        	<button type="button" onclick="js_xiu1('${m.m }','${m.m }',
-                                        	'${m.m }','${m.m }','${m.m}','${m.m }'
-                                        	,'${m.m }')" class="btn btn-primary btn-xs">详情</button>
+                                        	<button type="button" onclick="js_xiu1('${m.merchID }','',
+                                        	'','','',''
+                                        	,'')" class="btn btn-primary btn-xs">详情</button>
                                         	
-                                        	<button type="button" onclick="js_xiu1('${m.m }','${m.m }',
+                                        	<%-- <button type="button" onclick="js_xiu1('${m.m }','${m.m }',
                                         	'${m.m }','${m.m }','${m.m}','${m.m }'
                                         	,'${m.m }')" class="btn btn-primary btn-xs">修改</button>
-                                            <button type="button" onclick="js_shanchu('${m.m }','SP1','${m.m }')" class="btn btn-danger btn-xs">删除</button>
+                                            <button type="button" onclick="js_shanchu('${m.m }','SP1','${m.m }')" class="btn btn-danger btn-xs">删除</button> --%>
                                         </td>
                                     </tr>
                                     </c:forEach>
@@ -51,10 +49,10 @@
                                  <ul>
 				<li>共${ps.totalCount }条记录&nbsp;&nbsp; 第${ps.currPageNo }/${ps.totalPageCount }页
 				</li>
-				<button class="btn btn-default" href="javascript:void(0);" onclick="firstPage()">首页</button>
-				<button class="btn btn-default" onclick="upPage()">上一页</button>
-				<button class="btn btn-default" onclick="dowmPage()">下一页</button>
-				<button class="btn btn-default" href="javascript:void(0);" onclick="lastPage()">末页</button>
+				<button class="btn btn-default" href="javascript:void(0);" onclick="MerchinfofirstPage()">首页</button>
+				<button class="btn btn-default" onclick="MerchinfoupPage()">上一页</button>
+				<button class="btn btn-default" onclick="MerchinfodowmPage()">下一页</button>
+				<button class="btn btn-default" href="javascript:void(0);" onclick="MerchinfolastPage()">末页</button>
 				&nbsp;&nbsp;
 			</ul>
                             </div>
