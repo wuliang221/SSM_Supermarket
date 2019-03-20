@@ -25,20 +25,20 @@
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${Merchinfo }" var="m">
-                                    <tr id="${m.barCode }">
+                                    <tr>
+                                    	<td>${m.barCode }</td>
                                         <td>${m.merchName }</td>
                                         <td>${m.merchPrice }</td>
                                         <td>${m.merchNum }</td>
                                         <td>${m.provideName }</td>
                                         <td>
-                                        	<button type="button" onclick="js_xiu1('${m.merchID }','',
+                                        	<%-- <button type="button" onclick="js_xiu1('${m.merchID }','',
                                         	'','','',''
                                         	,'')" class="btn btn-primary btn-xs">详情</button>
-                                        	
-                                        	<%-- <button type="button" onclick="js_xiu1('${m.m }','${m.m }',
-                                        	'${m.m }','${m.m }','${m.m}','${m.m }'
-                                        	,'${m.m }')" class="btn btn-primary btn-xs">修改</button>
-                                            <button type="button" onclick="js_shanchu('${m.m }','SP1','${m.m }')" class="btn btn-danger btn-xs">删除</button> --%>
+                                        	 --%>
+                                        	 <button type="button" onclick="js_xiu1('${m.merchID }','${m.merchName }','${m.provideID }',
+                                        	'${m.merchPrice }','${m.merchNum}','${m.barCode}')" class="btn btn-primary btn-xs">修改</button>
+                                            <button type="button" onclick="js_shanchu('${m.merchID }','SP1','${m.merchName}')" class="btn btn-danger btn-xs">删除</button> 
                                         </td>
                                     </tr>
                                     </c:forEach>

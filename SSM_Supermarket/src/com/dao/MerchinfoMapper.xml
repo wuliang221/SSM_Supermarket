@@ -50,8 +50,6 @@ SELECT 	COUNT(MerchID)
 	P.ProvideContact, 
 	P.ProvideAddress, 
 	P.ProvidePhone
-
-	 
 	FROM 
 	supermarket_mysql.merchinfo AS M
 	INNER JOIN supermarket_mysql.provide AS P
@@ -61,9 +59,90 @@ SELECT 	COUNT(MerchID)
 	AND MerchName LIKE CONCAT('%',#{merchName},'%')
 	</if>
 	LIMIT #{pageNo},#{pageSize}
-	
-	
-  
   </select>
+ <delete id="delMerchinfo">
  
+ DELETE FROM supermarket_mysql.merchinfo 
+	WHERE
+	MerchID = #{merchID} ;
+ </delete>
+ <!-- 修改商品信息(条形码 商品名称 商品价格  库存  供应商   ) -->
+ <update id="updateMerchinfo">
+ 
+ 
+UPDATE supermarket_mysql.merchinfo 
+	SET
+	
+	MerchName = #{merchinfo.merchName} , 
+	MerchPrice = #{merchinfo.merchPrice} , 
+	MerchNum = #{merchinfo.merchNum} , 
+	BarCode = #{merchinfo.barCode} , 
+	ProvideID = #{merchinfo.provideID}
+	
+	WHERE
+	MerchID = #{merchinfo.merchID} ;
+ </update>
+ 
+ <insert id="addMerchinfo">
+ 
+ 
+INSERT INTO supermarket_mysql.merchinfo 
+	(
+	MerchName, 
+	MerchPrice, 
+	MerchCost, 
+	MerchNum, 
+	CautionNum, 
+	PlanNum, 
+	BarCode, 
+	SalesProPrice, 
+	SalesProDateS, 
+	SalesProDateE, 
+	AllowAbate, 
+	AllowSale, 
+	ProvideID
+	)
+	VALUES
+	( 
+	#{merchinfo..merchName}, 
+	#{merchinfo.merchPrice}, 
+	#{merchinfo.merchCost}, 
+	#{merchinfo.merchNum}, 
+	#{merchinfo.cautionNum}, 
+	#{merchinfo.planNum}, 
+	#{merchinfo.barCode', 
+	#{merchinfo.salesProPrice}, 
+	#{merchinfo.salesProDateS}, 
+	#{merchinfo.salesProDateE}, 
+	#{merchinfo.allowAbate}, 
+	#{merchinfo.allowSale}, 
+	#{merchinfo.provideID}
+	);
+ 
+ </insert>
+ <select id="merch" resultType="Merchinfo">
+ 
+ 
+SELECT 	
+	MerchID, 
+	MerchName, 
+	MerchPrice, 
+	MerchCost, 
+	MerchNum, 
+	CautionNum, 
+	PlanNum, 
+	BarCode, 
+	SalesProPrice, 
+	SalesProDateS, 
+	SalesProDateE, 
+	AllowAbate, 
+	AllowSale, 
+	ProvideID
+	 
+	FROM 
+	supermarket_mysql.merchinfo 
+	WHERE MerchID=#{merchID}
+ 
+ 
+ </select>
 </mapper>

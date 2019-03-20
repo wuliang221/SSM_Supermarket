@@ -5,7 +5,7 @@ function js_js_xiugai(DD){
 	//Ajax请求参数
 	var data2="";
 	var close="";
-	if(DD == "spxiu"){
+	if(DD == ""){
 		url+="/goods/update.json";
 		var id=$("#inputEmail10").val();
 		var z11=$("#inputEmail11").val();
@@ -16,23 +16,26 @@ function js_js_xiugai(DD){
 		var z16=$("#inputEmail16").val();
 		close=$("#myModal1");
 		data2={goodsno:id,goodsname:z11,typeno:z12,supplierno:z13,goodsunit:z14,goodsinprise:z15,goodsoutprise:z16};
-	}else if(date == 2){
+	}else if(DD == 2){
 		url+="";
 		var z21=$("#inputEmail21").val();
 		var z22=$("#inputEmail22").val();
 		var z23=$("#inputEmail23").val();
 		data2={departmentalName:z21,personsNum:z22,wageCoefficient:z23};
-	}else if(date == "3"){
-		var z1=$("#inputEmail31").val();
-		var z2=$("#inputEmail32").val();
-		var z3=$("#inputEmail33").val();
-		var z4=$("#inputEmail34").val();
-		
-	}else if(date == "4"){
+	}else if(DD == "spxiu"){
+		url+="/Merchin/updateMerchinfo.json";
+		var a1=$("#inputEmail10").val();
+		var a2=$("#inputEmail11").val();
+		var a3=$("#inputEmail12").val();
+		var a4=$("#inputEmail13").val();
+		var a5=$("#inputEmail14").val();
+		var a6=$("#inputEmail15").val();
+		data2={merchID:a1,merchName:a2,provideID:a3,merchPrice:a4,merchNum:a5,barCode:a6}
+	}else if(DD == "4"){
 		var z1=$("#inputEmail41").val();
 		var z2=$("#inputEmail42").val();
 		
-	}else if(date == "5"){
+	}else if(DD == "5"){
 		var z1=$("#inputEmail51").val();
 		var z2=$("#inputEmail52").val();
 		
@@ -65,6 +68,11 @@ function js_js_xiugai(DD){
 			close.modal('toggle');
 			shuaxin();
 			}
+			if(data=="merchinfoSaveSuccess"){
+				alert("修改成功！");
+				close.modal('toggle');
+				Merchinfoshuaxin();
+			}
 		},
 		error : function(data) {
 			alert("修改失败！");
@@ -78,14 +86,13 @@ function js_js_xiugai(DD){
 
 //修改模态框弹出并赋值
 //商品修改模态框
-function js_xiu1(on,d1,d2,d3,d4,d5,d6) {
+function js_xiu1(on,d1,d2,d3,d4,d5) {
 	$("#inputEmail10").val(on);
 	$("#inputEmail11").val(d1);
 	$("#inputEmail12").val([d2]);
-	$("#inputEmail13").val([d3]);
+	$("#inputEmail13").val(d3);
 	$("#inputEmail14").val(d4);
 	$("#inputEmail15").val(d5);
-	$("#inputEmail16").val(d6);
 	$("#myModal1").modal({backdrop:"static"});
 }
 

@@ -19,5 +19,7 @@ public interface ProvideMapper {
 	 public int updateProvide(@Param("provide")Provide provide);
 	 //删除供应商
 	 public int delProvide(@Param("provideID")Integer provideID);
+	 //查询所有供应商
+	 public List<Provide> allpro();
 	 
 }

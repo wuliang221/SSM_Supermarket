@@ -56,4 +56,12 @@ public class ProvideServiceImpl implements ProvideService {
 		return result;
 	}
 
+	/**
+	 * 查询所有的供应商提供下拉
+	 */
+	@Override
+	public List<Provide> allpro() {
+		return provideMapper.allpro();
+	}
+
 }

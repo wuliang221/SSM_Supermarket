@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.Service.ProvideService;
 import com.Service.UserService;
 import com.alibaba.fastjson.JSON;
+import com.pojo.Provide;
 import com.pojo.User;
 
 @Controller
@@ -21,6 +25,8 @@ public class Coneroller {
 	
 	@Resource
 	private UserService userService;
+	@Resource
+	private ProvideService provideService;
 
 	//登录页面
 	@RequestMapping("/DL.html")
@@ -36,7 +42,9 @@ public class Coneroller {
 	
 	//经理端主页
 	@RequestMapping("/JL.html")
-	public String JL(){
+	public String JL(Model model){
+		List<Provide> pro=provideService.allpro();
+		model.addAttribute("pro", pro);
 		return "JL";
 	}
 	

@@ -18,6 +18,8 @@ public interface MerchinfoService {
 	public boolean addMerchinfo(Merchinfo merchinfo);
 	//删除商品
 	public boolean delMerchinfo(Integer merchID);
+	//查询单个商品信息
+	public Merchinfo merch(Integer merchID);
 	//修改商品信息
 	public boolean updateMerchinfo(Merchinfo merchinfo);
 

@@ -18,5 +18,8 @@ public interface ProvideService {
 	 //删除供应商
 	 public boolean del(Integer provideID);
 	 
+	 //查询所有供应商
+	 public List<Provide> allpro();
+	 
 
 }

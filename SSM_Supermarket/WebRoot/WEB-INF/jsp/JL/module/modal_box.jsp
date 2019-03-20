@@ -44,7 +44,7 @@
 		      <input type="text" class="form-control" name="departmentalname" id="inputEmail11" >
 		    </div>
 		  </div>
-		    <div class="form-group">
+		    <%-- <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">商品类别</label>
 		    <div class="col-sm-10" id="depart">
 		      <select class="form-control" id="inputEmail12">
@@ -53,33 +53,33 @@
 	          </c:forEach>
 				</select>
 		    </div>
-		  </div>
+		  </div> --%>
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">供应商</label>
 		    <div class="col-sm-10" id="depart">
-		     <select class="form-control" id="inputEmail13">
-                   <c:forEach items="${supplier }" var="s">
-	                 <option value="${s.supplierno }">${s.suppliername }</option>
+		     <select class="form-control" id="inputEmail12">
+                   <c:forEach items="${pro}" var="s">
+	                 <option value="${s.provideID }" >${s.provideName }</option>
 	                 </c:forEach>
                    </select>
 			</div>
 		  </div>
 		   <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">单位(g)</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">商品价格</label>
+		    <div class="col-sm-10">
+		      <input type="tezt" class="form-control" name="wagecoefficient" id="inputEmail13" >
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">库存</label>
 		    <div class="col-sm-10">
 		      <input type="tezt" class="form-control" name="wagecoefficient" id="inputEmail14" >
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">进货价</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">条形码</label>
 		    <div class="col-sm-10">
 		      <input type="tezt" class="form-control" name="wagecoefficient" id="inputEmail15" >
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">销售价</label>
-		    <div class="col-sm-10">
-		      <input type="tezt" class="form-control" name="wagecoefficient" id="inputEmail16" >
 		    </div>
 		  </div>
 		</form>

@@ -17,9 +17,11 @@ public interface MerchinfoMapper {
 	//查询打折商品
 	public List<Merchinfo> salesProMerchinfo(@Param("merchName")String merchName,@Param("pageNo")Integer pageNo,@Param("pageSize")Integer pageSize);
 	//添加商品
-	public int addMerchinfo(@Param("Merchinfo")Merchinfo merchinfo);
+	public int addMerchinfo(@Param("merchinfo")Merchinfo merchinfo);
 	//删除商品
 	public int delMerchinfo(@Param("merchID")Integer merchID);
-	//修改商品信息
-	public int updateMerchinfo(@Param("Merchinfo")Merchinfo merchinfo);
+	//查询单个商品信息
+	public Merchinfo merch(@Param("merchID")Integer merchID);
+	//修改商品信息(条形码 商品名称 商品价格  库存  供应商   )
+	public int updateMerchinfo(@Param("merchinfo")Merchinfo merchinfo);
 }
