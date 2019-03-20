@@ -54,12 +54,12 @@
                                 <span>进货详情</span>
                             </a>
                             <ul>
-                                <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="" title="进货计划"><i class="icon-attachment"></i><span>进货计划</span></a></li>
-                                <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="" title="进货记录"><i class="icon-view-list-large"></i><span>进货记录</span></a></li>
+                                <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('JH1')" title="进货计划"><i class="icon-attachment"></i><span>进货计划</span></a></li>
+                                <li><a class="tooltip-tip2 ajax-load" href="javascript:void(0);" onclick="js_table('JHB')" title="进货记录"><i class="icon-view-list-large"></i><span>进货记录</span></a></li>
                             </ul>
                         </li>
                         <li>
-                            <a class="tooltip-tip ajax-load" href="javascript:void(0);" onclick="js_add('addYG')" title="入库登记">
+                            <a class="tooltip-tip ajax-load" href="javascript:void(0);" onclick="js_table('JH2')" title="入库登记">
                                 <i class="entypo-user-add"></i>
                                 <span>入库登记</span>
                             </a>

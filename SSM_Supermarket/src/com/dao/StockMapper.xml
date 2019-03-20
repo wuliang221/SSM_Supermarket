@@ -4,12 +4,41 @@
   <resultMap id="BaseResultMap" type="com.pojo.Stock" >
     <id column="StockID" property="stockID" jdbcType="INTEGER" />
     <result column="MerchID" property="merchID" jdbcType="INTEGER" />
+    <result column="MerchName" property="merchname" jdbcType="INTEGER" />
     <result column="MerchNum" property="merchNum" jdbcType="INTEGER" />
     <result column="MerchPrice" property="merchPrice" jdbcType="DOUBLE" />
     <result column="TotalPrice" property="totalPrice" jdbcType="DOUBLE" />
     <result column="PlanDate" property="planDate" jdbcType="TIMESTAMP" />
     <result column="StockDate" property="stockDate" jdbcType="TIMESTAMP" />
     <result column="StockState" property="stockState" jdbcType="INTEGER" />
+    <result column="RunDate" property="runDate" jdbcType="VARCHAR" />
   </resultMap>
+  
+  <select id="selectstockNum" resultType="int">
+  	SELECT COUNT(*)
+	FROM stock
+	INNER JOIN merchinfo
+	ON merchinfo.MerchID=stock.MerchID
+	<if test="StockState !='' and StockState != null">
+        WHERE StockState=#{StockState}
+    </if>
+  </select>
+  
+  
+  <select id="selectstock" resultType="Stock">
+  	SELECT MerchName,stock.MerchNum,StockID,stock.MerchID,TotalPrice,StockDate,PlanDate,RunDate,StockState
+	FROM stock
+	INNER JOIN merchinfo
+	ON merchinfo.MerchID=stock.MerchID
+	<if test="StockState !='' and StockState != null">
+        WHERE StockState=#{StockState}
+    </if>
+	ORDER BY StockDate DESC
+    LIMIT #{qi},#{tiao}
+  </select>
+  
+  
+  
+  
   
 </mapper>
