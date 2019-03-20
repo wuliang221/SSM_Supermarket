@@ -20,5 +20,10 @@ public class SaleServiceImpl implements SaleService {
 	public List<Sale> selectSaledealingID(int dealingID) {
 		return saleMapper.selectSaledealingID(dealingID);
 	}
+	
+	//查询商品销售图表记录详情 
+	public List<Sale> selectSaleTABLE(){
+		return saleMapper.selectSaleTABLE();
+	}
 
 }
