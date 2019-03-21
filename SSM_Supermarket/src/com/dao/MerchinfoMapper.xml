@@ -96,27 +96,19 @@ INSERT INTO supermarket_mysql.merchinfo
 	CautionNum, 
 	PlanNum, 
 	BarCode, 
-	SalesProPrice, 
-	SalesProDateS, 
-	SalesProDateE, 
 	AllowAbate, 
-	AllowSale, 
 	ProvideID
 	)
 	VALUES
 	( 
-	#{merchinfo..merchName}, 
+	#{merchinfo.merchName}, 
 	#{merchinfo.merchPrice}, 
 	#{merchinfo.merchCost}, 
-	#{merchinfo.merchNum}, 
+	0, 
 	#{merchinfo.cautionNum}, 
 	#{merchinfo.planNum}, 
-	#{merchinfo.barCode', 
-	#{merchinfo.salesProPrice}, 
-	#{merchinfo.salesProDateS}, 
-	#{merchinfo.salesProDateE}, 
+	#{merchinfo.barCode}, 
 	#{merchinfo.allowAbate}, 
-	#{merchinfo.allowSale}, 
 	#{merchinfo.provideID}
 	);
  

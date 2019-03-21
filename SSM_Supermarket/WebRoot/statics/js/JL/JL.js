@@ -153,15 +153,16 @@ function js_tianjia(date) {
 	var data3="";
 	if(date == 1){
 		data3="addSP";
-		url+="/goods/insert.json";
-		var z11=$("#shuju11").val();
-		var z12=$("#shuju12").val();
-		var z13=$("#shuju13").val();
-		var z14=$("#shuju14").val();
-		var z15=$("#shuju15").val();
-		var z16=$("#shuju16").val();
-		var z17=$("#shuju17").val();
-		data2={goodsname:z11,typeno:z12,supplierno:z13,goodsnorm:z14,goodsunit:z15,goodsoutprise:z16,goodsinprise:z17};
+		url+="/Merchin/addMerchinfo.json";
+		var z11=$("#SP1").val();
+		var z12=$("#SP2").val();
+		var z13=$("#SP3").val();
+		var z14=$("#SP4").val();
+		var z15=$("#SP5").val();
+		var z16=$("#SP6").val();
+		var z17=$("#SP7").val();
+		var z18=$("#SP8").val();
+		data2={merchName:z11,barCode:z12,provideID:z13,merchPrice:z14,merchCost:z15,cautionNum:z16,planNum:z17,allowAbate:z18};
 	}else if(date == 2){
 		url+="";
 		var z21=$("#inputEmail21").val();
@@ -188,7 +189,7 @@ function js_tianjia(date) {
 		var z3=$("#inputEmail63").val();
 		
 	}else if(date == "GYS"){
-		url+="/GYS//add.json";
+		url+="/GYS/add.json";
 		data3="addGYS";
 		var gys1=$("#GYS1").val();
 		var gys2=$("#GYS2").val();
@@ -224,6 +225,9 @@ function js_tianjia(date) {
 				}
 				else if(data3=="addGYS"){
 					alert("供应商添加成功！！！");
+				}
+				else if(data3=="addSP"){
+					alert("!!!!!!！！！");
 				}
 			js_add(data3);
 			}
@@ -393,4 +397,10 @@ function shu() {
 var myTime=window.setInterval("shu()",100);
 
 
+//设置日期时间控件
+lay('#version').html('-v'+ laydate.v);
+//执行一个laydate实例
+laydate.render({
+elem: '#test1' //指定元素
+});
 

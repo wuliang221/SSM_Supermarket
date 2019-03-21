@@ -3,14 +3,20 @@ package com.controller;
 
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.Service.ProvideService;
+import com.pojo.Provide;
 
 
 
@@ -18,6 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/add")
 public class addConeroller {
+	
+	@Resource
+	private ProvideService provideService;
 	
 	//员工添加add页面
 	@RequestMapping(value="/addYG.html")
@@ -38,8 +47,10 @@ public class addConeroller {
 //商品添加add页面
 	@RequestMapping(value="/addSP.html")
 	@ResponseBody
-	public void add3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	public void add3(HttpServletRequest request, HttpServletResponse response,Model model) throws ServletException, IOException{
 		System.out.println("======================================================================商品添加add页面");
+		List<Provide> pro=provideService.allpro();
+		request.setAttribute("pro", pro);
 		request.getRequestDispatcher("/WEB-INF/jsp/JL/add/addSP_Merchinfo.jsp").forward(request, response);
 	}
 	
