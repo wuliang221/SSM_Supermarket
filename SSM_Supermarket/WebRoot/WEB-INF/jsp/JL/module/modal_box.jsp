@@ -30,7 +30,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" >计划订单添加</h4>
       </div>
-      <div id="SDJYDDmdod" class="modal-body">
+      <div id="" class="modal-body">
       <form class="form-horizontal">
       	 <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">商品</label>
@@ -68,7 +68,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" >计划订单修改</h4>
       </div>
-      <div id="SDJYDDmdod" class="modal-body">
+      <div id="" class="modal-body">
       <form class="form-horizontal">
       	 <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">商品</label>
@@ -90,7 +90,7 @@
 		  </from>
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-default" onclick="js_tianjia('交易订单修改保存')">保存</button>
+      	<button type="button" class="btn btn-default" onclick="">保存</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
       </div>
     </div>
