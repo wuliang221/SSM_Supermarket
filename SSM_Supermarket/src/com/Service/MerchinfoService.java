@@ -22,5 +22,7 @@ public interface MerchinfoService {
 	public Merchinfo merch(Integer merchID);
 	//修改商品信息
 	public boolean updateMerchinfo(Merchinfo merchinfo);
+	//查询所有商品id与商品名称
+	public List<Merchinfo> selectidname();
 
 }

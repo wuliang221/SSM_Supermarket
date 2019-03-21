@@ -7,11 +7,9 @@
                             <div class="body-nest" id="Filtering1">
 
                                 <div class="row" style="margin-bottom:10px;">
-                                    <div class="col-sm-8">
-                                    </div>
                                     <div class="col-sm-4">
-                                    	<button type="button" onclick="js_x_xd()" class="btn btn-info">自动添加订单计划</button>
-                                        <button type="button" onclick="js_add_stock()" class="btn btn-success">手动添加订单计划</button>
+                                    </div>
+                                    <div class="col-sm-6">
                                     </div>
                                 </div>
                                 <table class="table table-striped">
@@ -21,7 +19,7 @@
                                         <th>商品名</th>
                                         <th>订单数量</th>
                                         <th>订单金额</th>
-                                        <th>订单创建日期</th>
+                                        <th>下单日期</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -35,23 +33,22 @@
                                         <td>${s.totalPrice }</td>
                                         <td> <fmt:formatDate type="date" value="${s.stockDate}"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                         <td>
-                                        	<button type="button" onclick="js_x_stock('${s.stockID }','${s.merchNum }')" class="btn btn-primary btn-xs">修改</button>
-                                        	<button type="button" onclick="js_x_xd('${s.stockID }')" class="btn btn-warning">下单</button>
-                                        	<button type="button" onclick="js_JYXQ('${s.stockID }')" class="btn btn-danger">删除</button>
+                                        	<button type="button" onclick="js_x_xd('${s.stockID }')" class="btn btn-primary btn-xs">入库</button>
+                                        	<button type="button" onclick="js_JYXQ('${s.stockID }')" class="btn btn-primary btn-xs">删除</button>
                                         </td>
                                     </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
                                   <ul>
-									<li>共${fy.tiao }条记录&nbsp;&nbsp; 第${fy.dang }/${fy.ye }页
-									</li>
-									<button class="btn btn-default"  onclick="FY('1','stock1')">首页</button>
-									<button class="btn btn-default" onclick="FY('${fy.dang-1 }','stock1')">上一页</button>
-									<button class="btn btn-default" onclick="FY('${fy.dang+1 }','stock1')">下一页</button>
-									<button class="btn btn-default" onclick="FY('${fy.ye }','stock1')">末页</button>
-									&nbsp;&nbsp;
-								</ul>
+				<li>共${fy.tiao }条记录&nbsp;&nbsp; 第${fy.dang }/${fy.ye }页
+				</li>
+				<button class="btn btn-default"  onclick="FY('1','stock1')">首页</button>
+				<button class="btn btn-default" onclick="FY('${fy.dang-1 }','stock1')">上一页</button>
+				<button class="btn btn-default" onclick="FY('${fy.dang+1 }','stock1')">下一页</button>
+				<button class="btn btn-default" onclick="FY('${fy.ye }','stock1')">末页</button>
+				&nbsp;&nbsp;
+			</ul>
                             </div>
                         </div>
                     </div>

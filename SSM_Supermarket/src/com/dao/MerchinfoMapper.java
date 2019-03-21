@@ -24,4 +24,6 @@ public interface MerchinfoMapper {
 	public Merchinfo merch(@Param("merchID")Integer merchID);
 	//修改商品信息(条形码 商品名称 商品价格  库存  供应商   )
 	public int updateMerchinfo(@Param("merchinfo")Merchinfo merchinfo);
+	//查询所有商品id与商品名称
+	public List<Merchinfo> selectidname();
 }

@@ -22,6 +22,8 @@ public class feye {
 		}
 		if(da > this.ye){
 			this.dang=this.ye;
+		}else if(da < 1){
+			this.dang=1;
 		}else {
 			this.dang=da;
 		}

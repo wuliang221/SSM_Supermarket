@@ -1,6 +1,10 @@
 package com.dao;
 
+import java.util.Date;
 import java.util.List;
+
+
+
 
 import org.apache.ibatis.annotations.Param;
 
@@ -15,6 +19,10 @@ public interface StockMapper {
 	
 	//根据条件查询进货订单数量
 	public int selectstockNum(@Param("StockState")String StockState);
+	
+	
+	//添加订单计划
+	public int addstock(@Param("merchID")int merchID,@Param("merchNum")int merchNum,@Param("stockDate")Date data);
 	
 	
 }

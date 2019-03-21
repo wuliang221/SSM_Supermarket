@@ -81,5 +81,9 @@ public class MerchinfoServiceImpl implements MerchinfoService {
 	public Merchinfo merch(Integer merchID) {
 		return merchinfoMapper.merch(merchID);
 	}
+	
+	public List<Merchinfo> selectidname(){
+		return merchinfoMapper.selectidname();
+	}
 
 }

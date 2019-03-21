@@ -1,5 +1,6 @@
 package com.Service.Impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -26,6 +27,11 @@ public class StockServiceImpl implements StockService {
 	@Override
 	public int selectstockNum(String StockState){
 		return stockMapper.selectstockNum(StockState);
+	}
+	
+	@Override
+	public int addstock(int merchID,int merchNum){
+		return stockMapper.addstock(merchID, merchNum,new Date());
 	}
 
 }

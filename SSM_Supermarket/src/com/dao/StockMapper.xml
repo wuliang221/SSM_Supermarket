@@ -11,7 +11,7 @@
     <result column="PlanDate" property="planDate" jdbcType="TIMESTAMP" />
     <result column="StockDate" property="stockDate" jdbcType="TIMESTAMP" />
     <result column="StockState" property="stockState" jdbcType="INTEGER" />
-    <result column="RunDate" property="runDate" jdbcType="VARCHAR" />
+    <result column="RunDate" property="runDate" jdbcType="TIMESTAMP" />
   </resultMap>
   
   <select id="selectstockNum" resultType="int">
@@ -26,7 +26,7 @@
   
   
   <select id="selectstock" resultType="Stock">
-  	SELECT MerchName,stock.MerchNum,StockID,stock.MerchID,TotalPrice,StockDate,PlanDate,RunDate,StockState
+  	SELECT MerchName,stock.MerchNum,StockID,stock.MerchID,TotalPrice,StockState,StockDate,PlanDate,RunDate,StockState
 	FROM stock
 	INNER JOIN merchinfo
 	ON merchinfo.MerchID=stock.MerchID
@@ -37,8 +37,10 @@
     LIMIT #{qi},#{tiao}
   </select>
   
-  
-  
+  <insert id="addstock">
+  	INSERT INTO stock (MerchID,MerchNum,TotalPrice,StockDate,StockState)
+	VALUE (#{merchID},#{merchNum},#{merchNum}*(SELECT MerchCost FROM merchinfo WHERE MerchID=#{merchID}),#{stockDate},1)
+  </insert>
   
   
 </mapper>

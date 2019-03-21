@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.Service.MerchinfoService;
 import com.Service.ProvideService;
 import com.Service.UserService;
 import com.alibaba.fastjson.JSON;
@@ -27,6 +28,8 @@ public class Coneroller {
 	private UserService userService;
 	@Resource
 	private ProvideService provideService;
+	@Resource
+	private MerchinfoService merchinfoService;
 
 	//登录页面
 	@RequestMapping("/DL.html")
@@ -45,6 +48,7 @@ public class Coneroller {
 	public String JL(Model model){
 		List<Provide> pro=provideService.allpro();
 		model.addAttribute("pro", pro);
+		model.addAttribute("merchinfo", merchinfoService.selectidname());
 		return "JL";
 	}
 	

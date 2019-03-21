@@ -1,9 +1,6 @@
 package com.Service;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.pojo.Stock;
 
 public interface StockService {
@@ -13,5 +10,8 @@ public interface StockService {
 	
 	//根据条件查询进货订单数量
 	public int selectstockNum(String StockState);
+	
+	//添加订单计划
+	public int addstock(int merchID,int merchNum);
 
 }

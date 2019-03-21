@@ -85,6 +85,7 @@ function js_js_xiugai(DD){
 
 
 //修改模态框弹出并赋值
+
 //商品修改模态框
 function js_xiu1(on,d1,d2,d3,d4,d5) {
 	$("#inputEmail10").val(on);
@@ -115,17 +116,28 @@ function js_xiu3(on,d1,d2,d3,d4) {
 	$("#myModal3").modal({backdrop:"static"});
 }
 
-
-
-
-
-
-
 //销售信息修改模态框
 function js_xiu3(on,id,id1,id2,id3) {
 	
 	
 }
+
+//计划订单添加模态框
+function js_add_stock(){
+	$("#SDJYDDH4").text("计划订单添加");
+	$("#SDJYDDid").val([0]);
+	$("#SDJYDDnum").val("");
+	$("#SDJYDD").modal({backdrop:"static"});
+}
+
+//计划订单修改模态框
+function js_x_stock(id,id1){
+	$("#SDJYDDH41").text("计划订单修改");
+	$("#SDJYDDid1").val([id]);
+	$("#SDJYDDnum1").val(id1);
+	$("#SDJYDD1").modal({backdrop:"static"});
+}
+
 
 //员工修改模态框
 function js_x_user(on,id,id1,id2,id3,id4) {
@@ -135,7 +147,6 @@ function js_x_user(on,id,id1,id2,id3,id4) {
 	$("#inputEmail43").val(d3);
 	$("#inputEmail44").val(d4);
 	$("#myModal4").modal({backdrop:"static"});
-	
 }
 
 
@@ -162,12 +173,10 @@ function js_tianjia(date) {
 		var z16=$("#shuju16").val();
 		var z17=$("#shuju17").val();
 		data2={goodsname:z11,typeno:z12,supplierno:z13,goodsnorm:z14,goodsunit:z15,goodsoutprise:z16,goodsinprise:z17};
-	}else if(date == 2){
-		url+="";
-		var z21=$("#inputEmail21").val();
-		var z22=$("#inputEmail22").val();
-		var z23=$("#inputEmail23").val();
-		data2={departmentalName:z21,personsNum:z22,wageCoefficient:z23};
+	}else if(date == "交易订单修改保存"){
+		url+="/stock/addstock.json";
+		data3="JH1";
+		data2={merchID:$("#SDJYDDid").val(),merchNum:$("#SDJYDDnum").val()};
 	}else if(date == "3"){
 		var z1=$("#inputEmail31").val();
 		var z2=$("#inputEmail32").val();
@@ -216,17 +225,18 @@ function js_tianjia(date) {
 		type :"post",
 		url:url,
 		data:data2,
-		dataType:"json",	
+		dataType:"text",	
 		success : function(data) {
-			if(data=="success"){
+			("false" == data) ? alert("后台添加失败！") : (alert(data),js_add(data3));
+			/*将需要输出的语句从后台传过来，不用在这里判断！！
+			 * 添加失败了统一传 false 回来。
+			 * if(data=="success"){
 				if(data3=="addYG"){
 					alert("添加成功！账号为手机，密码默认888888 ！！！");
-				}
-				else if(data3=="addGYS"){
+				}else if(data3=="addGYS"){
 					alert("供应商添加成功！！！");
 				}
-			js_add(data3);
-			}
+			}*/
 		},
 		error : function(data) {
 			alert("添加失败！");
@@ -293,15 +303,16 @@ function js_shan(on,id,name) {
 		
 		
 		
-	}
+	};
 	
 }
 
 
 
-//add页面
+//add页面加载
 function js_add(date) {
-	      if(date=="addSP"){
+	var url=$("#url").val();
+	if(date=="addSP"){
 		$("#biaodanname").text("商品信息添加");
 	}else if(date=="addGYS"){
 		$("#biaodanname").text("供应商信息添加");
@@ -310,9 +321,16 @@ function js_add(date) {
 	}else if(date=="addYG"){
 		$("#biaodanname").text("员工信息添加");
 	}
+	
+	if(date == "JH1"){
+		$("#SDJYDD").modal('toggle')
+		url+="/stock/stock1.html";
+	}else {
+		url+="/add/"+date+".html";
+	}
 	$.ajax({
 		type :"get",
-		url:$("#url").val()+"/add/"+date+".html",
+		url:url,
 		dataType:"html",
 		success : function(data) {
 			$("#maindiv").html(data);
@@ -358,39 +376,9 @@ function js_table(date) {
 		com+="/JL/Menber.html";
 	}
 	$("#maindiv").load(com);
-}	
+};
 
 
-
-
-//主页时间显示
-function shu() {
-    var date=new Date();
-    document.getElementById("data").innerHTML=(date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日");
-    document.getElementById("shi").innerHTML=(date.getHours());
-    document.getElementById("fen").innerHTML=(date.getMinutes());
-    document.getElementById("miao").innerHTML=(date.getSeconds());
-    if(date.getHours()==0){
-        document.getElementById("wu").innerHTML=("午夜");
-    }else if(date.getHours()>=1 && date.getHours()<=4) {
-        document.getElementById("wu").innerHTML=("凌晨");
-    }else if(date.getHours()==5) {
-        document.getElementById("wu").innerHTML=("清晨");
-    }else if(date.getHours()>=6 && date.getHours()<=7) {
-        document.getElementById("wu").innerHTML=("早上");
-    }else if(date.getHours()>=8 && date.getHours()<=10) {
-        document.getElementById("wu").innerHTML=("上午");
-    }else if(date.getHours()>=11 && date.getHours()<=12) {
-        document.getElementById("wu").innerHTML=("中午");
-    }else if(date.getHours()>=13 && date.getHours()<=16) {
-        document.getElementById("wu").innerHTML=("下午");
-    }else if(date.getHours()==17) {
-        document.getElementById("wu").innerHTML=("傍晚");
-    }else if(date.getHours()>=18 && date.getHours()<=23) {
-        document.getElementById("wu").innerHTML=("晚上");
-    }
-}
-var myTime=window.setInterval("shu()",100);
 
 
 

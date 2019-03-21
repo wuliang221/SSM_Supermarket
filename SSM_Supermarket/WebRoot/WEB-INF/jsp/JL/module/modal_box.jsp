@@ -22,6 +22,84 @@
 
 
 
+<!-- 手动添加进货订单模态框 -->
+<div class="modal fade" id="SDJYDD" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >计划订单添加</h4>
+      </div>
+      <div id="SDJYDDmdod" class="modal-body">
+      <form class="form-horizontal">
+      	 <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">商品</label>
+		    <div class="col-sm-10" id="SDJYDDname">
+		     <select class="form-control" id="SDJYDDid">
+		     		<option value="0" >=请选择商品=</option>
+                   <c:forEach items="${merchinfo}" var="m">
+	                 <option value="${m.merchID }" >${m.merchName }</option>
+	               </c:forEach>
+              </select>
+			</div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">进货数量</label>
+		    <div class="col-sm-10">
+		      <input type="tezt" class="form-control" name="wagecoefficient" id="SDJYDDnum" >
+		    </div>
+		  </div>
+		  </from>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" onclick="js_tianjia('交易订单修改保存')">保存</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 进货订单修改模态框 -->
+<div class="modal fade" id="SDJYDD1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >计划订单修改</h4>
+      </div>
+      <div id="SDJYDDmdod" class="modal-body">
+      <form class="form-horizontal">
+      	 <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">商品</label>
+		    <div class="col-sm-10" id="SDJYDDname1">
+		     <select class="form-control" id="SDJYDDid1">
+		     		<option value="0" >=请选择商品=</option>
+                   <c:forEach items="${merchinfo}" var="m">
+	                 <option value="${m.merchID }" >${m.merchName }</option>
+	               </c:forEach>
+              </select>
+			</div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">进货数量</label>
+		    <div class="col-sm-10">
+		      <input type="tezt" class="form-control" name="wagecoefficient" id="SDJYDDnum1" >
+		    </div>
+		  </div>
+		  </from>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" onclick="js_tianjia('交易订单修改保存')">保存</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
@@ -61,7 +139,7 @@
                    <c:forEach items="${pro}" var="s">
 	                 <option value="${s.provideID }" >${s.provideName }</option>
 	                 </c:forEach>
-                   </select>
+              </select>
 			</div>
 		  </div>
 		   <div class="form-group">

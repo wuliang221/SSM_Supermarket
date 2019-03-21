@@ -145,4 +145,13 @@ SELECT
  
  
  </select>
+ 
+ <select id="selectidname" resultType="Merchinfo">
+	SELECT 	MerchID,MerchName
+	FROM 
+	supermarket_mysql.merchinfo 
+ </select>
+ 
+ 
+ 
 </mapper>
