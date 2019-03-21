@@ -31,7 +31,7 @@ function MerchinfolastPage() {
 
 
 //根据条件查询
-function JLMenderchazhao() {
+function Merchinfochazhao() {
 	var lianjie=$("#url").val();
 	var MerchinName=$("#MerchinfoFilter").val();
 	$("#maindiv").load(lianjie+"/Merchin/MerchinSelect.html?pageNo=1&MerchinName="+MerchinName)

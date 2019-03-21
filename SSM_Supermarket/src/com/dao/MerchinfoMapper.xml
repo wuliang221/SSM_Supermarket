@@ -60,6 +60,7 @@ SELECT 	COUNT(MerchID)
 	</if>
 	LIMIT #{pageNo},#{pageSize}
   </select>
+  <!--删除商品  -->
  <delete id="delMerchinfo">
  
  DELETE FROM supermarket_mysql.merchinfo 
@@ -82,7 +83,7 @@ UPDATE supermarket_mysql.merchinfo
 	WHERE
 	MerchID = #{merchinfo.merchID} ;
  </update>
- 
+ <!--添加新商品  -->
  <insert id="addMerchinfo">
  
  
@@ -95,34 +96,35 @@ INSERT INTO supermarket_mysql.merchinfo
 	CautionNum, 
 	PlanNum, 
 	BarCode, 
-	SalesProPrice, 
-	SalesProDateS, 
-	SalesProDateE, 
 	AllowAbate, 
-	AllowSale, 
 	ProvideID
 	)
 	VALUES
 	( 
-	#{merchinfo..merchName}, 
+	#{merchinfo.merchName}, 
 	#{merchinfo.merchPrice}, 
 	#{merchinfo.merchCost}, 
-	#{merchinfo.merchNum}, 
+	0, 
 	#{merchinfo.cautionNum}, 
 	#{merchinfo.planNum}, 
-	#{merchinfo.barCode', 
-	#{merchinfo.salesProPrice}, 
-	#{merchinfo.salesProDateS}, 
-	#{merchinfo.salesProDateE}, 
+	#{merchinfo.barCode}, 
 	#{merchinfo.allowAbate}, 
-	#{merchinfo.allowSale}, 
 	#{merchinfo.provideID}
 	);
  
  </insert>
- <select id="merch" resultType="Merchinfo">
- 
- 
+ <!-- 查询允许打折商品总数 -->
+ <select id="salesCount" resultType="int">
+ SELECT COUNT(*) FROM supermarket_mysql.merchinfo
+ WHERE 1=1 
+ AND AllowAbate=1
+ <if test="merchName != ''and merchName != null">
+	AND MerchName LIKE CONCAT('%',#{merchName},'%')
+</if>
+</select>
+<!-- 查询单个商品 -->
+<select id="merch" resultType="Merchinfo">
+
 SELECT 	
 	MerchID, 
 	MerchName, 
@@ -141,8 +143,41 @@ SELECT
 	 
 	FROM 
 	supermarket_mysql.merchinfo 
-	WHERE MerchID=#{merchID}
+	where MerchID=#{merchID}
+
+</select>
  
+ <!-- 查询打折商品 -->
+ <select id="salesProMerchinfo" resultType="Merchinfo">
+   SELECT 	
+  	M.MerchID, 
+	M.MerchName, 
+	M.MerchPrice, 
+	M.MerchCost, 
+	M.MerchNum, 
+	M.CautionNum, 
+	M.PlanNum, 
+	M.BarCode, 
+	M.SalesProPrice, 
+	M.SalesProDateS, 
+	M.SalesProDateE, 
+	M.AllowAbate, 
+	M.AllowSale, 
+	M.ProvideID,
+	P.ProvideName, 
+	P.ProvideContact, 
+	P.ProvideAddress, 
+	P.ProvidePhone
+	FROM 
+	supermarket_mysql.merchinfo AS M
+	INNER JOIN supermarket_mysql.provide AS P
+	ON M.ProvideID=P.ProvideID
+	WHERE 1=1 
+	AND AllowAbate=1
+	<if test="merchName != ''and merchName != null">
+	AND MerchName LIKE CONCAT('%',#{merchName},'%')
+	</if>
+	LIMIT #{pageNo},#{pageSize}
  
  </select>
  
