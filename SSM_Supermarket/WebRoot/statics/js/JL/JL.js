@@ -5,6 +5,7 @@ function js_js_xiugai(DD){
 	//Ajax请求参数
 	var data2="";
 	var close="";
+	var model="#";
 	if(DD == ""){
 		url+="/goods/update.json";
 		var id=$("#inputEmail10").val();
@@ -30,29 +31,14 @@ function js_js_xiugai(DD){
 		var a4=$("#inputEmail13").val();
 		var a5=$("#inputEmail14").val();
 		var a6=$("#inputEmail15").val();
-		data2={merchID:a1,merchName:a2,provideID:a3,merchPrice:a4,merchNum:a5,barCode:a6}
-	}else if(DD == "4"){
-		var z1=$("#inputEmail41").val();
-		var z2=$("#inputEmail42").val();
-		
-	}else if(DD == "5"){
-		var z1=$("#inputEmail51").val();
-		var z2=$("#inputEmail52").val();
-		
-	}else if(date == "6"){
-		var z1=$("#inputEmail61").val();
-		var z2=$("#inputEmail62").val();
-		var z3=$("#inputEmail63").val();
-		
-	}else if(date == "7"){
-		var z1=$("#inputEmail71").val();
-		var z2=$("#inputEmail72").val();
-		var z3=$("#inputEmail73").val();
-		
-	}else if(date == "8"){
-		
-	}else if(date == "9"){
-		
+		data2={merchID:a1,merchName:a2,provideID:a3,merchPrice:a4,merchNum:a5,barCode:a6};
+		model+="SDJYDD1";
+	}else if(DD == "计划订单修改"){
+		url+="/stock/updatestock.json";
+		var a1=$("#SDJYDDid1").val();
+		var a2=$("#SDJYDDname1").val();
+		var a3=$("#SDJYDDnum1").val();
+		data2={stockID:a1,merchID:a2,merchNum:a3};
 	}else{
 		alert("网页出现错误");
 		return;
@@ -72,7 +58,11 @@ function js_js_xiugai(DD){
 				alert("修改成功！");
 				$("#myModal1").modal('hide');
 				Merchinfoshuaxin();
+			}else {
+				alert(data);
+				$("#SDJYDD1").modal('toggle');
 			}
+			
 		},
 		error : function(data) {
 			alert("修改失败！");
@@ -131,10 +121,11 @@ function js_add_stock(){
 }
 
 //计划订单修改模态框
-function js_x_stock(id,id1){
+function js_x_stock(id,id1,id2){
 	$("#SDJYDDH41").text("计划订单修改");
-	$("#SDJYDDid1").val([id]);
-	$("#SDJYDDnum1").val(id1);
+	$("#SDJYDDid1").val(id);
+	$("#SDJYDDname1").val([id1]);
+	$("#SDJYDDnum1").val(id2);
 	$("#SDJYDD1").modal({backdrop:"static"});
 }
 
@@ -378,6 +369,12 @@ function js_table(date) {
 	}else if(date=="JH1"){
 		$("#biaodanname").text("计划进货表");
 		com+="/stock/stock1.html";
+	}else if(date=="JH2"){
+		$("#biaodanname").text("进货记录表");
+		com+="/stock/stock2.html";
+	}else if(date=="RK"){
+		$("#biaodanname").text("入库登记表");
+		com+="/stock/stock3.html";
 	}else if(date=="Merchinfo"){
 		$("#biaodanname").text("商品信息表");
 		com+="/Merchin/MerchinSelect.html";

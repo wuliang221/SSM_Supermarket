@@ -30,11 +30,12 @@ public class StockServiceImpl implements StockService {
 	}
 	
 	@Override
-	public int addstock(int merchID,int merchNum){
-		return stockMapper.addstock(merchID, merchNum,new Date());
+	public int addstock(String merchID,String merchNum,Date date){
+		return stockMapper.addstock(merchID, merchNum,date);
 	}
+	
 	@Override
-	public int updatestock(String stockID,int merchID,int merchNum){
+	public int updatestock(String stockID,String merchID,String merchNum){
 		return stockMapper.updatestock(stockID, merchID, merchNum);
 	}
 			
@@ -44,8 +45,8 @@ public class StockServiceImpl implements StockService {
 	}
 	
 	//修改计划订单状态
-	public int xiustock(String stockID,String stockState){
-		return stockMapper.xiustock(stockID, stockState);
+	public int xiustock(String stockID,String stockState,Date planDate,Date runDate){
+		return stockMapper.xiustock(stockID, stockState,planDate,runDate);
 	}
 
 }

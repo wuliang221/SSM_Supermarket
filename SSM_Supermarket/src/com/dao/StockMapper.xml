@@ -49,7 +49,15 @@
   </update>
   
   <update id="xiustock">
-  	update stock set StockState=#{stockState}
+  	update stock set StockState=#{stockState} 
+  	<if test="planDate !='' and planDate != null">
+  		,PlanDate=#{planDate}
+  	</if>
+  	<if test="runDate !='' and runDate != null">
+  		,RunDate=#{runDate}
+  	</if>
+  	 
+  	
 	where StockID = #{stockID}
   </update>
   

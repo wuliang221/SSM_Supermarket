@@ -10,6 +10,12 @@ function FY(ye,cdn){
 	}else if(cdn == "stock1"){
 		//计划进货分页
 		lianjie+="/stock/stock1.html?pageNo="+ye;
+	}else if(cdn == "stock2"){
+		//计划进货分页
+		lianjie+="/stock/stock2.html?pageNo="+ye;
+	}else if(cdn == "stock3"){
+		//计划进货分页
+		lianjie+="/stock/stock3.html?pageNo="+ye;
 	}
 	$("#maindiv").load(lianjie);
 }
@@ -19,7 +25,7 @@ function FY(ye,cdn){
 function js_DDZTXG(id,iid,idthis){
 	$.ajax({
 		type :"POST",
-		url:$("#url").val()+"/stock/xiastock.json",
+		url:$("#url").val()+(iid == "2" ? "/stock/xiastock.json" : "/stock/rustock.json"),
 		data:{stockID:id,stockState:iid},
 		dataType:"json",
 		success : function(data) {

@@ -70,10 +70,11 @@
       </div>
       <div id="" class="modal-body">
 	     <form class="form-horizontal">
+	     <input type="hidden" id="SDJYDDid1" value=""/>
       	 <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">商品</label>
 		    <div class="col-sm-10" id="SDJYDDname">
-		     <select class="form-control" id="SDJYDDid1">
+		     <select class="form-control" id="SDJYDDname1">
 		     		<option value="0" >=请选择商品=</option>
                    <c:forEach items="${merchinfo}" var="m">
 	                 <option value="${m.merchID }" >${m.merchName }</option>
@@ -90,7 +91,7 @@
 		  </from>
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-default" onclick="">保存</button>
+      	<button type="button" class="btn btn-default" onclick="js_js_xiugai('计划订单修改')">保存</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
       </div>
     </div>
