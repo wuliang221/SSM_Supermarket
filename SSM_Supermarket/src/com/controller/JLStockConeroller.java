@@ -41,12 +41,34 @@ public class JLStockConeroller {
 
 	
 	//添加计划订单
-	@RequestMapping("addstock.json")
+	@RequestMapping("/addstock.json")
 	@ResponseBody
-	public String addstock(@RequestParam("merchID") String merchID,@RequestParam("merchNum") String merchNum) {
-		return (0 < stockService.addstock(new Integer(merchID), new Integer(merchNum))) ? "计划订单添加成功" : "false";
+	public Object addstock(@RequestParam("merchID") String merchID,@RequestParam("merchNum") String merchNum) {
+		return JSON.toJSONString((0 < stockService.addstock(new Integer(merchID), new Integer(merchNum))) ? "订单添加成功" : "false");
 	}
-
+	
+	//修改计划订单
+	@RequestMapping("/updatestock.json")
+	@ResponseBody
+	public Object updatestock(@RequestParam("merchID") String merchID,@RequestParam("merchNum") String merchNum) {
+		return JSON.toJSONString((0 < stockService.addstock(new Integer(merchID), new Integer(merchNum))) ? "订单修改成功" : "false");
+	}
+	
+	//删除计划订单
+	@RequestMapping("/deletestock.json")
+	@ResponseBody
+	public Object deletestock(@RequestParam("stockID") String stockID) {
+		return JSON.toJSONString((0 < stockService.deletestock(stockID)) ? "订单删除成功" : "false");
+	}
+	
+	//修改计划订单状态
+	@RequestMapping("/xiastock.json")
+	@ResponseBody
+	public Object xiastock(@RequestParam("stockID") String stockID,@RequestParam("stockState") String stockState) {
+		return JSON.toJSONString((0 < stockService.xiustock(stockID, stockState)) ? "下单成功！" : "false");
+	}
+	
+	
 	/**
 	 * 根据进货单号修改进货信息
 	 *//*

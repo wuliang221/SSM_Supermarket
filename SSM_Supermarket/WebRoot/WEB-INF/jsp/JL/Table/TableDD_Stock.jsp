@@ -1,3 +1,4 @@
+
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -35,9 +36,9 @@
                                         <td>${s.totalPrice }</td>
                                         <td> <fmt:formatDate type="date" value="${s.stockDate}"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                         <td>
-                                        	<button type="button" onclick="js_x_stock('${s.stockID }','${s.merchNum }')" class="btn btn-primary btn-xs">修改</button>
-                                        	<button type="button" onclick="js_x_xd('${s.stockID }')" class="btn btn-warning">下单</button>
-                                        	<button type="button" onclick="js_JYXQ('${s.stockID }')" class="btn btn-danger">删除</button>
+                                        	<button type="button" onclick="js_x_stock('${s.merchID }','${s.merchNum }')" class="btn btn-primary btn-xs">修改</button>
+                                        	<button type="button" onclick="js_DDZTXG('${s.stockID }','2',this)"" class="btn btn-warning">下单</button>
+                                        	<button type="button" onclick=" js_shan('DD','${s.stockID }','${s.merchName }',this)" class="btn btn-danger">删除</button>
                                         </td>
                                     </tr>
                                     </c:forEach>

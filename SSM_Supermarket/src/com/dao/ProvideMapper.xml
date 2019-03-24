@@ -73,9 +73,6 @@ UPDATE supermarket_mysql.provide
 	DELETE FROM supermarket_mysql.provide 
 		WHERE
 		ProvideID = #{provideID} ;
-  
-  
-  
   </delete>
   
   <select id="allpro" resultType="Provide">

@@ -37,10 +37,27 @@
     LIMIT #{qi},#{tiao}
   </select>
   
+  
   <insert id="addstock">
   	INSERT INTO stock (MerchID,MerchNum,TotalPrice,StockDate,StockState)
 	VALUE (#{merchID},#{merchNum},#{merchNum}*(SELECT MerchCost FROM merchinfo WHERE MerchID=#{merchID}),#{stockDate},1)
   </insert>
+  
+  <update id="updatestock">
+  	update stock set MerchID=#{merchID},MerchNum=#{merchNum},TotalPrice =(#{merchNum}*(SELECT MerchCost FROM merchinfo WHERE MerchID=#{merchID}))
+	where StockID = #{stockID}
+  </update>
+  
+  <update id="xiustock">
+  	update stock set StockState=#{stockState}
+	where StockID = #{stockID}
+  </update>
+  
+  <delete id="deletestock">
+	delete from  stock
+	where StockID = #{stockID}
+  </delete>
+  
   
   
 </mapper>

@@ -1,16 +1,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 //分页跳转
 function FY(ye,cdn){
 	var lianjie=$("#url").val();
@@ -23,6 +13,32 @@ function FY(ye,cdn){
 	}
 	$("#maindiv").load(lianjie);
 }
+
+
+//进货订单状态修改
+function js_DDZTXG(id,iid,idthis){
+	$.ajax({
+		type :"POST",
+		url:$("#url").val()+"/stock/xiastock.json",
+		data:{stockID:id,stockState:iid},
+		dataType:"json",
+		success : function(data) {
+			if(data != "false"){
+				alert(data);
+				$(idthis).parent().parent().remove();
+			}else{
+				alert("修改失败");
+			}
+		},
+		error : function(data) {
+			alert("发生未知错误！");
+		}
+	})
+}
+
+
+
+
 
 //交易详情模态框弹出并赋值
 function js_JYXQ(data1) {
@@ -42,7 +58,6 @@ function js_JYXQ(data1) {
 			ht+="<p class=''text-right'>总计</p><span class='label label-danger'>"+ml+"</span>"+"<p class=''text-right'>￥</p>";
 			$("#JYXQmdod").html(ht);
 		}
-	
 	})
 	$("#JYXQ").modal({backdrop:"static"});
 }

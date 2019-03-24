@@ -69,10 +69,10 @@
         <h4 class="modal-title" >计划订单修改</h4>
       </div>
       <div id="" class="modal-body">
-      <form class="form-horizontal">
+	     <form class="form-horizontal">
       	 <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">商品</label>
-		    <div class="col-sm-10" id="SDJYDDname1">
+		    <div class="col-sm-10" id="SDJYDDname">
 		     <select class="form-control" id="SDJYDDid1">
 		     		<option value="0" >=请选择商品=</option>
                    <c:forEach items="${merchinfo}" var="m">

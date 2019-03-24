@@ -158,7 +158,6 @@ function js_tianjia(date) {
 	$('#myModal').modal('toggle');
 	//Ajax地址
 	var url=$("#url").val();
-	var url2="";
 	//Ajax请求参数
 	var data2="";
 	var data3="";
@@ -177,7 +176,7 @@ function js_tianjia(date) {
 		url+="/stock/addstock.json";
 		data3="JH1";
 		data2={merchID:$("#SDJYDDid").val(),merchNum:$("#SDJYDDnum").val()};
-		url+="/Merchin/addMerchinfo.json";
+		/*url+="/Merchin/addMerchinfo.json";
 		var z11=$("#SP1").val();
 		var z12=$("#SP2").val();
 		var z13=$("#SP3").val();
@@ -186,7 +185,7 @@ function js_tianjia(date) {
 		var z16=$("#SP6").val();
 		var z17=$("#SP7").val();
 		var z18=$("#SP8").val();
-		data2={merchName:z11,barCode:z12,provideID:z13,merchPrice:z14,merchCost:z15,cautionNum:z16,planNum:z17,allowAbate:z18};
+		data2={merchName:z11,barCode:z12,provideID:z13,merchPrice:z14,merchCost:z15,cautionNum:z16,planNum:z17,allowAbate:z18};*/
 	}else if(date == 2){
 		url+="";
 		var z21=$("#inputEmail21").val();
@@ -241,7 +240,7 @@ function js_tianjia(date) {
 		type :"post",
 		url:url,
 		data:data2,
-		dataType:"text",	
+		dataType:"json",	
 		success : function(data) {
 			("false" == data) ? alert("后台添加失败！") : (alert(data),js_add(data3));
 			/*将需要输出的语句从后台传过来，不用在这里判断！！
@@ -269,11 +268,10 @@ function js_tianjia(date) {
 
 //删除Ajax
 //id=编号，on=判断条件，name=名字
-function js_shan(on,id,name) {
+function js_shan(on,id,name,idthis) {
 	var String="";
 	var url=$("#url").val();
 	var i="";
-	
 	if(on=="SP1"){
 		//商品信息表
 		String="是否删除商品1:"+name;
@@ -293,7 +291,11 @@ function js_shan(on,id,name) {
 		url+="/worker/del.json";
 		data={userID:id};
 		i="ygflush";
-		
+	}else if(on=="DD"){
+		String="是否删除:"+name+" 的订单！";
+		url+="/stock/deletestock.json";
+		data={stockID:id};
+		i="this";
 	}
 	
 	if(confirm(String)){
@@ -311,19 +313,17 @@ function js_shan(on,id,name) {
 					}else if(i=="gysflush"){
 						provideshuaxin();
 					}
-					
+				}else{
+					if(i=="this"){
+						$(idthis).parent().parent().remove();;
+					}
 				}
-				
 			},
 			error : function() {
 				alert("删除失败！");
 			}
 		});
-		
-		
-		
 	};
-	
 }
 
 

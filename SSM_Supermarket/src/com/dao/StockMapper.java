@@ -24,5 +24,13 @@ public interface StockMapper {
 	//添加订单计划
 	public int addstock(@Param("merchID")int merchID,@Param("merchNum")int merchNum,@Param("stockDate")Date data);
 	
+	//修改计划订单
+	public int updatestock(@Param("stockID")String stockID,@Param("merchID")int merchID,@Param("merchNum")int merchNum);
+	
+	//删除计划订单
+	public int deletestock(@Param("stockID")String stockID);
+	
+	//修改计划订单状态
+	public int xiustock(@Param("stockID")String stockID,@Param("stockState")String stockState);
 	
 }

@@ -37,8 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							o[i]=data[i].merchName;
 							p[i]=data[i].saleNum;
 						}
-						var name=[o[0],o[1],o[2],o[3]];
-    					var num=[p[0],p[1],p[2],p[3]]
+						var name=[o[0],o[1],o[2],o[3],o[4],o[5],o[6],o[7],o[8],o[9],o[10],o[11],o[12],o[13]];
+    					var num=[p[0],p[1],p[2],p[3],,p[4],p[5],p[6],p[7],p[8],p[9],p[10],p[11],p[12],p[13]];
 						var barChartData = {
 					        labels : name,
 					        datasets : [
