@@ -102,6 +102,23 @@ function js_js_xiugai(DD){
 }
 
 
+//日期格式转换成字符串
+function datetoString(date){ 
+		var date = new Date(date);
+	  var year = date.getFullYear(); 
+	  var month =(date.getMonth() + 1).toString(); 
+	  var day = (date.getDate()).toString();  
+	  if (month.length == 1) { 
+	      month = "0" + month; 
+	  } 
+	  if (day.length == 1) { 
+	      day = "0" + day; 
+	  }
+	  var dateTime = year + "-" + month + "-" + day;
+	  return dateTime; 
+	};
+
+
 
 
 
@@ -124,8 +141,11 @@ function js_xiucx1(on,d1,d2,d3,d4) {
 	$("#CX10").val(on);
 	$("#CX11").val(d1);
 	$("#CX12").val(d2);
-	$("#CX13").val(d3);
-	$("#CX14").val(d4);
+	/*var ddd=data_string(d3,'yyyy-MM-dd');*/
+	var date3=datetoString(d3);
+	var date4=datetoString(d4);
+	$("#CX13").val(date3);
+	$("#CX14").val(date4);
 	$("#myModal7").modal({backdrop:"static"});
 }
 
