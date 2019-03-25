@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.StockMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Stock" >
+    <id column="StockID" property="stockID" jdbcType="INTEGER" />
+    <result column="MerchID" property="merchID" jdbcType="INTEGER" />
+    <result column="MerchName" property="merchname" jdbcType="INTEGER" />
+    <result column="MerchNum" property="merchNum" jdbcType="INTEGER" />
+    <result column="MerchPrice" property="merchPrice" jdbcType="DOUBLE" />
+    <result column="TotalPrice" property="totalPrice" jdbcType="DOUBLE" />
+    <result column="PlanDate" property="planDate" jdbcType="TIMESTAMP" />
+    <result column="StockDate" property="stockDate" jdbcType="TIMESTAMP" />
+    <result column="StockState" property="stockState" jdbcType="INTEGER" />
+    <result column="RunDate" property="runDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <select id="selectstockNum" resultType="int">
+  	SELECT COUNT(*)
+	FROM stock
+	INNER JOIN merchinfo
+	ON merchinfo.MerchID=stock.MerchID
+	<if test="StockState !='' and StockState != null">
+        WHERE StockState=#{StockState}
+    </if>
+  </select>
+  
+  
+  <select id="selectstock" resultType="Stock">
+  	SELECT MerchName,stock.MerchNum,StockID,stock.MerchID,TotalPrice,StockState,StockDate,PlanDate,RunDate,StockState
+	FROM stock
+	INNER JOIN merchinfo
+	ON merchinfo.MerchID=stock.MerchID
+	<if test="StockState !='' and StockState != null">
+        WHERE StockState=#{StockState}
+    </if>
+	ORDER BY StockDate DESC
+    LIMIT #{qi},#{tiao}
+  </select>
+  
+  
+  <insert id="addstock">
+  	INSERT INTO stock (MerchID,MerchNum,TotalPrice,StockDate,StockState)
+	VALUE (#{merchID},#{merchNum},#{merchNum}*(SELECT MerchCost FROM merchinfo WHERE MerchID=#{merchID}),#{stockDate},1)
+  </insert>
+  
+  <update id="updatestock">
+  	update stock set MerchID=#{merchID},MerchNum=#{merchNum},TotalPrice =(#{merchNum}*(SELECT MerchCost FROM merchinfo WHERE MerchID=#{merchID}))
+	where StockID = #{stockID}
+  </update>
+  
+  <update id="xiustock">
+  	update stock set StockState=#{stockState} 
+  	<if test="planDate !='' and planDate != null">
+  		,PlanDate=#{planDate}
+  	</if>
+  	<if test="runDate !='' and runDate != null">
+  		,RunDate=#{runDate}
+  	</if>
+  	 
+  	
+	where StockID = #{stockID}
+  </update>
+  
+  <delete id="deletestock">
+	delete from  stock
+	where StockID = #{stockID}
+  </delete>
+  
+  
+  
+</mapper>

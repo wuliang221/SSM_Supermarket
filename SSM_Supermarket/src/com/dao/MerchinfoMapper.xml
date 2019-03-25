@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.MerchinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Merchinfo" >
+    <id column="MerchID" property="merchID" jdbcType="INTEGER" />
+    <result column="MerchName" property="merchName" jdbcType="VARCHAR" />
+    <result column="MerchPrice" property="merchPrice" jdbcType="DOUBLE" />
+    <result column="MerchCost" property="merchCost" jdbcType="DOUBLE" />
+    <result column="MerchNum" property="merchNum" jdbcType="INTEGER" />
+    <result column="CautionNum" property="cautionNum" jdbcType="INTEGER" />
+    <result column="PlanNum" property="planNum" jdbcType="INTEGER" />
+    <result column="BarCode" property="barCode" jdbcType="VARCHAR" />
+    <result column="SalesProPrice" property="salesProPrice" jdbcType="DOUBLE" />
+    <result column="SalesProDateS" property="salesProDateS" jdbcType="TIMESTAMP" />
+    <result column="SalesProDateE" property="salesProDateE" jdbcType="TIMESTAMP" />
+    <result column="AllowAbate" property="allowAbate" jdbcType="INTEGER" />
+    <result column="AllowSale" property="allowSale" jdbcType="INTEGER" />
+    <result column="FactoryID" property="factoryID" jdbcType="INTEGER" />
+    <result column="ProvideID" property="provideID" jdbcType="INTEGER" />
+  </resultMap>
+  <select id="count" resultType="int">
+  
+SELECT 	COUNT(MerchID)
+	 
+	FROM 
+	supermarket_mysql.merchinfo 
+	where 1=1
+	<if test="merchName !='' and merchName != null">
+			AND MerchName=#{merchName}
+	</if>
+  </select>
+  <select id="merchinfo" resultType="Merchinfo">
+  
+  SELECT 	
+  	M.MerchID, 
+	M.MerchName, 
+	M.MerchPrice, 
+	M.MerchCost, 
+	M.MerchNum, 
+	M.CautionNum, 
+	M.PlanNum, 
+	M.BarCode, 
+	M.SalesProPrice, 
+	M.SalesProDateS, 
+	M.SalesProDateE, 
+	M.AllowAbate, 
+	M.AllowSale, 
+	M.ProvideID,
+	P.ProvideName, 
+	P.ProvideContact, 
+	P.ProvideAddress, 
+	P.ProvidePhone
+	FROM 
+	supermarket_mysql.merchinfo AS M
+	INNER JOIN supermarket_mysql.provide AS P
+	ON M.ProvideID=P.ProvideID
+	WHERE 1=1
+	<if test="merchName != ''and merchName != null">
+	AND MerchName LIKE CONCAT('%',#{merchName},'%')
+	</if>
+	LIMIT #{pageNo},#{pageSize}
+  </select>
+  <!--删除商品  -->
+ <delete id="delMerchinfo">
+ 
+ DELETE FROM supermarket_mysql.merchinfo 
+	WHERE
+	MerchID = #{merchID} ;
+ </delete>
+ <!-- 修改商品信息(条形码 商品名称 商品价格  库存  供应商   ) -->
+ <update id="updateMerchinfo">
+ 
+ 
+UPDATE supermarket_mysql.merchinfo 
+	SET
+	
+	MerchName = #{merchinfo.merchName} , 
+	MerchPrice = #{merchinfo.merchPrice} , 
+	MerchNum = #{merchinfo.merchNum} , 
+	BarCode = #{merchinfo.barCode} , 
+	ProvideID = #{merchinfo.provideID},
+	AllowAbate = #{merchinfo.allowAbate}
+	
+	WHERE
+	MerchID = #{merchinfo.merchID} ;
+ </update>
+ 
+  <!-- 修改促销商品信息(价格、日期   ) -->
+ <update id="updateMerchinfoCX ">
+ 
+
+	
+UPDATE supermarket_mysql.merchinfo 
+	SET
+	SalesProPrice = #{merchinfo.salesProPrice} , 
+	SalesProDateS = #{merchinfo.salesProDateS} , 
+	SalesProDateE = #{merchinfo.salesProDateE} 
+	
+	WHERE
+	MerchID = #{merchinfo.merchID} ;
+ </update>
+ <!--添加新商品  -->
+ <insert id="addMerchinfo">
+ 
+ 
+INSERT INTO supermarket_mysql.merchinfo 
+	(
+	MerchName, 
+	MerchPrice, 
+	MerchCost, 
+	MerchNum, 
+	CautionNum, 
+	PlanNum, 
+	BarCode, 
+	AllowAbate, 
+	ProvideID
+	)
+	VALUES
+	( 
+	#{merchinfo.merchName}, 
+	#{merchinfo.merchPrice}, 
+	#{merchinfo.merchCost}, 
+	0, 
+	#{merchinfo.cautionNum}, 
+	#{merchinfo.planNum}, 
+	#{merchinfo.barCode}, 
+	#{merchinfo.allowAbate}, 
+	#{merchinfo.provideID}
+	);
+ 
+ </insert>
+ <!-- 查询允许打折商品总数 -->
+ <select id="salesCount" resultType="int">
+ SELECT COUNT(*) FROM supermarket_mysql.merchinfo
+ WHERE 1=1 
+ AND AllowAbate=1
+ <if test="merchName != ''and merchName != null">
+	AND MerchName LIKE CONCAT('%',#{merchName},'%')
+</if>
+</select>
+<!-- 查询单个商品 -->
+<select id="merch" resultType="Merchinfo">
+
+SELECT 	
+	MerchID, 
+	MerchName, 
+	MerchPrice, 
+	MerchCost, 
+	MerchNum, 
+	CautionNum, 
+	PlanNum, 
+	BarCode, 
+	SalesProPrice, 
+	SalesProDateS, 
+	SalesProDateE, 
+	AllowAbate, 
+	AllowSale, 
+	ProvideID
+	 
+	FROM 
+	supermarket_mysql.merchinfo 
+	where MerchID=#{merchID}
+
+</select>
+ 
+ <!-- 查询打折商品 -->
+ <select id="salesProMerchinfo" resultType="Merchinfo">
+   SELECT 	
+  	M.MerchID, 
+	M.MerchName, 
+	M.MerchPrice, 
+	M.MerchCost, 
+	M.MerchNum, 
+	M.CautionNum, 
+	M.PlanNum, 
+	M.BarCode, 
+	M.SalesProPrice, 
+	M.SalesProDateS, 
+	M.SalesProDateE, 
+	M.AllowAbate, 
+	M.AllowSale, 
+	M.ProvideID,
+	P.ProvideName, 
+	P.ProvideContact, 
+	P.ProvideAddress, 
+	P.ProvidePhone
+	FROM 
+	supermarket_mysql.merchinfo AS M
+	INNER JOIN supermarket_mysql.provide AS P
+	ON M.ProvideID=P.ProvideID
+	WHERE 1=1 
+	AND AllowAbate=1
+	<if test="merchName != ''and merchName != null">
+	AND MerchName LIKE CONCAT('%',#{merchName},'%')
+	</if>
+	LIMIT #{pageNo},#{pageSize}
+ 
+ </select>
+ 
+ <select id="selectidname" resultType="Merchinfo">
+	SELECT 	MerchID,MerchName
+	FROM 
+	supermarket_mysql.merchinfo 
+ </select>
+ 
+ 
+ 
+</mapper>

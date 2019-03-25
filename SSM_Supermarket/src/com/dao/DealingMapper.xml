@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.DealingMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Dealing" >
+    <id column="DealingID" property="dealingID" jdbcType="INTEGER" />
+    <result column="DealingDate" property="dealingDate" jdbcType="TIMESTAMP" />
+    <result column="DealingPrice" property="dealingPrice" jdbcType="DOUBLE" />
+    <result column="UserName" property="userName" jdbcType="VARCHAR" />
+    <result column="MemberCard" property="memberCard" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- 查询所有交易记录或按照会员卡号查询交易记录数量 -->
+ <select id="selectDealingSL" resultType="int" >
+	SELECT COUNT(DealingID) FROM dealing 
+	WHERE 1=1
+	<if test="memberID !='' and memberID !=null">
+		AND MemberCard LIKE CONCAT('%',#{memberID},'%')
+	</if>
+ </select>
+  
+  <!-- 查询所有交易记录或按照会员查询交易记录 -->
+ <select id="selectDealing" resultType="Dealing" >
+	SELECT DealingID,DealingDate,DealingPrice,UserName,MemberCard 
+	FROM dealing
+	INNER JOIN user AS us  ON us.UserID=dealing.UserID
+	WHERE 1=1
+	<if test="memberID !='' and memberID !=null">
+		AND MemberCard  LIKE CONCAT('%',#{memberID},'%')
+	</if>
+	LIMIT #{qi},#{xian};
+ </select>
+ 
+  
+  
+</mapper>
