@@ -24,5 +24,8 @@ public interface MerchinfoService {
 	public boolean updateMerchinfo(Merchinfo merchinfo);
 	//查询所有商品id与商品名称
 	public List<Merchinfo> selectidname();
+	//修改促销商品价格，日期
+	public boolean updateCX(Merchinfo merchinfo);
+	
 
 }

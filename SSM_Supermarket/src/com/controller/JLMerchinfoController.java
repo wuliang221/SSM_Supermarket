@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Service.MerchinfoService;
 import com.alibaba.fastjson.JSON;
-import com.pojo.Menber;
 import com.pojo.Merchinfo;
 import com.util.PageSupport;
-import com.util.feye;
 @Controller
 @RequestMapping("/Merchin")
 public class JLMerchinfoController {
@@ -102,6 +99,21 @@ public class JLMerchinfoController {
 		String json="";
 		if(result){
 			json="merchinfoSaveSuccess";
+		}
+		return JSON.toJSONString(json);
+	}
+	/**
+	 * 根据ID修改促销商品信息
+	 * @param merchinfo
+	 * @return
+	 */
+	@RequestMapping(value="/updateCX.json",method=RequestMethod.POST)
+	@ResponseBody
+	public Object updateMerchinfoCX(Merchinfo merchinfo){
+		boolean result=merchinfoService.updateCX(merchinfo);
+		String json="";
+		if(result){
+			json="CXsuccess";
 		}
 		return JSON.toJSONString(json);
 	}

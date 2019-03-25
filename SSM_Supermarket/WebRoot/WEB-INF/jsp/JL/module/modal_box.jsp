@@ -145,20 +145,30 @@
 		   <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">商品价格</label>
 		    <div class="col-sm-10">
-		      <input type="tezt" class="form-control" name="wagecoefficient" id="inputEmail13" >
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail13" >
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">库存</label>
 		    <div class="col-sm-10">
-		      <input type="tezt" class="form-control" name="wagecoefficient" id="inputEmail14" >
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail14" >
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">条形码</label>
 		    <div class="col-sm-10">
-		      <input type="tezt" class="form-control" name="wagecoefficient" id="inputEmail15" >
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail15" >
 		    </div>
+		      <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">是否允许打折</label>
+		    <div class="col-sm-10" id="depart">
+		     <select class="form-control" id="inputEmail16">
+                   <option value="1" >允许</option>
+	                 <option value="0" >不允许</option>
+	                
+              </select>
+			</div>
+		  </div>
 		  </div>
 		</form>
       </div>
@@ -440,7 +450,7 @@
 
 
 
-<!-- 费用信息模态框 -->
+<!-- 商品促销信息模态框 -->
 <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -451,33 +461,45 @@
       <div class="modal-body">
         <form class="form-horizontal">
 		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">费用信息</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">促销商品名称</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputEmail71" placeholder="名称">
+		      <input type="text" class="form-control" id="CX11"  readonly>
 		    </div>
 		  </div>
 		   <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">金额</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">促销金额（元）</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputEmail72" placeholder="999,99">
+		      <input type="text" class="form-control" id="CX12" >
 		    </div>
 		  </div>
-		   <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">性别</label>
-		    <div class="col-sm-10">
-		      <label class="radio-inline">
-				  <input type="radio" name="inlineRadioOptions" id="inputEmail73" value="1" checked="checked"> 已报
-				</label>
-				<label class="radio-inline">
-				  <input type="radio" name="inlineRadioOptions" id="inputEmail73" value="2"> 未报
-				</label>
-		    </div>
-		    </div>	
+	  <div class="control-group">
+              <label class="control-label" for="subject">促销开始日期</label>
+                     <div class="controls">
+                             <a class='input-group date' id='datetimepicker1' >
+							 <input type="text" class="form-control" id='CX13'  placeholder="请选择日期" />
+					         <span class="input-group-addon" >
+					     		 <span class="glyphicon glyphicon-calendar" ></span>
+					     	 </span>
+							</a>
+                      </div>
+                      </div>
+                           <div class="control-group">
+                                 <label class="control-label" for="subject">促销结束日期</label>
+                                 <div class="controls">
+                                      <a class='input-group date' id='datetimepicker1' >
+										     <input type='text' class="form-control" id='CX14' placeholder="请选择日期" />
+										     <span class="input-group-addon" >
+										           <span class="glyphicon glyphicon-calendar" ></span>
+										      </span>
+										</a>
+                                   </div>
+                     	</div>
+		   <input type="hidden" id="CX0" value="商品编号">
 		   
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" onclick="js_js_xiugai('add7')">保存</button>
+        <button type="button" class="btn btn-default" onclick="js_js_xiugai('CXSP')">保存</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
       </div>
     </div>

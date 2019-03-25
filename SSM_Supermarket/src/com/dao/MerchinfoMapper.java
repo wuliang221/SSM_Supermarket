@@ -26,4 +26,6 @@ public interface MerchinfoMapper {
 	public int updateMerchinfo(@Param("merchinfo")Merchinfo merchinfo);
 	//查询所有商品id与商品名称
 	public List<Merchinfo> selectidname();
+	//修改促销商品信息
+	public int updateMerchinfoCX(@Param("merchinfo")Merchinfo merchinfo);
 }
