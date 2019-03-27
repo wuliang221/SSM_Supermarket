@@ -59,7 +59,8 @@ public class JLProvideController {
 		
 		
 	}
-	//添加供应商信息
+	
+	//删除供应商信息
 	@RequestMapping("/del.json")
 	@ResponseBody
 	public Object addProvide(@RequestParam("provideID")Integer provideID){
@@ -75,16 +76,16 @@ public class JLProvideController {
 		
 	}
 
-	//删除供应商信息
+	//添加供应商信息
 	@RequestMapping("/add.json")
 	@ResponseBody
 	public Object delProvide(Provide provide){
 		boolean result=false;
-		String json="";
-		if(provide!=null){
+		String json="false";
+		if(provide!=null && provide.getProvideName()!="" &&provide.getProvideContact()!="" && provide.getProvidePhone() !=""){
 			result=provideService.add(provide);
 			if(result){
-				json="success";
+				json="供应商添加成功！";
 			}
 		}
 		return JSON.toJSONString(json);

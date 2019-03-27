@@ -78,7 +78,23 @@ UPDATE supermarket_mysql.merchinfo
 	MerchPrice = #{merchinfo.merchPrice} , 
 	MerchNum = #{merchinfo.merchNum} , 
 	BarCode = #{merchinfo.barCode} , 
-	ProvideID = #{merchinfo.provideID}
+	ProvideID = #{merchinfo.provideID},
+	AllowAbate = #{merchinfo.allowAbate}
+	
+	WHERE
+	MerchID = #{merchinfo.merchID} ;
+ </update>
+ 
+  <!-- 修改促销商品信息(价格、日期   ) -->
+ <update id="updateMerchinfoCX ">
+ 
+
+	
+UPDATE supermarket_mysql.merchinfo 
+	SET
+	SalesProPrice = #{merchinfo.salesProPrice} , 
+	SalesProDateS = #{merchinfo.salesProDateS} , 
+	SalesProDateE = #{merchinfo.salesProDateE} 
 	
 	WHERE
 	MerchID = #{merchinfo.merchID} ;

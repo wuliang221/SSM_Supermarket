@@ -85,5 +85,17 @@ public class MerchinfoServiceImpl implements MerchinfoService {
 	public List<Merchinfo> selectidname(){
 		return merchinfoMapper.selectidname();
 	}
+	/**
+	 * 修改促销商品信息
+	 */
+	@Override
+	public boolean updateCX(Merchinfo merchinfo) {
+		boolean result=false;
+		int rs=merchinfoMapper.updateMerchinfoCX(merchinfo);
+		if(rs>0){
+			result=true;
+		}
+		return result;
+	}
 
 }

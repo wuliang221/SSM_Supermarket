@@ -101,10 +101,23 @@ public class JLWorkerController {
 		System.out.println("========================================================");
 		System.out.println(UserName+UserSex+UserAge+UserPhone+UserStyle+UserDate);
 		System.out.println("========================================================");
-		result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
-		if(result==true){
-			json="success";
+		if(UserName !="" && UserName!=null && UserAge != null && UserPhone!="" && UserPhone !=""&& UserStyle==1||UserStyle==2 &&UserDate!=""&&UserDate!=null){
+			if(UserStyle==1){
+				result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
+				if(result==true){
+					json="经理"+UserName+"的信息添加成功！";
+				}
+			}else if(UserStyle==2){
+				result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
+				if(result==true){
+					json="员工"+UserName+"的信息添加成功！";
+				}
 		}
+		
+		}else{
+			json="false";
+		}
+		
 		return JSON.toJSONString(json);
 		
 	}

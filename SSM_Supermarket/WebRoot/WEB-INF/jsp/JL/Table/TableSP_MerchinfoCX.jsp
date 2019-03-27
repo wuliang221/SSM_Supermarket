@@ -28,15 +28,30 @@
                                     <c:forEach items="${AllowAbateMerchinfo }" var="m">
                                     <tr>
                                         <td>${m.merchName }</td> 
-                                        <td>${m.salesProPrice }</td>
+                                        <td>
+                                        <c:if test="${m.salesProPrice !='' && m.salesProPrice !=null }">${m.salesProPrice }</c:if>
+                                          <c:if test="${m.salesProPrice =='' ||m.salesProPrice ==null }">未设置金额</c:if>
+                                        </td>
                                         
-                                        
-                                        <td><fmt:formatDate value="${m.salesProDateS }" pattern="yyyy-MM-dd"/></td>
-                                        <td><fmt:formatDate value="${m.salesProDateE }" pattern="yyyy-MM-dd"/></td>
                                         
                                         <td>
-                                        	<button type="button" onclick="js_xiu1('${m.merchID }','${m.merchName }','${m.salesProPrice }',
-                                        	'${m.salesProDateS }','${m.salesProDateE }','${m.allowAbate}')" class="btn btn-primary btn-xs">修改</button>
+                                        <c:if test="${m.salesProDateS == null }">
+                                        	未设置时间
+                                        </c:if><c:if test="${m.salesProDateS != null }">
+                                        <fmt:formatDate value="${m.salesProDateS }" pattern="yyyy-MM-dd"/>
+                                        </c:if>
+                                        
+                                        </td>
+                                        <td>
+                                        <c:if test="${m.salesProDateE == null }">
+                                        	未设置时间
+                                        </c:if><c:if test="${m.salesProDateE != null }">
+                                        <fmt:formatDate value="${m.salesProDateE }" pattern="yyyy-MM-dd"/>
+                                        </c:if>
+                                        </td>
+                                        <td>
+                                        	<button type="button" onclick="js_xiucx1('${m.merchID }','${m.merchName }','${m.salesProPrice }',
+                                        	'${m.salesProDateS }','${m.salesProDateE }')" class="btn btn-primary btn-xs">修改</button>
                                         </td>
                                     </tr>
                                     </c:forEach>

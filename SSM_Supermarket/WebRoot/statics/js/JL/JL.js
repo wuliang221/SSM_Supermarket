@@ -31,6 +31,35 @@ function js_js_xiugai(DD){
 		var a4=$("#inputEmail13").val();
 		var a5=$("#inputEmail14").val();
 		var a6=$("#inputEmail15").val();
+		var a7=$("#inputEmail16").val();
+		data2={merchID:a1,merchName:a2,provideID:a3,merchPrice:a4,merchNum:a5,barCode:a6,allowAbate:a7}
+	}else if(DD == "CXSP"){
+		url+="/Merchin/updateCX.json"
+		var cx0 = $("#CX10").val(on);
+		var cx1 = $("#CX11").val(d1);
+		var cx2 = $("#CX12").val(d2);
+		var cx3 = $("#CX13").val(d3);
+		var cx4 = $("#CX14").val(d4);
+		data2={merchID:cx0,merchName:cx1,salesProPrice:cx2,salesProDateS:cx3,salesProDateE:cx4}
+	
+	}else if(DD == "5"){
+		var z1=$("#inputEmail51").val();
+		var z2=$("#inputEmail52").val();
+		
+	}else if(date == "6"){
+		var z1=$("#inputEmail61").val();
+		var z2=$("#inputEmail62").val();
+		var z3=$("#inputEmail63").val();
+		
+	}else if(date == "7"){
+		var z1=$("#inputEmail71").val();
+		var z2=$("#inputEmail72").val();
+		var z3=$("#inputEmail73").val();
+		
+	}else if(date == "8"){
+		
+	}else if(date == "9"){
+		
 		data2={merchID:a1,merchName:a2,provideID:a3,merchPrice:a4,merchNum:a5,barCode:a6};
 		model+="SDJYDD1";
 	}else if(DD == "计划订单修改"){
@@ -58,6 +87,8 @@ function js_js_xiugai(DD){
 				alert("修改成功！");
 				$("#myModal1").modal('hide');
 				Merchinfoshuaxin();
+			}if(data=="CXsuccess"){
+				alert("商品修改成功！");
 			}else {
 				alert(data);
 				$("#SDJYDD1").modal('toggle');
@@ -71,20 +102,51 @@ function js_js_xiugai(DD){
 }
 
 
+//日期格式转换成字符串
+function datetoString(date){ 
+		var date = new Date(date);
+	  var year = date.getFullYear(); 
+	  var month =(date.getMonth() + 1).toString(); 
+	  var day = (date.getDate()).toString();  
+	  if (month.length == 1) { 
+	      month = "0" + month; 
+	  } 
+	  if (day.length == 1) { 
+	      day = "0" + day; 
+	  }
+	  var dateTime = year + "-" + month + "-" + day;
+	  return dateTime; 
+	};
+
+
 
 
 
 //修改模态框弹出并赋值
 
 //商品修改模态框
-function js_xiu1(on,d1,d2,d3,d4,d5) {
+function js_xiu1(on,d1,d2,d3,d4,d5,d6) {
 	$("#inputEmail10").val(on);
 	$("#inputEmail11").val(d1);
 	$("#inputEmail12").val([d2]);
 	$("#inputEmail13").val(d3);
 	$("#inputEmail14").val(d4);
 	$("#inputEmail15").val(d5);
+	$("#inputEmail16").val([d6]);
 	$("#myModal1").modal({backdrop:"static"});
+}
+//商品修改模态框
+function js_xiucx1(on,d1,d2,d3,d4) {
+	
+	$("#CX10").val(on);
+	$("#CX11").val(d1);
+	$("#CX12").val(d2);
+	/*var ddd=data_string(d3,'yyyy-MM-dd');*/
+	var date3=datetoString(d3);
+	var date4=datetoString(d4);
+	$("#CX13").val(date3);
+	$("#CX14").val(date4);
+	$("#myModal7").modal({backdrop:"static"});
 }
 
 //商品库存修改模态框
@@ -154,15 +216,16 @@ function js_tianjia(date) {
 	var data3="";
 	if(date == 1){
 		data3="addSP";
-		url+="/goods/insert.json";
-		var z11=$("#shuju11").val();
-		var z12=$("#shuju12").val();
-		var z13=$("#shuju13").val();
-		var z14=$("#shuju14").val();
-		var z15=$("#shuju15").val();
-		var z16=$("#shuju16").val();
-		var z17=$("#shuju17").val();
-		data2={goodsname:z11,typeno:z12,supplierno:z13,goodsnorm:z14,goodsunit:z15,goodsoutprise:z16,goodsinprise:z17};
+		url+="/Merchin/addMerchinfo.json";
+		var z11=$("#SP1").val();
+		var z12=$("#SP2").val();
+		var z13=$("#SP3").val();
+		var z14=$("#SP4").val();
+		var z15=$("#SP5").val();
+		var z16=$("#SP6").val();
+		var z17=$("#SP7").val();
+		var z18=$("#SP8").val();
+		data2={merchName:z11,barCode:z12,provideID:z13,merchPrice:z14,merchCost:z15,cautionNum:z16,planNum:z17,allowAbate:z18};
 	}else if(date == "交易订单修改保存"){
 		url+="/stock/addstock.json";
 		data3="JH1";
@@ -233,7 +296,10 @@ function js_tianjia(date) {
 		data:data2,
 		dataType:"json",	
 		success : function(data) {
+			
 			("false" == data) ? alert("后台添加失败！") : (alert(data),js_add(data3));
+			
+			
 			/*将需要输出的语句从后台传过来，不用在这里判断！！
 			 * 添加失败了统一传 false 回来。
 			 * if(data=="success"){
@@ -396,11 +462,11 @@ function js_table(date) {
 
 
 
-
+/*
 //设置日期时间控件
 lay('#version').html('-v'+ laydate.v);
 //执行一个laydate实例
 laydate.render({
 elem: '#test1' //指定元素
 });
-
+*/
