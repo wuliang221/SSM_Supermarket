@@ -55,13 +55,13 @@ function js_JYXQ(data1) {
 		dataType:"JSON",
 		success : function(data2) {
 			var data=eval("("+data2+")")
-			var ht="<p class='text-uppercase'><h4>交易单号："+data1+"</p><dl class='dl-horizontal'>";
+			var ht="<ul class='list-unstyled'><h4>交易单号："+data1+"</p><dl class='dl-horizontal'>";
 			var ml=0;
 			for(var i = 0; i < data.length; i++){
-				ht+="<dt>"+data[i].merchName+"</dt><dd>&nbsp;&nbsp;&nbsp;"+data[i].merchPrice+"￥*"+data[i].saleNum+"</dd>";
+				ht+="<dt>"+data[i].merchName+"</dt><dd>&nbsp;&nbsp;&nbsp;"+data[i].merchPrice+"￥&nbsp;*&nbsp;"+data[i].saleNum+"</dd>";
 				 ml+=data[i].saleNum*data[i].merchPrice;
 				}
-			ht+="<p class=''text-right'>总计</p><span class='label label-danger'>"+ml+"</span>"+"<p class=''text-right'>￥</p>";
+			ht+="<dl><br><p class=''text-right'>总计<span class='label label-danger'>"+ml+"￥</span></p>";
 			$("#JYXQmdod").html(ht);
 		}
 	})
