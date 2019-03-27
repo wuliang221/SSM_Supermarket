@@ -31,7 +31,7 @@
                                         <td>${p.providePhone }</td>
                                         <td>${p.provideAddress }</td>
                                         <td>
-                                            <button type="button" onclick="js_xiu2('${s.supplierno }','${s.suppliername }','${s.supplieradress }','${s.supplierpeoplename }','${s.supplierphone }')" class="btn btn-primary btn-xs">修改</button>
+                                            <button type="button" onclick="js_xiuGYS('${p.provideID }','${p.provideName }','${p.provideContact }','${p.providePhone }','${p.provideAddress }')" class="btn btn-primary btn-xs">修改</button>
                                             <button type="button" onclick="js_shan('GYS','${p.provideID }','${p.provideName }')" class="btn btn-danger btn-xs">删除</button>
                                         </td>
                                     </tr>

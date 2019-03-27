@@ -111,6 +111,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    ,closeStop: '#YG2' //这里代表的意思是：点击 test1 所在元素阻止关闭事件冒泡。如果不设定，则无法弹出控件
 	  });
 	}); 
+	$(document).on('click', "#CX13", function(){
+		laydate.render({
+	    elem: '#CX13'
+	    ,show: true //直接显示
+	    ,closeStop: '#CX13' //这里代表的意思是：点击 test1 所在元素阻止关闭事件冒泡。如果不设定，则无法弹出控件
+	  });
+	}); 
+	$(document).on('click', "#CX14", function(){
+		laydate.render({
+	    elem: '#CX14'
+	    ,show: true //直接显示
+	    ,closeStop: '#CX14' //这里代表的意思是：点击 test1 所在元素阻止关闭事件冒泡。如果不设定，则无法弹出控件
+	  });
+	}); 
 	</script>
   </body>
 </html>

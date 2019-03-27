@@ -42,16 +42,19 @@ function js_js_xiugai(DD){
 		var cx4 = $("#CX14").val(d4);
 		data2={merchID:cx0,merchName:cx1,salesProPrice:cx2,salesProDateS:cx3,salesProDateE:cx4}
 	
-	}else if(DD == "5"){
-		var z1=$("#inputEmail51").val();
-		var z2=$("#inputEmail52").val();
-		
-	}else if(date == "6"){
+	}else if(DD == "GYSX"){
+		var z1=$("#GYSX0").val();
+		var z2=$("#GYSX1").val();
+		var z1=$("#GYSX2").val();
+		var z2=$("#GYSX3").val();
+		var z1=$("#GYSX4").val();
+		data2={merchID:cx0,merchName:cx1,salesProPrice:cx2,salesProDateS:cx3,salesProDateE:cx4}
+	}else if(DD == "6"){
 		var z1=$("#inputEmail61").val();
 		var z2=$("#inputEmail62").val();
 		var z3=$("#inputEmail63").val();
 		
-	}else if(date == "7"){
+	}else if(DD == "7"){
 		var z1=$("#inputEmail71").val();
 		var z2=$("#inputEmail72").val();
 		var z3=$("#inputEmail73").val();
@@ -159,13 +162,13 @@ function js_xiu2(on,d1,d2,d3,d4,d5) {
 }
 
 //供应商修改模态框
-function js_xiu3(on,d1,d2,d3,d4) {
-	$("#inputEmail30").val(on);
-	$("#inputEmail31").val(d1);
-	$("#inputEmail32").val(d2);
-	$("#inputEmail33").val(d3);
-	$("#inputEmail34").val(d4);
-	$("#myModal3").modal({backdrop:"static"});
+function js_xiuGYS(on,d1,d2,d3,d4) {
+	$("#GYSX0").val(on);
+	$("#GYSX1").val(d1);
+	$("#GYSX2").val(d2);
+	$("#GYSX3").val(d3);
+	$("#GYSX4").val(d4);
+	$("#myModal6").modal({backdrop:"static"});
 }
 
 //销售信息修改模态框
