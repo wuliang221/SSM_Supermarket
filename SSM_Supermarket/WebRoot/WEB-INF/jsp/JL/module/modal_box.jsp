@@ -407,7 +407,7 @@
 
 
 
-<!-- 资产信息模态框 -->
+<!-- 供应商修改信息模态框 -->
 <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -418,27 +418,34 @@
       <div class="modal-body">
         <form class="form-horizontal">
 		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">经营信息</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">供应商名称</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputEmail61" placeholder="名称">
+		      <input type="text" class="form-control" id="GYSX1" placeholder="请输入供应商的名称">
 		    </div>
 		  </div>
 		   <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">投入</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">联系人姓名</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputEmail62" placeholder="999,99">
+		      <input type="text" class="form-control" id="GYSX2" placeholder="请输入联系人的姓名">
 		    </div>
 		  </div>
 		   <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">营收</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">联系人电话</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputEmail63" placeholder="999,99">
+		      <input type="text" class="form-control" id="GYSX3" placeholder="请输入联系人的电话">
 		    </div>
 		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">供应商地址</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="GYSX4" placeholder="请输入供应商的地址">
+		    </div>
+		  </div>
+		  <input type="hidden" id="GYSX0" value="商品编号">
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" onclick="js_js_xiugai('add6')">保存</button>
+        <button type="button" class="btn btn-default" onclick="js_js_xiugai('GYSX')">保存</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
       </div>
     </div>
