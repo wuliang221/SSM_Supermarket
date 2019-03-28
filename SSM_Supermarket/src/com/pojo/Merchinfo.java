@@ -2,6 +2,8 @@ package com.pojo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+
 import org.springframework.format.annotation.DateTimeFormat;
 /**
  * 商品信息表
@@ -26,12 +28,12 @@ public class Merchinfo {
     //条形码
     private String barCode;
     //促销价格
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Double salesProPrice;
     //促销起日期
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date salesProDateS;
     //促销止日期
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date salesProDateE;
     //允许打折
     private Integer allowAbate;

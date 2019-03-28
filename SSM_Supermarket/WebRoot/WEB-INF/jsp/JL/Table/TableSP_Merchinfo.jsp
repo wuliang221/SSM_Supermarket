@@ -40,10 +40,9 @@
                                         </c:if>
                                         </td>
                                         <td>
-                                        	<%-- <button type="button" onclick="js_xiu1('${m.merchID }','',
-                                        	'','','',''
-                                        	,'')" class="btn btn-primary btn-xs">详情</button>
-                                        	 --%>
+                                        	 <button type="button" onclick="js_xianSP('${m.merchID }','${m.merchName }','${m.merchPrice }','${m.cautionNum }','${m.merchCost }','${m.planNum }',
+                                        	 '${m.barCode }','${m.salesProPrice }','${m.salesProDateS }','${m.salesProDateE }','${m.allowAbate }','${m.allowSale }','${m.provideName }')" class="btn btn-primary btn-xs">详情</button>
+                                        	 
                                         	 <button type="button" onclick="js_xiu1('${m.merchID }','${m.merchName }','${m.provideID }',
                                         	'${m.merchPrice }','${m.merchNum}','${m.barCode}','${m.allowAbate }')" class="btn btn-primary btn-xs">修改</button>
                                             <button type="button" onclick="js_shanchu('${m.merchID }','SP1','${m.merchName}')" class="btn btn-danger btn-xs">删除</button> 

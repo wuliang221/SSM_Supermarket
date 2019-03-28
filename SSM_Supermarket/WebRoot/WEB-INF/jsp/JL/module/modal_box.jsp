@@ -60,6 +60,11 @@
 </div>
 
 
+
+
+
+
+
 <!-- 进货订单修改模态框 -->
 <div class="modal fade" id="SDJYDD1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -180,6 +185,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -364,45 +371,85 @@
 
 
 
-
-
-<!-- 资产信息模态框 -->
-<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<%-- 
+<!-- 商品详细模态框 -->
+<div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel5"></h4>
+        <h4 class="modal-title" id="myModalLabel1">商品修改</h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal">
+        	<!-- 隐藏框，保存ID -->
+        	<input type="hidden" id="inputEmail10" value="商品编号">
 		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">资产类别</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">商品名称</label>
 		    <div class="col-sm-10">
-		      <select class="form-control" id="inputEmail51">
-				  <option>投资1</option>
-				  <option>投资1</option>
-				  <option>投资1</option>
-				  <option>投资1</option>
-				  <option>投资5</option>
+		      <input type="text" class="form-control" name="departmentalname" id="inputEmail11" >
+		    </div>
+		  </div>
+		    <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">商品类别</label>
+		    <div class="col-sm-10" id="depart">
+		      <select class="form-control" id="inputEmail12">
+		      <c:forEach items="${type }" var="t">
+	             <option value="${t.typeno }">${t.typename }</option>
+	          </c:forEach>
 				</select>
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">资产信息</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">供应商</label>
+		    <div class="col-sm-10" id="depart">
+		     <select class="form-control" id="inputEmail12">
+                   <c:forEach items="${pro}" var="s">
+	                 <option value="${s.provideID }" >${s.provideName }</option>
+	                 </c:forEach>
+              </select>
+			</div>
+		  </div>
+		   <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">商品价格</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputEmail52" placeholder="名称">
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail13" >
 		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">库存</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail14" >
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">条形码</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail15" >
+		    </div>
+		      <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">是否允许打折</label>
+		    <div class="col-sm-10" id="depart">
+		     <select class="form-control" id="inputEmail16">
+                   <option value="1" >允许</option>
+	                 <option value="0" >不允许</option>
+	                
+              </select>
+			</div>
+		  </div>
 		  </div>
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" onclick="js_js_xiugai('add5')">保存</button>
+  		<button type="button" class="btn btn-default" onclick="js_js_xiugai('spxiu')">保存</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
       </div>
     </div>
   </div>
 </div>
+
+
+ --%>
 
 
 
@@ -502,7 +549,7 @@
 										</a>
                                    </div>
                      	</div>
-		   <input type="hidden" id="CX0" value="商品编号">
+		   <input type="hidden" id="CX10" value="商品编号">
 		   
 		</form>
       </div>
