@@ -15,4 +15,6 @@ public interface DealingService {
 	//根据条件分页查询交易记录数量
 	public List<Dealing> selectDealing(String memberID,int qi,int xian);
 	
+	//根据会员卡查看交易金额
+	public Dealing dealingOne(String memberCard);
 }

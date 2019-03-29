@@ -29,6 +29,12 @@
 	</if>
 	LIMIT #{qi},#{xian};
  </select>
+ <select id="dealingOne" resultType="Dealing">
+ SELECT 	
+ 	SUM(DealingPrice)
+	FROM  supermarket_mysql.dealing 
+	WHERE MemberCard=#{memberCard}
+ </select>
  
   
   

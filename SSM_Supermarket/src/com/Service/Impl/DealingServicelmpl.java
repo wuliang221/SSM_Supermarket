@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
 import com.Service.DealingService;
 import com.dao.DealingMapper;
 import com.pojo.Dealing;
@@ -27,6 +28,11 @@ public class DealingServicelmpl implements DealingService {
 	@Override
 	public List<Dealing> selectDealing(String memberID,int qi,int xian) {
 		return dealingMapper.selectDealing(memberID,qi,xian);
+	}
+
+	@Override
+	public Dealing dealingOne(String memberCard) {
+		return dealingMapper.dealingOne(memberCard);
 	}
 
 }

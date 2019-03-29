@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.Service.DealingService;
 import com.Service.MenberService;
 import com.pojo.Menber;
 import com.util.PageSupport;
@@ -17,6 +18,8 @@ import com.util.PageSupport;
 public class JLMenberController {
 	@Resource
 	private MenberService menberService;
+	@Resource
+	private DealingService dealingService;
 	
 	/**
 	 * 经理查询会员信息

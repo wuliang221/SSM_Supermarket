@@ -6,7 +6,7 @@ function js_js_xiugai(DD){
 	var data2="";
 	var close="";
 	var model="#";
-	if(DD == ""){
+	if(DD == "1231"){
 		url+="/goods/update.json";
 		var id=$("#inputEmail10").val();
 		var z11=$("#inputEmail11").val();
@@ -95,7 +95,7 @@ function js_js_xiugai(DD){
 				$("#myModal7").modal('hide');
 			}else {
 				alert(data);
-				$("#SDJYDD1").modal('toggle');
+				//$("#SDJYDD1").modal('toggle');
 			}
 			
 		},
