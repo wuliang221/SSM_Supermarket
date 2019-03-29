@@ -35,12 +35,11 @@ function js_js_xiugai(DD){
 		data2={merchID:a1,merchName:a2,provideID:a3,merchPrice:a4,merchNum:a5,barCode:a6,allowAbate:a7}
 	}else if(DD == "CXSP"){
 		url+="/Merchin/updateCX.json"
-		var cx0 = $("#CX10").val(on);
-		var cx1 = $("#CX11").val(d1);
-		var cx2 = $("#CX12").val(d2);
-		var cx3 = $("#CX13").val(d3);
-		var cx4 = $("#CX14").val(d4);
-		data2={merchID:cx0,merchName:cx1,salesProPrice:cx2,salesProDateS:cx3,salesProDateE:cx4}
+		var cx0 = $("#CX10").val();
+		var cx2 = $("#CX12").val();
+		var cx3 = $("#CX13").val();
+		var cx4 = $("#CX14").val();
+		data2={merchID:cx0,salesProPrice:cx2,salesProDateS:cx3,salesProDateE:cx4}
 	
 	}else if(DD == "GYSX"){
 		var z1=$("#GYSX0").val();
@@ -92,6 +91,8 @@ function js_js_xiugai(DD){
 				Merchinfoshuaxin();
 			}if(data=="CXsuccess"){
 				alert("商品修改成功！");
+				MerchinfoCXchazhao();
+				$("#myModal7").modal('hide');
 			}else {
 				alert(data);
 				$("#SDJYDD1").modal('toggle');
@@ -140,7 +141,6 @@ function js_xiu1(on,d1,d2,d3,d4,d5,d6) {
 }
 //商品修改模态框
 function js_xiucx1(on,d1,d2,d3,d4) {
-	
 	$("#CX10").val(on);
 	$("#CX11").val(d1);
 	$("#CX12").val(d2);
@@ -150,6 +150,7 @@ function js_xiucx1(on,d1,d2,d3,d4) {
 	$("#CX13").val(date3);
 	$("#CX14").val(date4);
 	$("#myModal7").modal({backdrop:"static"});
+	alert(on);
 }
 
 //商品库存修改模态框

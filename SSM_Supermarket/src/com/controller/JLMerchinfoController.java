@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -111,6 +113,7 @@ public class JLMerchinfoController {
 	@ResponseBody
 	public Object updateMerchinfoCX(Merchinfo merchinfo){
 		boolean result=merchinfoService.updateCX(merchinfo);
+		System.out.println(merchinfo.getSalesProDateE());
 		String json="";
 		if(result){
 			json="CXsuccess";

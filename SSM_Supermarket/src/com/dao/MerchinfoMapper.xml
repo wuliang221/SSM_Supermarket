@@ -86,7 +86,7 @@ UPDATE supermarket_mysql.merchinfo
  </update>
  
   <!-- 修改促销商品信息(价格、日期   ) -->
- <update id="updateMerchinfoCX ">
+ <update id="updateMerchinfoCX">
  
 
 	
