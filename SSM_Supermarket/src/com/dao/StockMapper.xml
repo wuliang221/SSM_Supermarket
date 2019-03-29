@@ -66,6 +66,14 @@
 	where StockID = #{stockID}
   </delete>
   
+  <select id="stock" resultType="Stock">
+  
+  SELECT 	*
+	FROM 
+	supermarket_mysql.stock 
+	where StockID=#{stockID} AND StockState=3
+  
+  </select>
   
   
 </mapper>

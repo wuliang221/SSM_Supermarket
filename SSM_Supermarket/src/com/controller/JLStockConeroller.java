@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.Service.MerchinfoService;
 import com.Service.StockService;
 import com.alibaba.fastjson.JSON;
+import com.pojo.Stock;
 import com.util.feye;
 
 
@@ -26,7 +28,8 @@ public class JLStockConeroller {
 
 	@Resource
 	private StockService stockService;
-
+	@Resource
+	private MerchinfoService merchinfoService;
 	
 	//分页查询进货信息
 	@RequestMapping("/stock1.html")
@@ -95,7 +98,24 @@ public class JLStockConeroller {
 	@RequestMapping("/rustock.json")
 	@ResponseBody
 	public Object rustock(@RequestParam("stockID") String stockID,@RequestParam("stockState") String stockState) {
-		return JSON.toJSONString((0 < stockService.xiustock(stockID, stockState,null,new Date())) ? "入库成功！" : "false");
+		int rs=stockService.xiustock(stockID, stockState,null,new Date());
+		Stock result;
+		boolean updatetrue=false;
+		String json="false";
+		if(1==rs){
+			result=stockService.stocksuccess(stockID);
+			if(result !=null){
+				updatetrue=merchinfoService.addMerchinfoMerchNum(result.getMerchID(), result.getMerchNum());
+				if(updatetrue){
+					json="入库成功";
+				}
+				
+			}
+		}else{
+			stockService.xiustock(stockID, "2",null,new Date());
+		}
+		//(0 < rs) ? "入库成功！" : "false"
+		return JSON.toJSONString(json);
 	}
 	
 	

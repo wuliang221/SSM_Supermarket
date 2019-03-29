@@ -77,5 +77,14 @@ public class Sale {
 	public void setMerchPrice(double merchPrice) {
 		this.merchPrice = merchPrice;
 	}
+
+	@Override
+	public String toString() {
+		return "Sale [saleID=" + saleID + ", merChID=" + merChID
+				+ ", merchName=" + merchName + ", merchPrice=" + merchPrice
+				+ ", saleDate=" + saleDate + ", saleNum=" + saleNum
+				+ ", salePrice=" + salePrice + "]";
+	}
     
+	
 }

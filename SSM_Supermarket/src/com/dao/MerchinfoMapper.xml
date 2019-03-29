@@ -202,7 +202,16 @@ SELECT
 	FROM 
 	supermarket_mysql.merchinfo 
  </select>
+ <update id="addMerchinfoMerchNum">
+ UPDATE supermarket_mysql.merchinfo 
+	SET
+	 
+	MerchNum = #{merchNum} 
+	
+	WHERE
+	MerchID = #{merchID} ;
  
+ </update>
  
  
 </mapper>

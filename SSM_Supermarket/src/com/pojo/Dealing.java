@@ -61,4 +61,12 @@ public class Dealing {
     public void setMemberCard(String memberCard) {
         this.memberCard = memberCard == null ? null : memberCard.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Dealing [dealingID=" + dealingID + ", dealingPrice="
+				+ dealingPrice + ", dealingDate=" + dealingDate + ", userName="
+				+ userName + ", memberCard=" + memberCard + "]";
+	}
+    
 }

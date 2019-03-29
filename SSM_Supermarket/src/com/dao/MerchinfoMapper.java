@@ -28,4 +28,6 @@ public interface MerchinfoMapper {
 	public List<Merchinfo> selectidname();
 	//修改促销商品信息
 	public int updateMerchinfoCX(@Param("merchinfo")Merchinfo merchinfo);
+		//入库商品修改库存
+		public int addMerchinfoMerchNum(@Param("merchID")Integer merchID,@Param("merchNum")Integer merchNum);
 }

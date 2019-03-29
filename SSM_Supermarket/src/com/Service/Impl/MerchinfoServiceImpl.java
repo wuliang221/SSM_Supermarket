@@ -97,5 +97,17 @@ public class MerchinfoServiceImpl implements MerchinfoService {
 		}
 		return result;
 	}
+	/**
+	 * 入库成功后添加库存数量
+	 */
+	@Override
+	public boolean addMerchinfoMerchNum(Integer merchID, Integer merchNum) {
+		boolean result=false;
+		int rs=merchinfoMapper.addMerchinfoMerchNum(merchID, merchNum);
+		if(rs>0){
+			result=true;
+		}
+		return result;
+	}
 
 }

@@ -49,4 +49,12 @@ public class StockServiceImpl implements StockService {
 		return stockMapper.xiustock(stockID, stockState,planDate,runDate);
 	}
 
+
+	//判断入库是否成功的查询
+	@Override
+	public Stock stocksuccess(String stockID) {
+		
+		return stockMapper.stock(stockID);
+	}
+
 }

@@ -107,4 +107,14 @@ public class User {
     public void setUserStyle(Integer userStyle) {
         this.userStyle = userStyle;
     }
+
+	@Override
+	public String toString() {
+		return "User [userID=" + userID + ", userName=" + userName
+				+ ", userPW=" + userPW + ", userStyle=" + userStyle
+				+ ", userPhone=" + userPhone + ", userAddress=" + userAddress
+				+ ", userDate=" + userDate + ", userSex=" + userSex
+				+ ", userAge=" + userAge + "]";
+	}
+    
 }

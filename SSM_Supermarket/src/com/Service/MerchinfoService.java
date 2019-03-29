@@ -2,6 +2,8 @@ package com.Service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.pojo.Merchinfo;
 
 public interface MerchinfoService {
@@ -26,6 +28,8 @@ public interface MerchinfoService {
 	public List<Merchinfo> selectidname();
 	//修改促销商品价格，日期
 	public boolean updateCX(Merchinfo merchinfo);
+	//入库商品修改库存是否成功
+	public boolean addMerchinfoMerchNum(Integer merchID,Integer merchNum);
 	
 
 }

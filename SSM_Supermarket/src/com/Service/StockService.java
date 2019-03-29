@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 
+
+import org.apache.ibatis.annotations.Param;
+
 import com.pojo.Stock;
 
 public interface StockService {
@@ -25,5 +28,8 @@ public interface StockService {
 	
 	//修改计划订单状态
 	public int xiustock(String stockID,String stockState,Date planDate,Date runDate);
+	
+	//判断入库是否成功（stockState=3）
+	public Stock stocksuccess( String stockID);
 
 }

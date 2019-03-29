@@ -56,4 +56,13 @@ public class Provide {
     public void setProvidePhone(String providePhone) {
         this.providePhone = providePhone == null ? null : providePhone.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Provide [provideID=" + provideID + ", provideName="
+				+ provideName + ", provideAddress=" + provideAddress
+				+ ", provideContact=" + provideContact + ", providePhone="
+				+ providePhone + "]";
+	}
+    
 }

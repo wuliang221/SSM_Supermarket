@@ -81,6 +81,14 @@ public class Stock {
 	public void setStockState(Integer stockState) {
 		this.stockState = stockState;
 	}
+	@Override
+	public String toString() {
+		return "Stock [stockID=" + stockID + ", merchID=" + merchID
+				+ ", merchName=" + merchName + ", merchNum=" + merchNum
+				+ ", totalPrice=" + totalPrice + ", runDate=" + runDate
+				+ ", planDate=" + planDate + ", stockDate=" + stockDate
+				+ ", stockState=" + stockState + "]";
+	}
     
     
 

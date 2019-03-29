@@ -165,4 +165,18 @@ public class Merchinfo {
     public void setProvideID(Integer provideID) {
         this.provideID = provideID;
     }
+
+	@Override
+	public String toString() {
+		return "Merchinfo [merchID=" + merchID + ", merchName=" + merchName
+				+ ", merchPrice=" + merchPrice + ", merchNum=" + merchNum
+				+ ", cautionNum=" + cautionNum + ", merchCost=" + merchCost
+				+ ", planNum=" + planNum + ", barCode=" + barCode
+				+ ", salesProPrice=" + salesProPrice + ", salesProDateS="
+				+ salesProDateS + ", salesProDateE=" + salesProDateE
+				+ ", allowAbate=" + allowAbate + ", allowSale=" + allowSale
+				+ ", provideID=" + provideID + ", provideName=" + provideName
+				+ "]";
+	}
+    
 }
