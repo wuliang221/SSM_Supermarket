@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.Service.MerchinfoService;
 import com.Service.StockService;
 import com.alibaba.fastjson.JSON;
+import com.pojo.Merchinfo;
 import com.pojo.Stock;
 import com.util.feye;
 
@@ -102,10 +103,13 @@ public class JLStockConeroller {
 		Stock result;
 		boolean updatetrue=false;
 		String json="false";
+		Merchinfo merchinfo;
 		if(1==rs){
 			result=stockService.stocksuccess(stockID);
 			if(result !=null){
-				updatetrue=merchinfoService.addMerchinfoMerchNum(result.getMerchID(), result.getMerchNum());
+				merchinfo=merchinfoService.merch(result.getMerchID());
+				int sum=merchinfo.getMerchNum()+result.getMerchNum();
+				updatetrue=merchinfoService.addMerchinfoMerchNum(result.getMerchID(), sum);
 				if(updatetrue){
 					json="入库成功";
 				}
