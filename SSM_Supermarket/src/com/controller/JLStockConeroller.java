@@ -111,7 +111,7 @@ public class JLStockConeroller {
 				int sum=merchinfo.getMerchNum()+result.getMerchNum();
 				updatetrue=merchinfoService.addMerchinfoMerchNum(result.getMerchID(), sum);
 				if(updatetrue){
-					json="入库成功";
+					json="提示："+result.getMerchName()+"商品入库成功";
 				}
 				
 			}

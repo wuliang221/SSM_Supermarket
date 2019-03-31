@@ -27,7 +27,7 @@ public interface UserMapper {
 	//修改用户信息
 	public int updateUser(@Param("UserName")String UserName,@Param("UserSex")String UserSex,
 							@Param("UserAge")Integer UserAge,@Param("UserPhone")String UserPhone,
-							@Param("UserStyle")Integer UserStyle,@Param("UserDate")Date UserDate);
+							@Param("UserStyle")Integer UserStyle,@Param("UserDate")Date UserDate,@Param("UserID")Integer UserID);
 
 	//新增用户信息
 	public int addUser(@Param("UserName")String UserName,@Param("UserSex")String UserSex,

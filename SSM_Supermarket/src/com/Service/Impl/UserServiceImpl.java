@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.Service.UserService;
@@ -48,9 +49,9 @@ public class UserServiceImpl implements UserService {
 	}
 	//判断是修改成功
 	@Override
-	public boolean updateUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate) {
+	public boolean updateUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate,Integer UserID) {
 		boolean rs=false;
-		int result = userMapper.updateUser(UserName, UserSex, UserAge, UserPhone, UserStyle, UserDate);
+		int result = userMapper.updateUser(UserName, UserSex, UserAge, UserPhone, UserStyle, UserDate,UserID);
 		if(result>0){
 			rs=true;
 		}

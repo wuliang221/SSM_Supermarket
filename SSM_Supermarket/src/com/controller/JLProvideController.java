@@ -93,6 +93,20 @@ public class JLProvideController {
 	}
 	
 	
+	//添加供应商信息
+		@RequestMapping("/update.json")
+		@ResponseBody
+		public Object updateProvide(Provide provide){
+			boolean result=false;
+			String json="false";
+				result=provideService.update(provide);
+				if(result){
+					json="updateProvide";
+				}
+			return JSON.toJSONString(json);
+			
+		}
+	
 	
 	
 }

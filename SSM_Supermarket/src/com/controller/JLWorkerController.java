@@ -70,14 +70,15 @@ public class JLWorkerController {
 	@ResponseBody
 	public Object updateUser(@RequestParam("UserName")String UserName,@RequestParam("UserSex")String UserSex,
 							@RequestParam("UserAge")Integer UserAge,@RequestParam("UserPhone")String UserPhone,
-							@RequestParam("UserStyle")Integer UserStyle,@RequestParam("UserDate")String UserDate) throws ParseException{
+							@RequestParam("UserStyle")Integer UserStyle,@RequestParam("UserDate")String UserDate,
+							@RequestParam("UserID")Integer UserID) throws ParseException{
 		boolean result=false;
 		String json=null;
 		//时间转换格式
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				Date date = formatter.parse(UserDate);
 		
-			result=userService.updateUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
+			result=userService.updateUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date, UserID);
 			if(result==true){
 				json="success";
 			}
@@ -105,12 +106,12 @@ public class JLWorkerController {
 			if(UserStyle==1){
 				result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
 				if(result==true){
-					json="经理"+UserName+"的信息添加成功！";
+					json="提示："+UserName+"经理的信息添加成功！";
 				}
 			}else if(UserStyle==2){
 				result=userService.addUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date);
 				if(result==true){
-					json="员工"+UserName+"的信息添加成功！";
+					json="提示："+UserName+"员工的信息添加成功！";
 				}
 		}
 		

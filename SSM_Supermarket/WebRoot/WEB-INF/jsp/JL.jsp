@@ -125,6 +125,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    ,closeStop: '#CX14' //这里代表的意思是：点击 test1 所在元素阻止关闭事件冒泡。如果不设定，则无法弹出控件
 	  });
 	}); 
+	$(document).on('click', "#YGRZRQ", function(){
+		laydate.render({
+	    elem: '#YGRZRQ'
+	    ,show: true //直接显示
+	    ,closeStop: '#YGRZRQ' //这里代表的意思是：点击 test1 所在元素阻止关闭事件冒泡。如果不设定，则无法弹出控件
+	  });
+	}); 
 	</script>
   </body>
 </html>

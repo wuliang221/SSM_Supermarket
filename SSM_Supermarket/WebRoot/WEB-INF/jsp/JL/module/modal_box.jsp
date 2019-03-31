@@ -561,3 +561,88 @@
   </div>
 </div>
 
+
+
+
+
+
+
+<!-- 员工模态框 -->
+<div class="modal fade" id="myModal144" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel1">员工修改</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+        	<!-- 隐藏框，保存ID -->
+        	<input type="hidden" id="inputEmail140" value="">
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">员工名称</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="departmentalname" id="inputEmail141" >
+		    </div>
+		  </div>
+		    <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">性别</label>
+		    <div class="col-sm-10" id="depart">
+		      <select class="form-control" id="inputEmail142">
+		     	<option value="男">男</option>
+	             <option value="女 ">女</option>
+	          
+				</select>
+		    </div>
+		  </div>
+		 
+		   <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">年龄</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail143" >
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">联系电话</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="wagecoefficient" id="inputEmail144" >
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">职位</label>
+		    <div class="col-sm-10" id="depart">
+		      <select class="form-control" id="inputEmail145">
+		     	<option value="1">经理</option>
+	             <option value="2 ">员工</option>
+	          
+				</select>
+		    </div>
+		  </div>
+		  <div class="control-group">
+              <label class="control-label" for="subject">入职日期</label>
+                     <div class="controls">
+                             <a class='input-group date' id='inputEmail145' >
+							 <input type="text" class="form-control" id='YGRZRQ'  placeholder="请选择日期" />
+					         <span class="input-group-addon" >
+					     		 <span class="glyphicon glyphicon-calendar" ></span>
+					     	 </span>
+							</a>
+                      </div>
+                      </div>
+                      </form>
+		  </div>
+		
+      </div>
+      <div class="modal-footer">
+  		<button type="button" class="btn btn-default" onclick="js_js_xiugai('YG')">保存</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ public interface UserService {
 			public List<User> userAll(String UserName,Integer UserStyle,String UserPhone,Integer pageNo,Integer pageSize);
 			
 			//判断修改用户信息是否成功
-			public boolean updateUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate);
+			public boolean updateUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate,Integer UserID);
 		
 			//判断新增用户信息是否成功
 			public boolean addUser(String UserName,String UserSex,Integer UserAge,String UserPhone,Integer UserStyle,Date UserDate);

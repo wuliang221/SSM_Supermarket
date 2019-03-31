@@ -70,7 +70,7 @@ public class JLMerchinfoController {
 		boolean result=merchinfoService.addMerchinfo(merchinfo);
 		String json="";
 		if(result){
-			json="success";
+			json="商品"+merchinfo.getMerchName()+"添加成功";
 		}
 		return JSON.toJSONString(json);
 	}

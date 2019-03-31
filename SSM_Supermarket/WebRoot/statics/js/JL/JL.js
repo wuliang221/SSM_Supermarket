@@ -42,22 +42,28 @@ function js_js_xiugai(DD){
 		data2={merchID:cx0,salesProPrice:cx2,salesProDateS:cx3,salesProDateE:cx4}
 	
 	}else if(DD == "GYSX"){
+		url+="/GYS/update.json";
 		var z1=$("#GYSX0").val();
 		var z2=$("#GYSX1").val();
-		var z1=$("#GYSX2").val();
-		var z2=$("#GYSX3").val();
-		var z1=$("#GYSX4").val();
-		data2={merchID:cx0,merchName:cx1,salesProPrice:cx2,salesProDateS:cx3,salesProDateE:cx4}
+		var z3=$("#GYSX2").val();
+		var z4=$("#GYSX3").val();
+		var z5=$("#GYSX4").val();
+		data2={provideID:z1,provideName:z2,provideContact:z3,providePhone:z4,provideAddress:z5}
 	}else if(DD == "6"){
 		var z1=$("#inputEmail61").val();
 		var z2=$("#inputEmail62").val();
 		var z3=$("#inputEmail63").val();
 		
-	}else if(DD == "7"){
-		var z1=$("#inputEmail71").val();
-		var z2=$("#inputEmail72").val();
-		var z3=$("#inputEmail73").val();
-		
+	}else if(DD == "YG"){
+		url+="/worker/update.json"
+		var user0=$("#inputEmail140").val();
+		var user1=$("#inputEmail141").val();
+		var user2=$("#inputEmail142").val();
+		var user3=$("#inputEmail143").val();
+		var user4=$("#inputEmail144").val();
+		var user5=$("#inputEmail145").val();
+		var user6=$("#inputEmail146").val();
+		data2={UserID:user0,UserName:user1,UserSex:user2,UserAge:user3,UserPhone:user4,UserStyle:user5,UserDate:user6}
 	}else if(date == "8"){
 		
 	}else if(date == "9"){
@@ -86,13 +92,16 @@ function js_js_xiugai(DD){
 			shuaxin();
 			}
 			if(data=="merchinfoSaveSuccess"){
-				alert("修改成功！");
 				$("#myModal1").modal('hide');
 				Merchinfoshuaxin();
 			}if(data=="CXsuccess"){
-				alert("商品修改成功！");
 				MerchinfoCXchazhao();
 				$("#myModal7").modal('hide');
+			}if(data=="updateProvide"){
+				alert("供应商修改成功！");
+				$("#myModal144").modal('hide');
+				providechazhao();
+				
 			}else {
 				alert(data);
 				//$("#SDJYDD1").modal('toggle');
@@ -197,13 +206,16 @@ function js_x_stock(id,id1,id2){
 
 
 //员工修改模态框
-function js_x_user(on,id,id1,id2,id3,id4) {
-	$("#inputEmail40").val(on);
-	$("#inputEmail41").val(d1);
-	$("#inputEmail42").val(d2);
-	$("#inputEmail43").val(d3);
-	$("#inputEmail44").val(d4);
-	$("#myModal4").modal({backdrop:"static"});
+function js_x_user(on,id,id1,id2,id3,id4,id5) {
+	$("#inputEmail140").val(on);
+	$("#inputEmail141").val(id);
+	$("#inputEmail142").val(id1);
+	$("#inputEmail143").val(id2);
+	$("#inputEmail144").val(id3);
+	$("#inputEmail145").val(id4);
+	var date5=datetoString(id5);
+	$("#inputEmail146").val(date5);
+	$("#myModal144").modal({backdrop:"static"});
 }
 
 
