@@ -621,7 +621,7 @@
 		  <div class="control-group">
               <label class="control-label" for="subject">入职日期</label>
                      <div class="controls">
-                             <a class='input-group date' id='inputEmail145' >
+                             <a class='input-group date' id='datetimepicker1' >
 							 <input type="text" class="form-control" id='YGRZRQ'  placeholder="请选择日期" />
 					         <span class="input-group-addon" >
 					     		 <span class="glyphicon glyphicon-calendar" ></span>

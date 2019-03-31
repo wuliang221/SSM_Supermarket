@@ -74,9 +74,8 @@ SELECT 	*
 UPDATE supermarket_mysql.user 
 	SET
 	UserName = #{UserName} , 
-	UserPW = #{UserPW} , 
-	UserPhone = #{UserPhone} , 
-	UserAddress = #{UserAddress} , 
+	UserPhone = #{UserPhone} ,
+	UserAge=#{UserAge}, 
 	UserStyle = #{UserStyle},
 	UserSex = #{UserSex} , 
 	UserAge = #{UserAge}

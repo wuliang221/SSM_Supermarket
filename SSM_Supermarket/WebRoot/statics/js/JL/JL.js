@@ -62,8 +62,8 @@ function js_js_xiugai(DD){
 		var user3=$("#inputEmail143").val();
 		var user4=$("#inputEmail144").val();
 		var user5=$("#inputEmail145").val();
-		var user6=$("#inputEmail146").val();
-		data2={UserID:user0,UserName:user1,UserSex:user2,UserAge:user3,UserPhone:user4,UserStyle:user5,UserDate:user6}
+		var user6=$("#YGRZRQ").val();
+		data2={UserName:user1,UserSex:user2,UserAge:user3,UserPhone:user4,UserStyle:user5,UserDate:user6,UserID:user0}
 	}else if(date == "8"){
 		
 	}else if(date == "9"){
@@ -99,8 +99,13 @@ function js_js_xiugai(DD){
 				$("#myModal7").modal('hide');
 			}if(data=="updateProvide"){
 				alert("供应商修改成功！");
-				$("#myModal144").modal('hide');
+				$("#myModal6").modal('hide');
 				providechazhao();
+				
+			}if(data=="userSuccess"){
+				alert("员工修改成功！");
+				$("#myModal144").modal('hide');
+				ygchazhao();
 				
 			}else {
 				alert(data);
@@ -214,7 +219,7 @@ function js_x_user(on,id,id1,id2,id3,id4,id5) {
 	$("#inputEmail144").val(id3);
 	$("#inputEmail145").val(id4);
 	var date5=datetoString(id5);
-	$("#inputEmail146").val(date5);
+	$("#YGRZRQ").val(date5);
 	$("#myModal144").modal({backdrop:"static"});
 }
 

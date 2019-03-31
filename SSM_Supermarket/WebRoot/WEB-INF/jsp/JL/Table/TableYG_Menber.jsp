@@ -11,7 +11,7 @@
                                         <input class="form-control" id="HYfilter" placeholder="会员手机号..." type="text" value="${jlMenberPhone}">
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="#api" class="pull-right btn btn-info filter-api" title="Filter using the Filter API" onclick="ygchazhao()">查找</a>
+                                        <a href="#api" class="pull-right btn btn-info filter-api" title="Filter using the Filter API" onclick="HYchazhao()">查找</a>
                                     </div>
                                 </div>
                                 <table class="table table-striped">

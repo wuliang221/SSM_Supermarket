@@ -31,7 +31,7 @@ function JLMenderlastPage() {
 
 
 //根据条件查询
-function ygchazhao() {
+function HYchazhao() {
 	var lianjie=$("#url").val();
 	var jlMenberPhone=$("#HYfilter").val();
 	$("#maindiv").load(lianjie+"/JL/Menber.html?pageNo=1&jlMenberPhone="+jlMenberPhone)

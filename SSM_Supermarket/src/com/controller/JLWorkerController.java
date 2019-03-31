@@ -79,8 +79,11 @@ public class JLWorkerController {
 				Date date = formatter.parse(UserDate);
 		
 			result=userService.updateUser(UserName, UserSex, UserAge, UserPhone, UserStyle, date, UserID);
-			if(result==true){
-				json="success";
+			if(result){
+				
+					json="userSuccess";
+				
+				
 			}
 				return JSON.toJSONString(json);
 		
