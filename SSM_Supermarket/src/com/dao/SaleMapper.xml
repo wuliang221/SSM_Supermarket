@@ -30,4 +30,12 @@
 	LIMIT 0,14
  </select>
  
+ 
+ <select id="SaleTBjin" resultType="Sale" >
+	SELECT SUM(SalePrice) AS SalePrice
+	FROM  sale
+	WHERE SaleDate>DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+	GROUP BY YEAR(SaleDate),MONTH(SaleDate)
+ </select>
+ 
 </mapper>

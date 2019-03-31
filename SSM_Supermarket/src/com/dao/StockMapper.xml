@@ -67,13 +67,20 @@
   </delete>
   
   <select id="stock" resultType="Stock">
-  
   SELECT 	*
 	FROM 
 	supermarket_mysql.stock 
 	where StockID=#{stockID} AND StockState=3
-  
   </select>
+  
+  <select id="stockTBchu" resultType="Stock">
+	 SELECT SUM(TotalPrice) AS TotalPrice
+	FROM  stock
+	WHERE StockState=3 AND RunDate>DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+	GROUP BY YEAR(RunDate),MONTH(RunDate)
+  </select>
+  
+  
   
   
 </mapper>

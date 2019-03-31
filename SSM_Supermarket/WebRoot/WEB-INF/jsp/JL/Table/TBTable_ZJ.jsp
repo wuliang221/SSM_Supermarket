@@ -16,7 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="lineClose">
-                            <div class="title-alt"></div>
+                            <div class="title-alt">
+                            </div>
                             <div class="body-nest" id="line">
                                 <canvas id="canvas4" class="myChart" height="416" width="900"></canvas>
                             </div>
@@ -34,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		}
     	}else {
     		var ii=0;
-    		for(var i=(yueDate-7);i<yueDate;i++){
+    		for(var i=(yueDate-6);i<yueDate;i++){
     			if(i>=0){
     				yf[ii++] = yue[i];
     			}else {
@@ -42,43 +43,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			}
     		}
     	}
-    	var jin=new Array(7);
-    	var chu=new Array(7);
-    	/* $.ajax({
+    	$.ajax({
 		type :"get",
-		url:$("#url").val()+"/table/"+date,
-		dataType:"html",
-		success : function(data) {
-						
-					},
-					error : function() {
-						alert("显示数据表失败");
-					}
-		}); */
-		var lineChartData = {
-	        labels : [yf[0],yf[1],yf[2],yf[3],yf[4],yf[5],yf[6]],
-	        datasets : [
-	            {
-	                fillColor : "rgba(49, 195, 166, 0.2)",
-	                
-	                strokeColor : "rgba(49, 195, 166, 1)",
-	                pointColor : "rgba(49, 195, 166, 1)",
-	                pointStrokeColor : "#fff",
-	                data : [jin[0],jin[1],jin[2],jin[3],jin[4],jin[5],jin[6]]
-	            },
-	            {
-	                fillColor : "rgba(151,187,205,0.5)",
-	                strokeColor : "rgba(151,187,205,1)",
-	                pointColor : "rgba(151,187,205,1)",
-	                pointStrokeColor : "#fff",
-	                data : [chu[0],chu[1],chu[2],chu[3],chu[4],chu[5],chu[6]]
-	            }
-	        ]
-	
-	    }
-	
-		var myLine = new Chart(document.getElementById("canvas4").getContext("2d")).Line(lineChartData);
-
+		url:$("#url").val()+"/table/ZJTBXJ.html",
+		dataType:"json",
+		success : function(data1) {
+				var jin=new Array();
+		    	var chu=new Array();
+		    	var data=eval("("+data1+")");
+						for(var i=0;i<data.salePrice.length;i++){
+							jin[i]=data.salePrice[i].salePrice;
+							chu[i]=data.totalPrice[i].totalPrice;
+						}
+				var lineChartData = {
+			        labels : [yf[0],yf[1],yf[2],yf[3],yf[4],yf[5]],
+			        datasets : [
+				            {
+				                fillColor : "rgba(49, 195, 166, 0.2)",
+				                
+				                strokeColor : "rgba(49, 195, 166, 1)",
+				                pointColor : "rgba(49, 195, 166, 1)",
+				                pointStrokeColor : "#fff",
+				                data : [jin[0],jin[1],jin[2],jin[3],jin[4],jin[5]]
+				            },
+				            {
+				                fillColor : "rgba(151,187,205,0.5)",
+				                strokeColor : "rgba(151,187,205,1)",
+				                pointColor : "rgba(151,187,205,1)",
+				                pointStrokeColor : "#fff",
+				                data : [chu[0],chu[1],chu[2],chu[3],chu[4],chu[5]]
+				            }
+			        	]
+				    }
+					var myLine = new Chart(document.getElementById("canvas4").getContext("2d")).Line(lineChartData);
+			}
+		});
+		
+    	
 	</script>
   </body>
 </html>

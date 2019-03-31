@@ -23,8 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                 </div>
     <script type="text/javascript">
-    
-    
     	$.ajax({
 		type :"get",
 		url:$("#url").val()+"/table/XSTBXJ.html",
@@ -38,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							p[i]=data[i].saleNum;
 						}
 						var name=[o[0],o[1],o[2],o[3],o[4],o[5],o[6],o[7],o[8],o[9],o[10],o[11],o[12],o[13]];
-    					var num=[p[0],p[1],p[2],p[3],,p[4],p[5],p[6],p[7],p[8],p[9],p[10],p[11],p[12],p[13]];
+    					var num=[p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8],p[9],p[10],p[11],p[12],p[13]];
 						var barChartData = {
 					        labels : name,
 					        datasets : [
@@ -54,24 +52,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						});
 					},
 		});
-		
-		
-		/* var barChartData = {
-            labels : ["商品1","商品2","商品3","商品4","商品5","商品6","商品7","商品8","商品9","商品10","商品11","商品12","商品13","商品14"],
-            datasets : [
-                {
-                    fillColor : "rgba(106, 218, 228, 0.8)",
-                    data : [9,48,90,81,56,55,40,55,55,55,55,55,55,55]
-                }
-            ]
-        }
-		var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData,{
-						    scaleShowLabels : true,
-						    pointLabelFontSize : 100
-						}); */
-    
-    
-	
 	</script>
   </body>
 </html>

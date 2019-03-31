@@ -31,5 +31,8 @@ public interface StockService {
 	
 	//判断入库是否成功（stockState=3）
 	public Stock stocksuccess( String stockID);
+	
+	//图表数据查询半年支出
+	public List<Stock> stockTBchu();
 
 }

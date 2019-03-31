@@ -25,5 +25,10 @@ public class SaleServiceImpl implements SaleService {
 	public List<Sale> selectSaleTABLE(){
 		return saleMapper.selectSaleTABLE();
 	}
+	
+	//图表数据查询半年收入
+	public List<Sale> SaleTBjin(){
+		return saleMapper.SaleTBjin();
+	}
 
 }

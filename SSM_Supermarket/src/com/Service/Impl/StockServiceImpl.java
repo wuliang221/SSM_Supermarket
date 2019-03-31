@@ -56,5 +56,10 @@ public class StockServiceImpl implements StockService {
 		
 		return stockMapper.stock(stockID);
 	}
+	
+	//图表数据查询半年支出
+	public List<Stock> stockTBchu(){
+		return stockMapper.stockTBchu();
+	}
 
 }

@@ -35,4 +35,7 @@ public interface StockMapper {
 	
 	//修改计划订单状态
 	public int xiustock(@Param("stockID")String stockID,@Param("stockState")String stockState,@Param("planDate")Date PlanDate,@Param("runDate")Date RunDate);
+	
+	//图表数据查询半年支出
+	public List<Stock> stockTBchu();
 }
